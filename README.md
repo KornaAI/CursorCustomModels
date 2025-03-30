@@ -3,7 +3,7 @@
 A flexible proxy server that enables [Cursor IDE](https://cursor.sh/) to work with various AI providers (Anthropic Claude, Google Gemini, Groq, etc.) while maintaining OpenAI-compatible API formatting.
 
 ## NOTE
-**NOTE THIS IS A TEMPLATE, THE WORKING IMPLEMENTATION IS THE R1SONQWEN EXAMPLE, BETWEEN SIMPLE GROQ AND GROQ APIS YOU WILL SEE HOW ITS SUPPOSED TO WORK, PLEASE ENSURE YOU SET UP PROPER STREAMING FROM THE APPLICATION TO CURSOR FOR IT TO WORK!**
+**NOTE THIS IS A TEMPLATE, THE WORKING IMPLEMENTATION IS THE R1SONQWEN AND GEMINI EXAMPLES. THE BRAINSTORMING FILE IS A TEST FILE TO STREAM INFORMATION IN. PLEASE ENSURE YOU SET UP PROPER STREAMING FROM THE APPLICATION TO CURSOR FOR IT TO WORK!**
 
 ## Features
 
@@ -81,9 +81,14 @@ sequenceDiagram
 
 4. Edit the `.env` file with your provider selection and API keys.
 
+## Recent Changes
+
+- **Directory Structure**: The `.env` file has been moved to the `config/` directory for better organization. Unnecessary log files have been removed, and the `logs/` directory has been cleaned up.
+- **.gitignore Updates**: Added patterns to ignore log files (`*.log`) and temporary files (`*.tmp`, `*.bak`).
+
 ## Configuration
 
-The proxy is highly configurable through environment variables or the `.env` file:
+The proxy is highly configurable through environment variables or the `.env` file located in the `config/` directory:
 
 - `AI_PROVIDER`: Select your AI provider (anthropic, google, groq, grok, ollama, custom)
 - `*_API_KEY`: API keys for different providers
@@ -91,6 +96,10 @@ The proxy is highly configurable through environment variables or the `.env` fil
 - Logging and performance settings
 - System prompt customization
 - Auto-continuation settings (`AUTO_CONTINUATION_ENABLED`, `AUTO_CONTINUATION_MAX_TURNS`)
+
+## Commit Summary
+
+The latest commit focused on cleaning up the directory structure and organizing files for better maintainability. Key changes include moving configuration files, updating the `.gitignore`, and removing unnecessary log files.
 
 ## Usage
 
