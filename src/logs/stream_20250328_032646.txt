@@ -1,0 +1,25 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:26:47.192224 ===
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F80BD070>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-69a2078a-8b36-4faf-977e-f479e4717546", "object": "chat.completion.chunk", "created": 1743146806, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "What"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F7963F20>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-b548ef30-0eb5-42a3-94f6-afa6f39b7b39", "object": "chat.completion.chunk", "created": 1743146806, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " would you like"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F82684A0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-0ea1e8df-8dcc-4e9e-a05e-041fcfe1fff4", "object": "chat.completion.chunk", "created": 1743146806, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " to name this new file?  And do you want it to be an exact copy of `"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F80BCEC0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-bd657530-332d-4695-aa60-9dc8b22d5b52", "object": "chat.completion.chunk", "created": 1743146807, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "gemini.py` or are there modifications you want to make at the time of creation?"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F82684A0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-2f592776-22d6-4ec4-aa4b-6002e98aad9c", "object": "chat.completion.chunk", "created": 1743146807, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "  For example, did you still want to pursue the GUI concept from our earlier discussion?\n"}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-04ec790e-2406-487c-ae95-6f4806b333f3", "object": "chat.completion.chunk", "created": 1743146807, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

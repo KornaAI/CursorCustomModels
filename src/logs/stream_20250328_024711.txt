@@ -1,0 +1,483 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T02:47:32.456421 ===
+
+RAW CHUNK: Okay, adding a full graphical user interface (GUI) significantly changes the nature of this application from a simple backend proxy to a more complex web application. The request "visualize things amazing" is quite broad.
+
+Given
+
+FORMATTED CHUNK: {"id": "chatcmpl-150a3d7f-2b3c-440c-b7b3-7a32a5d08a21", "object": "chat.completion.chunk", "created": 1743144432, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Okay, adding a full graphical user interface (GUI) significantly changes the nature of this application from a simple backend proxy to a more complex web application. The request \"visualize things amazing\" is quite broad.\n\nGiven"}, "finish_reason": null}]}
+
+RAW CHUNK:  the current structure (a Flask backend server), a pragmatic first step is to add server-side rendered HTML pages to visualize basic information. Building a highly interactive, real-time GUI often involves a separate frontend framework (like React, Vue) communicating with the Flask API, which is a much larger architectural shift.
+
+Let
+
+FORMATTED CHUNK: {"id": "chatcmpl-11648b2d-382b-4e4c-b396-574a70c5e63c", "object": "chat.completion.chunk", "created": 1743144432, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " the current structure (a Flask backend server), a pragmatic first step is to add server-side rendered HTML pages to visualize basic information. Building a highly interactive, real-time GUI often involves a separate frontend framework (like React, Vue) communicating with the Flask API, which is a much larger architectural shift.\n\nLet"}, "finish_reason": null}]}
+
+RAW CHUNK: 's start by adding a simple dashboard page rendered by Flask to show:
+1.  Server status (host, port).
+2.  Ngrok status and URL (if enabled).
+3.  Configured Model Mappings.
+4.  Recent log entries.
+
+**Proposed Changes:**
+
+1
+
+FORMATTED CHUNK: {"id": "chatcmpl-ba46cf19-7a85-4d87-9818-81c57e7f6e27", "object": "chat.completion.chunk", "created": 1743144433, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "'s start by adding a simple dashboard page rendered by Flask to show:\n1.  Server status (host, port).\n2.  Ngrok status and URL (if enabled).\n3.  Configured Model Mappings.\n4.  Recent log entries.\n\n**Proposed Changes:**\n\n1"}, "finish_reason": null}]}
+
+RAW CHUNK: .  **Add `render_template`:** Import Flask's templating function.
+2.  **Create `templates` directory:** Flask expects HTML templates here.
+3.  **Create `dashboard.html`:** A basic HTML template for the UI.
+4.  **Modify Logging (Optional but
+
+FORMATTED CHUNK: {"id": "chatcmpl-fd5cf539-a788-4247-8f76-cc4e9d87da59", "object": "chat.completion.chunk", "created": 1743144433, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".  **Add `render_template`:** Import Flask's templating function.\n2.  **Create `templates` directory:** Flask expects HTML templates here.\n3.  **Create `dashboard.html`:** A basic HTML template for the UI.\n4.  **Modify Logging (Optional but"}, "finish_reason": null}]}
+
+RAW CHUNK:  helpful):** Keep a short buffer of recent log messages in memory for easier display.
+5.  **Add `/dashboard` route:** A new Flask route to render the dashboard page.
+6.  **Add helper function:** To gather data for the dashboard.
+
+**Refactoring Plan:**
+
+*   **File
+
+FORMATTED CHUNK: {"id": "chatcmpl-7e0c67e4-fd16-474a-a0fe-b30273342fd0", "object": "chat.completion.chunk", "created": 1743144434, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " helpful):** Keep a short buffer of recent log messages in memory for easier display.\n5.  **Add `/dashboard` route:** A new Flask route to render the dashboard page.\n6.  **Add helper function:** To gather data for the dashboard.\n\n**Refactoring Plan:**\n\n*   **File"}, "finish_reason": null}]}
+
+RAW CHUNK: :** `blah.py`
+*   **Objective:** Introduce a basic HTML dashboard served by Flask.
+
+```python
+# blah.py - START OF CHANGES (around imports)
+from flask import Flask, request, jsonify, make_response, Response, g, render_template # Added render_template
+import
+
+FORMATTED CHUNK: {"id": "chatcmpl-0ab0e35e-a0cc-49f2-9c8c-03f2acf70a74", "object": "chat.completion.chunk", "created": 1743144435, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ":** `blah.py`\n*   **Objective:** Introduce a basic HTML dashboard served by Flask.\n\n```python\n# blah.py - START OF CHANGES (around imports)\nfrom flask import Flask, request, jsonify, make_response, Response, g, render_template # Added render_template\nimport"}, "finish_reason": null}]}
+
+RAW CHUNK:  requests
+import os
+import json
+import logging
+from waitress import serve
+import time
+import sys
+import traceback
+from flask_cors import CORS
+import uuid
+from dotenv import load_dotenv
+import google.generativeai as genai
+import subprocess
+import datetime
+from collections import deque # Added for log
+
+FORMATTED CHUNK: {"id": "chatcmpl-10117662-8514-4cb7-b803-7bf71419d9e8", "object": "chat.completion.chunk", "created": 1743144435, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " requests\nimport os\nimport json\nimport logging\nfrom waitress import serve\nimport time\nimport sys\nimport traceback\nfrom flask_cors import CORS\nimport uuid\nfrom dotenv import load_dotenv\nimport google.generativeai as genai\nimport subprocess\nimport datetime\nfrom collections import deque # Added for log"}, "finish_reason": null}]}
+
+RAW CHUNK:  buffer
+
+# Load environment variables from .env file
+load_dotenv()
+
+# ============================================================================
+# CONFIGURATION SECTION
+# ============================================================================
+
+# ... (rest of configuration remains the same) ...
+
+# Configure logging
+# Modify logging to capture recent messages in memory
+LOG
+
+FORMATTED CHUNK: {"id": "chatcmpl-c047bbd5-dc04-4530-ac4f-83e3e2140ba2", "object": "chat.completion.chunk", "created": 1743144435, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " buffer\n\n# Load environment variables from .env file\nload_dotenv()\n\n# ============================================================================\n# CONFIGURATION SECTION\n# ============================================================================\n\n# ... (rest of configuration remains the same) ...\n\n# Configure logging\n# Modify logging to capture recent messages in memory\nLOG"}, "finish_reason": null}]}
+
+RAW CHUNK: _BUFFER_SIZE = 100 # Keep last 100 log messages
+log_buffer = deque(maxlen=LOG_BUFFER_SIZE)
+
+class MemoryLogHandler(logging.Handler):
+    def __init__(self, buffer):
+        super().__init__()
+        self.buffer =
+
+FORMATTED CHUNK: {"id": "chatcmpl-99115ccc-6daf-4b35-9e8d-a1f88c7950c6", "object": "chat.completion.chunk", "created": 1743144436, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_BUFFER_SIZE = 100 # Keep last 100 log messages\nlog_buffer = deque(maxlen=LOG_BUFFER_SIZE)\n\nclass MemoryLogHandler(logging.Handler):\n    def __init__(self, buffer):\n        super().__init__()\n        self.buffer ="}, "finish_reason": null}]}
+
+RAW CHUNK:  buffer
+
+    def emit(self, record):
+        log_entry = self.format(record)
+        self.buffer.append(log_entry)
+
+# Configure basic logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s -
+
+FORMATTED CHUNK: {"id": "chatcmpl-e585a87e-8688-48e7-aeca-a9d9f235e710", "object": "chat.completion.chunk", "created": 1743144436, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " buffer\n\n    def emit(self, record):\n        log_entry = self.format(record)\n        self.buffer.append(log_entry)\n\n# Configure basic logging\nlogging.basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s - %(name)s -"}, "finish_reason": null}]}
+
+RAW CHUNK:  %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Add memory handler
+memory_handler = MemoryLogHandler(log_buffer)
+memory_handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(levelname
+
+FORMATTED CHUNK: {"id": "chatcmpl-c8e0f0af-42cb-48ab-a619-52e022d34c90", "object": "chat.completion.chunk", "created": 1743144437, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " %(levelname)s - %(message)s'\n)\nlogger = logging.getLogger(__name__)\n\n# Add memory handler\nmemory_handler = MemoryLogHandler(log_buffer)\nmemory_handler.setLevel(logging.INFO)\nformatter = logging.Formatter('%(asctime)s - %(levelname"}, "finish_reason": null}]}
+
+RAW CHUNK: )s - %(message)s')
+memory_handler.setFormatter(formatter)
+logging.getLogger().addHandler(memory_handler) # Add to root logger
+
+
+# File logging settings (remains the same)
+# ...
+
+# Initialize Flask app
+# Specify template folder
+app = Flask(__name__,
+
+FORMATTED CHUNK: {"id": "chatcmpl-bcbfb739-493f-4886-82a5-0aa4dc7e5247", "object": "chat.completion.chunk", "created": 1743144437, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ")s - %(message)s')\nmemory_handler.setFormatter(formatter)\nlogging.getLogger().addHandler(memory_handler) # Add to root logger\n\n\n# File logging settings (remains the same)\n# ...\n\n# Initialize Flask app\n# Specify template folder\napp = Flask(__name__,"}, "finish_reason": null}]}
+
+RAW CHUNK:  template_folder='templates')
+CORS(app)
+
+# Global variable to store ngrok URL
+ngrok_public_url = None
+
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
+
+# ... (log_to_file, map_openai
+
+FORMATTED CHUNK: {"id": "chatcmpl-8247db78-d74c-44c9-9b74-7b471f02b6e7", "object": "chat.completion.chunk", "created": 1743144438, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " template_folder='templates')\nCORS(app)\n\n# Global variable to store ngrok URL\nngrok_public_url = None\n\n# ============================================================================\n# HELPER FUNCTIONS\n# ============================================================================\n\n# ... (log_to_file, map_openai"}, "finish_reason": null}]}
+
+RAW CHUNK: _model_to_gemini, etc. remain the same) ...
+
+# Modify start_ngrok to store the URL globally
+def start_ngrok(port):
+    """Start ngrok and return the public URL"""
+    global ngrok_public_url # Added global declaration
+    ng
+
+FORMATTED CHUNK: {"id": "chatcmpl-7a5a398c-ceb1-46b6-84a6-37d20e287e5e", "object": "chat.completion.chunk", "created": 1743144438, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_model_to_gemini, etc. remain the same) ...\n\n# Modify start_ngrok to store the URL globally\ndef start_ngrok(port):\n    \"\"\"Start ngrok and return the public URL\"\"\"\n    global ngrok_public_url # Added global declaration\n    ng"}, "finish_reason": null}]}
+
+RAW CHUNK: rok_public_url = None # Reset on start attempt
+    try:
+        # ... (existing ngrok logic) ...
+
+        # Inside the 'if tunnels:' block, before returning:
+                # Store the URL globally
+                ngrok_public_url = public_url
+                return public
+
+FORMATTED CHUNK: {"id": "chatcmpl-97585f1d-cb6c-4513-a563-6ed259da271f", "object": "chat.completion.chunk", "created": 1743144439, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "rok_public_url = None # Reset on start attempt\n    try:\n        # ... (existing ngrok logic) ...\n\n        # Inside the 'if tunnels:' block, before returning:\n                # Store the URL globally\n                ngrok_public_url = public_url\n                return public"}, "finish_reason": null}]}
+
+RAW CHUNK: _url # Keep return value
+
+        # ... (rest of existing ngrok logic) ...
+    except Exception as e:
+        logger.error(f"Error starting ngrok: {str(e)}")
+        print(f"Error starting ngrok: {str(e)}")
+        ngrok_public_
+
+FORMATTED CHUNK: {"id": "chatcmpl-5aeb209f-1a0f-477f-8c53-6e19df8da4d0", "object": "chat.completion.chunk", "created": 1743144439, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_url # Keep return value\n\n        # ... (rest of existing ngrok logic) ...\n    except Exception as e:\n        logger.error(f\"Error starting ngrok: {str(e)}\")\n        print(f\"Error starting ngrok: {str(e)}\")\n        ngrok_public_"}, "finish_reason": null}]}
+
+RAW CHUNK: url = None # Ensure it's None on error
+        return None
+
+# ... (load_system_prompt remains the same) ...
+
+# ============================================================================
+# ROUTE HANDLERS
+# ============================================================================
+
+# ... (after_request, handle_options, process
+
+FORMATTED CHUNK: {"id": "chatcmpl-5a9e25a5-790a-4a14-8d6f-7d6f4d84ca42", "object": "chat.completion.chunk", "created": 1743144440, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "url = None # Ensure it's None on error\n        return None\n\n# ... (load_system_prompt remains the same) ...\n\n# ============================================================================\n# ROUTE HANDLERS\n# ============================================================================\n\n# ... (after_request, handle_options, process"}, "finish_reason": null}]}
+
+RAW CHUNK: _chat_request, API routes remain the same) ...
+
+# --- NEW DASHBOARD ROUTE ---
+@app.route('/dashboard', methods=['GET'])
+def dashboard():
+    """Render the dashboard page."""
+    # Gather data for the dashboard
+    status_data = {
+        'host': os.
+
+FORMATTED CHUNK: {"id": "chatcmpl-18adfdcf-52a2-4369-b815-8b6adad408f2", "object": "chat.completion.chunk", "created": 1743144440, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_chat_request, API routes remain the same) ...\n\n# --- NEW DASHBOARD ROUTE ---\n@app.route('/dashboard', methods=['GET'])\ndef dashboard():\n    \"\"\"Render the dashboard page.\"\"\"\n    # Gather data for the dashboard\n    status_data = {\n        'host': os."}, "finish_reason": null}]}
+
+RAW CHUNK: environ.get("HOST", "0.0.0.0"),
+        'port': int(os.environ.get("PORT", "5000")),
+        'ngrok_url': ngrok_public_url,
+        'use_ngrok': os.environ.get("USE_
+
+FORMATTED CHUNK: {"id": "chatcmpl-638e9536-77a2-4f7a-94da-cd2c51757c5e", "object": "chat.completion.chunk", "created": 1743144440, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "environ.get(\"HOST\", \"0.0.0.0\"),\n        'port': int(os.environ.get(\"PORT\", \"5000\")),\n        'ngrok_url': ngrok_public_url,\n        'use_ngrok': os.environ.get(\"USE_"}, "finish_reason": null}]}
+
+RAW CHUNK: NGROK", "0") == "1",
+        'log_to_file': LOG_TO_FILE,
+        'log_dir': LOG_DIR if LOG_TO_FILE else None,
+        'model_mappings': MODEL_MAPPINGS,
+        'google_api_key
+
+FORMATTED CHUNK: {"id": "chatcmpl-68b19caa-aeb1-401b-ad6d-175affc3e0ff", "object": "chat.completion.chunk", "created": 1743144441, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "NGROK\", \"0\") == \"1\",\n        'log_to_file': LOG_TO_FILE,\n        'log_dir': LOG_DIR if LOG_TO_FILE else None,\n        'model_mappings': MODEL_MAPPINGS,\n        'google_api_key"}, "finish_reason": null}]}
+
+RAW CHUNK: _set': bool(GOOGLE_API_KEY),
+        'recent_logs': list(log_buffer) # Get current logs from buffer
+    }
+    return render_template('dashboard.html', **status_data)
+# --- END NEW DASHBOARD ROUTE ---
+
+
+@app.route
+
+FORMATTED CHUNK: {"id": "chatcmpl-7b8635cf-d7fa-4399-9f5d-c6db1d94e804", "object": "chat.completion.chunk", "created": 1743144441, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_set': bool(GOOGLE_API_KEY),\n        'recent_logs': list(log_buffer) # Get current logs from buffer\n    }\n    return render_template('dashboard.html', **status_data)\n# --- END NEW DASHBOARD ROUTE ---\n\n\n@app.route"}, "finish_reason": null}]}
+
+RAW CHUNK: ('/health', methods=['GET'])
+def health_check():
+    # ... (remains the same) ...
+
+@app.route('/', methods=['GET'])
+def home():
+    # Modify home to link to the dashboard
+    return """
+    <html>
+    <head>
+        <title>
+
+FORMATTED CHUNK: {"id": "chatcmpl-19b4e112-835f-4fc3-ad6e-af4d161959b5", "object": "chat.completion.chunk", "created": 1743144442, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "('/health', methods=['GET'])\ndef health_check():\n    # ... (remains the same) ...\n\n@app.route('/', methods=['GET'])\ndef home():\n    # Modify home to link to the dashboard\n    return \"\"\"\n    <html>\n    <head>\n        <title>"}, "finish_reason": null}]}
+
+RAW CHUNK: Simple Gemini Proxy for Cursor</title>
+        <style>
+            body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+            li { margin-bottom: 5px; }
+        
+
+FORMATTED CHUNK: {"id": "chatcmpl-056ee647-ffea-4ec8-8812-b0e30de3057f", "object": "chat.completion.chunk", "created": 1743144442, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Simple Gemini Proxy for Cursor</title>\n        <style>\n            body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }\n            li { margin-bottom: 5px; }\n        "}, "finish_reason": null}]}
+
+RAW CHUNK: </style>
+    </head>
+    <body>
+        <h1>Simple Gemini Proxy for Cursor</h1>
+        <p>This server acts as a simple proxy between Cursor and Google's Gemini API.</p>
+        <p><strong><a href="/dashboard">View Dashboard</a></strong></p>
+
+        
+
+FORMATTED CHUNK: {"id": "chatcmpl-519c41ab-d09c-4a6b-973a-71df56efc837", "object": "chat.completion.chunk", "created": 1743144443, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "</style>\n    </head>\n    <body>\n        <h1>Simple Gemini Proxy for Cursor</h1>\n        <p>This server acts as a simple proxy between Cursor and Google's Gemini API.</p>\n        <p><strong><a href=\"/dashboard\">View Dashboard</a></strong></p>\n\n        "}, "finish_reason": null}]}
+
+RAW CHUNK: <h2>Available API Endpoints</h2>
+        <ul>
+            <li><code>POST /v1/chat/completions</code> - Standard OpenAI-compatible chat completion endpoint</li>
+            <li><code>POST /chat/completions</code> - Cursor-specific chat completion endpoint</li>
+            <li><code>GET /v1/models</code>
+
+FORMATTED CHUNK: {"id": "chatcmpl-8c4b96a8-a47f-41f3-881c-108a163a0e6c", "object": "chat.completion.chunk", "created": 1743144443, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "<h2>Available API Endpoints</h2>\n        <ul>\n            <li><code>POST /v1/chat/completions</code> - Standard OpenAI-compatible chat completion endpoint</li>\n            <li><code>POST /chat/completions</code> - Cursor-specific chat completion endpoint</li>\n            <li><code>GET /v1/models</code>"}, "finish_reason": null}]}
+
+RAW CHUNK:  - List available models</li>
+            <li><code>GET /health</code> - Health check endpoint</li>
+        </ul>
+    </body>
+    </html>
+    """
+
+# ============================================================================
+# MAIN FUNCTION
+# ============================================================================
+
+if __name__ == '__main__':
+    port = int
+
+FORMATTED CHUNK: {"id": "chatcmpl-b41288c0-f295-4e80-a627-bc3d6cceefcc", "object": "chat.completion.chunk", "created": 1743144443, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " - List available models</li>\n            <li><code>GET /health</code> - Health check endpoint</li>\n        </ul>\n    </body>\n    </html>\n    \"\"\"\n\n# ============================================================================\n# MAIN FUNCTION\n# ============================================================================\n\nif __name__ == '__main__':\n    port = int"}, "finish_reason": null}]}
+
+RAW CHUNK: (os.environ.get("PORT", "5000"))
+    host = os.environ.get("HOST", "0.0.0.0")
+    use_ngrok = os.environ.get("USE_NGROK", "0") == "1"
+
+    
+
+FORMATTED CHUNK: {"id": "chatcmpl-e6c98901-298b-4422-8a53-f32e7efadf1d", "object": "chat.completion.chunk", "created": 1743144444, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "(os.environ.get(\"PORT\", \"5000\"))\n    host = os.environ.get(\"HOST\", \"0.0.0.0\")\n    use_ngrok = os.environ.get(\"USE_NGROK\", \"0\") == \"1\"\n\n    "}, "finish_reason": null}]}
+
+RAW CHUNK: print(f"Starting simple Gemini proxy server on {host}:{port}")
+    print(f"Access the dashboard at http://{host if host != '0.0.0.0' else '127.0.0.1'}:{port}/dashboard")
+
+
+    if use_ngrok:
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-d7e3ab1e-8d7f-417d-8482-6b6cf6a331a8", "object": "chat.completion.chunk", "created": 1743144444, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "print(f\"Starting simple Gemini proxy server on {host}:{port}\")\n    print(f\"Access the dashboard at http://{host if host != '0.0.0.0' else '127.0.0.1'}:{port}/dashboard\")\n\n\n    if use_ngrok:\n"}, "finish_reason": null}]}
+
+RAW CHUNK:         logger.info("Attempting to start ngrok tunnel...")
+        # Call start_ngrok which now updates the global variable
+        start_ngrok(port)
+        if not ngrok_public_url:
+            logger.warning("Failed to start ngrok or get public URL. Continuing
+
+FORMATTED CHUNK: {"id": "chatcmpl-21a30cb8-344d-4e34-8095-2b9ca5b5d424", "object": "chat.completion.chunk", "created": 1743144445, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "        logger.info(\"Attempting to start ngrok tunnel...\")\n        # Call start_ngrok which now updates the global variable\n        start_ngrok(port)\n        if not ngrok_public_url:\n            logger.warning(\"Failed to start ngrok or get public URL. Continuing"}, "finish_reason": null}]}
+
+RAW CHUNK:  with local server only.")
+        else:
+             print(f"Ngrok tunnel active: {ngrok_public_url}")
+             print(f"Use {ngrok_public_url} as the Base URL in Cursor.")
+
+    # Start the server using Waitress
+    serve(app, host
+
+FORMATTED CHUNK: {"id": "chatcmpl-d16da24c-3b34-46fe-be0c-315ef9a5523f", "object": "chat.completion.chunk", "created": 1743144445, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " with local server only.\")\n        else:\n             print(f\"Ngrok tunnel active: {ngrok_public_url}\")\n             print(f\"Use {ngrok_public_url} as the Base URL in Cursor.\")\n\n    # Start the server using Waitress\n    serve(app, host"}, "finish_reason": null}]}
+
+RAW CHUNK: =host, port=port)
+# blah.py - END OF CHANGES
+```
+
+**Next Steps:**
+
+1.  **Create Directory:** Create a folder named `templates` in the same directory as `blah.py`.
+2.  **Create Template File:** Inside the `templates` folder, create a
+
+FORMATTED CHUNK: {"id": "chatcmpl-3de5d176-5666-4b35-8c26-ff4c4bbe31d4", "object": "chat.completion.chunk", "created": 1743144446, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "=host, port=port)\n# blah.py - END OF CHANGES\n```\n\n**Next Steps:**\n\n1.  **Create Directory:** Create a folder named `templates` in the same directory as `blah.py`.\n2.  **Create Template File:** Inside the `templates` folder, create a"}, "finish_reason": null}]}
+
+RAW CHUNK:  file named `dashboard.html` with the following content:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-925fe7c2-3fd7-4879-b4a2-9af29f6fead5", "object": "chat.completion.chunk", "created": 1743144446, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " file named `dashboard.html` with the following content:\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"}, "finish_reason": null}]}
+
+RAW CHUNK:     <title>Gemini Proxy Dashboard</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; color: #333; }
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-935690ff-82ee-4aaf-91f7-112cd39c2828", "object": "chat.completion.chunk", "created": 1743144446, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "    <title>Gemini Proxy Dashboard</title>\n    <style>\n        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; color: #333; }\n"}, "finish_reason": null}]}
+
+RAW CHUNK:         .container { max-width: 1000px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h
+
+FORMATTED CHUNK: {"id": "chatcmpl-e68a7620-e48b-4332-9e10-d432ea86ec8d", "object": "chat.completion.chunk", "created": 1743144447, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "        .container { max-width: 1000px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }\n        h"}, "finish_reason": null}]}
+
+RAW CHUNK: 1, h2 { color: #0056b3; }
+        .section { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; }
+        .section h2 { margin-
+
+FORMATTED CHUNK: {"id": "chatcmpl-cfab9b07-e8d1-4a26-b155-556a236ed9e1", "object": "chat.completion.chunk", "created": 1743144447, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "1, h2 { color: #0056b3; }\n        .section { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; }\n        .section h2 { margin-"}, "finish_reason": null}]}
+
+RAW CHUNK: top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        pre { background-color: #eee; padding: 10px; border-radius: 4px; white-space: pre-wrap; word-wrap: break
+
+FORMATTED CHUNK: {"id": "chatcmpl-92bb7680-c6b8-4cda-a8d6-7b5bda3e4672", "object": "chat.completion.chunk", "created": 1743144448, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }\n        pre { background-color: #eee; padding: 10px; border-radius: 4px; white-space: pre-wrap; word-wrap: break"}, "finish_reason": null}]}
+
+RAW CHUNK: -word; font-size: 0.9em; max-height: 400px; overflow-y: auto; }
+        code { background-color: #eef; padding: 2px 4px; border-radius: 3px; }
+        .status-ok
+
+FORMATTED CHUNK: {"id": "chatcmpl-7ec2deb4-249e-4ed4-a43b-8d1c3e44e896", "object": "chat.completion.chunk", "created": 1743144448, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "-word; font-size: 0.9em; max-height: 400px; overflow-y: auto; }\n        code { background-color: #eef; padding: 2px 4px; border-radius: 3px; }\n        .status-ok"}, "finish_reason": null}]}
+
+RAW CHUNK:  { color: green; }
+        .status-bad { color: red; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+
+FORMATTED CHUNK: {"id": "chatcmpl-72a64b66-3666-4850-be07-a2a0e2fd00cf", "object": "chat.completion.chunk", "created": 1743144449, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " { color: green; }\n        .status-bad { color: red; }\n        ul { padding-left: 20px; }\n        li { margin-bottom: 5px; }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <h1>"}, "finish_reason": null}]}
+
+RAW CHUNK: Gemini Proxy Dashboard</h1>
+
+        <div class="section">
+            <h2>Server Status</h2>
+            <ul>
+                <li>Listening on: <code>{{ host }}:{{ port }}</code></li>
+                <li>Google API Key Set:
+                    {% if google_api_key_set %}
+                        <span class
+
+FORMATTED CHUNK: {"id": "chatcmpl-bfd11da8-4916-42a6-9f0c-6a154efa4ebe", "object": "chat.completion.chunk", "created": 1743144449, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Gemini Proxy Dashboard</h1>\n\n        <div class=\"section\">\n            <h2>Server Status</h2>\n            <ul>\n                <li>Listening on: <code>{{ host }}:{{ port }}</code></li>\n                <li>Google API Key Set:\n                    {% if google_api_key_set %}\n                        <span class"}, "finish_reason": null}]}
+
+RAW CHUNK: ="status-ok">Yes</span>
+                    {% else %}
+                        <span class="status-bad">No - Please set GOOGLE_API_KEY environment variable!</span>
+                    {% endif %}
+                </li>
+                 <li>Ngrok Enabled: <code>{{ use_ngrok }}</code></li>
+                {%
+
+FORMATTED CHUNK: {"id": "chatcmpl-629bc9b8-91e9-45da-9442-74cb3dc6e32f", "object": "chat.completion.chunk", "created": 1743144449, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "=\"status-ok\">Yes</span>\n                    {% else %}\n                        <span class=\"status-bad\">No - Please set GOOGLE_API_KEY environment variable!</span>\n                    {% endif %}\n                </li>\n                 <li>Ngrok Enabled: <code>{{ use_ngrok }}</code></li>\n                {%"}, "finish_reason": null}]}
+
+RAW CHUNK:  if use_ngrok %}
+                    <li>Ngrok Public URL:
+                        {% if ngrok_url %}
+                            <code><a href="{{ ngrok_url }}" target="_blank">{{ ngrok_url }}</a></code>
+                        {% else %}
+                            <span class="status-bad">Not Active or Failed
+
+FORMATTED CHUNK: {"id": "chatcmpl-6d0c9db9-a252-4c3c-a083-c63072e05fc1", "object": "chat.completion.chunk", "created": 1743144450, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " if use_ngrok %}\n                    <li>Ngrok Public URL:\n                        {% if ngrok_url %}\n                            <code><a href=\"{{ ngrok_url }}\" target=\"_blank\">{{ ngrok_url }}</a></code>\n                        {% else %}\n                            <span class=\"status-bad\">Not Active or Failed"}, "finish_reason": null}]}
+
+RAW CHUNK:  to Start</span>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Configuration</h2>
+            <ul>
+                <li>Log to File: <code>{{ log_to_file }}</code>
+                    {% if log_to_file %
+
+FORMATTED CHUNK: {"id": "chatcmpl-817e7d86-1d5e-4473-80d7-f67cd4c5c35a", "object": "chat.completion.chunk", "created": 1743144450, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " to Start</span>\n                        {% endif %}\n                    </li>\n                {% endif %}\n            </ul>\n        </div>\n\n        <div class=\"section\">\n            <h2>Configuration</h2>\n            <ul>\n                <li>Log to File: <code>{{ log_to_file }}</code>\n                    {% if log_to_file %"}, "finish_reason": null}]}
+
+RAW CHUNK: }(Directory: <code>{{ log_dir }}</code>){% endif %}
+                </li>
+            </ul>
+            <h3>Model Mappings (OpenAI -> Gemini)</h3>
+            <pre>{{ model_mappings | tojson(indent=2) }}</pre>
+        </div>
+
+        <div class="section">
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-5dbd7f96-a455-4f72-a493-fb38132716ff", "object": "chat.completion.chunk", "created": 1743144451, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "}(Directory: <code>{{ log_dir }}</code>){% endif %}\n                </li>\n            </ul>\n            <h3>Model Mappings (OpenAI -> Gemini)</h3>\n            <pre>{{ model_mappings | tojson(indent=2) }}</pre>\n        </div>\n\n        <div class=\"section\">\n"}, "finish_reason": null}]}
+
+RAW CHUNK:             <h2>Recent Logs (Last {{ recent_logs|length }})</h2>
+            <pre>{% for log_entry in recent_logs %}{{ log_entry }}
+{% endfor %}</pre>
+        </div>
+        <p><a href="/">Back to Home</a></p>
+    </div>
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-0cfad5b1-5464-4d62-b8a3-7e01f168c8ab", "object": "chat.completion.chunk", "created": 1743144451, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "            <h2>Recent Logs (Last {{ recent_logs|length }})</h2>\n            <pre>{% for log_entry in recent_logs %}{{ log_entry }}\n{% endfor %}</pre>\n        </div>\n        <p><a href=\"/\">Back to Home</a></p>\n    </div>\n"}, "finish_reason": null}]}
+
+RAW CHUNK: </body>
+</html>
+```
+
+**To Run:**
+
+1.  Ensure you have Flask installed (`pip install Flask`).
+2.  Save the changes to `blah.py`.
+3.  Create the `templates` directory and `dashboard.html` inside it.
+4.  Run the script:
+
+FORMATTED CHUNK: {"id": "chatcmpl-58135fb3-aae4-4b9e-8dcb-68bca7445810", "object": "chat.completion.chunk", "created": 1743144452, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "</body>\n</html>\n```\n\n**To Run:**\n\n1.  Ensure you have Flask installed (`pip install Flask`).\n2.  Save the changes to `blah.py`.\n3.  Create the `templates` directory and `dashboard.html` inside it.\n4.  Run the script:"}, "finish_reason": null}]}
+
+RAW CHUNK:  `python blah.py`
+5.  Access the dashboard in your browser, typically at `http://127.0.0.1:5000/dashboard`.
+
+This provides a basic visualization. More "amazing" visualizations would require significant effort, potentially involving JavaScript for real-time updates
+
+FORMATTED CHUNK: {"id": "chatcmpl-fce1f6ae-54eb-4ba8-a495-8765ecfb2c52", "object": "chat.completion.chunk", "created": 1743144452, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " `python blah.py`\n5.  Access the dashboard in your browser, typically at `http://127.0.0.1:5000/dashboard`.\n\nThis provides a basic visualization. More \"amazing\" visualizations would require significant effort, potentially involving JavaScript for real-time updates"}, "finish_reason": null}]}
+
+RAW CHUNK:  (using AJAX, WebSockets, or SSE) or dedicated charting libraries.
+
+FORMATTED CHUNK: {"id": "chatcmpl-d7b36dc7-5c2c-4217-8d5d-1f91c467a4ea", "object": "chat.completion.chunk", "created": 1743144452, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " (using AJAX, WebSockets, or SSE) or dedicated charting libraries."}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-bc26e5ce-e18d-47b8-9ef4-9d681614b18d", "object": "chat.completion.chunk", "created": 1743144452, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

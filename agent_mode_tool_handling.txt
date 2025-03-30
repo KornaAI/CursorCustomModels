@@ -1,0 +1,12 @@
+# Agent Mode Tool Handling in Claude
+
+## How Claude Outputs Tool Requests
+
+When operating in agent mode with tools, Claude outputs tool requests in a specific format. Below are examples of different formats that may be used depending on the context and Claude version:
+
+### Standard Claude 3 Function Call Format
+
+```
+<function_calls>
+<invoke name="run_terminal_cmd">
+<parameter name="command">echo "Hello from the terminal!" 

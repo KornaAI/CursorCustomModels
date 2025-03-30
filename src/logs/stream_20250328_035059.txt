@@ -1,0 +1,702 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:51:30.976584 ===
+
+RAW CHUNK: Okay, let's continue defining
+
+FORMATTED CHUNK: {"id": "chatcmpl-abda70e9-2831-445d-8aef-1a4037f64ad4", "object": "chat.completion.chunk", "created": 1743148259, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Okay, let's continue defining"}, "finish_reason": null}]}
+
+RAW CHUNK:  the `TinderBot` class methods for the PyQt5 application, picking up where the previous response likely got cut off.
+
+We were inside the `TinderBot` class. Let's finish the `start_bot` method and add `stop_bot`.
+
+```python:tinder_bot.py
+#
+
+FORMATTED CHUNK: {"id": "chatcmpl-eca1ee37-a1a1-43b9-a7fa-88768dc479ca", "object": "chat.completion.chunk", "created": 1743148260, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " the `TinderBot` class methods for the PyQt5 application, picking up where the previous response likely got cut off.\n\nWe were inside the `TinderBot` class. Let's finish the `start_bot` method and add `stop_bot`.\n\n```python:tinder_bot.py\n#"}, "finish_reason": null}]}
+
+RAW CHUNK:  (Inside TinderBot class)
+
+    def start_bot(self):
+        """Starts the bot timer after checks."""
+        self.running = True
+        # Calculate timer interval based on delays. Min 1 second.
+        # Interval should be slightly longer than the expected cycle time.
+        # Expected
+
+FORMATTED CHUNK: {"id": "chatcmpl-5954c3cf-2315-425c-8ba4-81cce53e6bb1", "object": "chat.completion.chunk", "created": 1743148260, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " (Inside TinderBot class)\n\n    def start_bot(self):\n        \"\"\"Starts the bot timer after checks.\"\"\"\n        self.running = True\n        # Calculate timer interval based on delays. Min 1 second.\n        # Interval should be slightly longer than the expected cycle time.\n        # Expected"}, "finish_reason": null}]}
+
+RAW CHUNK:  cycle: N photos * load_delay + analysis_time (estimate) + swipe_delay
+        # Let's estimate analysis time ~ 5-10 seconds max.
+        estimated_cycle_time = (self.num_photos_to_check * self.photo_load_delay) + 
+
+FORMATTED CHUNK: {"id": "chatcmpl-ddb6b8ab-c150-4cdb-a4cb-2acd98a0be0e", "object": "chat.completion.chunk", "created": 1743148261, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " cycle: N photos * load_delay + analysis_time (estimate) + swipe_delay\n        # Let's estimate analysis time ~ 5-10 seconds max.\n        estimated_cycle_time = (self.num_photos_to_check * self.photo_load_delay) + "}, "finish_reason": null}]}
+
+RAW CHUNK: 10 + self.swipe_action_delay
+        interval_ms = max(1000, int(estimated_cycle_time * 1000 * 1.1)) # Add 10% buffer
+
+        self.log_message(f"Starting bot with cycle interval
+
+FORMATTED CHUNK: {"id": "chatcmpl-8948117b-2439-4a56-af4f-18864e0935d0", "object": "chat.completion.chunk", "created": 1743148261, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "10 + self.swipe_action_delay\n        interval_ms = max(1000, int(estimated_cycle_time * 1000 * 1.1)) # Add 10% buffer\n\n        self.log_message(f\"Starting bot with cycle interval"}, "finish_reason": null}]}
+
+RAW CHUNK: : {interval_ms / 1000:.1f} seconds")
+        self.bot_timer.start(interval_ms)
+        self.start_btn.setText("Stop Bot")
+        self.update_status("Running...")
+        self.log_message("Bot started in
+
+FORMATTED CHUNK: {"id": "chatcmpl-7283bdba-ea30-4df7-bf2e-b0d83cfe1535", "object": "chat.completion.chunk", "created": 1743148262, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ": {interval_ms / 1000:.1f} seconds\")\n        self.bot_timer.start(interval_ms)\n        self.start_btn.setText(\"Stop Bot\")\n        self.update_status(\"Running...\")\n        self.log_message(\"Bot started in"}, "finish_reason": null}]}
+
+RAW CHUNK:  Swiping mode.")
+
+
+    def stop_bot(self):
+        """Stops the bot timer."""
+        if self.running:
+            self.running = False
+            self.bot_timer.stop()
+            self.start_btn.setText("Start Bot")
+            self.update_
+
+FORMATTED CHUNK: {"id": "chatcmpl-12ca8282-f352-4e06-adff-e839b79863c3", "object": "chat.completion.chunk", "created": 1743148262, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Swiping mode.\")\n\n\n    def stop_bot(self):\n        \"\"\"Stops the bot timer.\"\"\"\n        if self.running:\n            self.running = False\n            self.bot_timer.stop()\n            self.start_btn.setText(\"Start Bot\")\n            self.update_"}, "finish_reason": null}]}
+
+RAW CHUNK: status("Stopped.")
+            self.log_message("Bot stopped.")
+        else:
+             self.log_message("Bot is not currently running.")
+```
+
+Next, let's define the main `run_bot_cycle` method which orchestrates the actions.
+
+```python:tinder_bot
+
+FORMATTED CHUNK: {"id": "chatcmpl-1ae14d9d-c3a5-4a98-ac34-058dd981bdff", "object": "chat.completion.chunk", "created": 1743148262, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "status(\"Stopped.\")\n            self.log_message(\"Bot stopped.\")\n        else:\n             self.log_message(\"Bot is not currently running.\")\n```\n\nNext, let's define the main `run_bot_cycle` method which orchestrates the actions.\n\n```python:tinder_bot"}, "finish_reason": null}]}
+
+RAW CHUNK: .py
+# (Inside TinderBot class)
+
+    def run_bot_cycle(self):
+        """Main loop executed by the timer for one swipe cycle."""
+        if not self.running or not self.swipe_mode:
+            # Stop timer if state is wrong (e.g., switched
+
+FORMATTED CHUNK: {"id": "chatcmpl-647a6954-8a30-49e2-b9fb-0a731cf25752", "object": "chat.completion.chunk", "created": 1743148263, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".py\n# (Inside TinderBot class)\n\n    def run_bot_cycle(self):\n        \"\"\"Main loop executed by the timer for one swipe cycle.\"\"\"\n        if not self.running or not self.swipe_mode:\n            # Stop timer if state is wrong (e.g., switched"}, "finish_reason": null}]}
+
+RAW CHUNK:  to Messaging mode)
+            self.stop_bot()
+            return
+
+        self.update_status("Running: Starting swipe cycle...")
+        self.log_message("--- Starting Swipe Cycle ---")
+
+        # --- Capture Photos ---
+        profile_photos = []
+        self.log_message(
+
+FORMATTED CHUNK: {"id": "chatcmpl-614f9a92-2271-4f95-b0c4-c372d8bd4417", "object": "chat.completion.chunk", "created": 1743148263, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " to Messaging mode)\n            self.stop_bot()\n            return\n\n        self.update_status(\"Running: Starting swipe cycle...\")\n        self.log_message(\"--- Starting Swipe Cycle ---\")\n\n        # --- Capture Photos ---\n        profile_photos = []\n        self.log_message("}, "finish_reason": null}]}
+
+RAW CHUNK: f"Capturing up to {self.num_photos_to_check} photos...")
+
+        # Ensure target window has focus - BEST EFFORT
+        # This is tricky. We rely on user keeping Tinder active.
+        # Optional: Add platform-specific focus logic here if needed.
+        time
+
+FORMATTED CHUNK: {"id": "chatcmpl-71f4fa15-b648-4816-b78c-1f9a3317fc94", "object": "chat.completion.chunk", "created": 1743148264, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "f\"Capturing up to {self.num_photos_to_check} photos...\")\n\n        # Ensure target window has focus - BEST EFFORT\n        # This is tricky. We rely on user keeping Tinder active.\n        # Optional: Add platform-specific focus logic here if needed.\n        time"}, "finish_reason": null}]}
+
+RAW CHUNK: .sleep(0.3) # Small delay before capture starts
+
+        initial_photo = self.capture_area('photo')
+        if initial_photo is None:
+            self.log_message("Failed to capture initial photo area. Skipping profile.")
+            # Decide how to handle failure - swipe
+
+FORMATTED CHUNK: {"id": "chatcmpl-5923854f-34e8-4f05-91b6-23eb6b1c192d", "object": "chat.completion.chunk", "created": 1743148264, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".sleep(0.3) # Small delay before capture starts\n\n        initial_photo = self.capture_area('photo')\n        if initial_photo is None:\n            self.log_message(\"Failed to capture initial photo area. Skipping profile.\")\n            # Decide how to handle failure - swipe"}, "finish_reason": null}]}
+
+RAW CHUNK:  left? stop?
+            # For now, attempt to swipe left to move on.
+            self.swipe_left()
+            time.sleep(self.swipe_action_delay)
+            self.log_message("--- Swipe Cycle Failed (Capture Error) ---")
+            # Optionally stop the bot on
+
+FORMATTED CHUNK: {"id": "chatcmpl-fb80b9eb-43a4-4fc8-9459-999fde7e8917", "object": "chat.completion.chunk", "created": 1743148265, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " left? stop?\n            # For now, attempt to swipe left to move on.\n            self.swipe_left()\n            time.sleep(self.swipe_action_delay)\n            self.log_message(\"--- Swipe Cycle Failed (Capture Error) ---\")\n            # Optionally stop the bot on"}, "finish_reason": null}]}
+
+RAW CHUNK:  repeated failures
+            # self.stop_bot()
+            return # End this cycle
+        profile_photos.append(initial_photo)
+        self.log_message("Captured photo 1.")
+
+        for i in range(self.num_photos_to_check - 1):
+            if not
+
+FORMATTED CHUNK: {"id": "chatcmpl-d47732f3-eba3-4e7f-8c9b-da81dd0d7ba9", "object": "chat.completion.chunk", "created": 1743148265, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " repeated failures\n            # self.stop_bot()\n            return # End this cycle\n        profile_photos.append(initial_photo)\n        self.log_message(\"Captured photo 1.\")\n\n        for i in range(self.num_photos_to_check - 1):\n            if not"}, "finish_reason": null}]}
+
+RAW CHUNK:  self.running: return # Check if stopped during loop
+            self.log_message(f"Triggering next photo ({i+2}/{self.num_photos_to_check})...")
+            self.next_photo() # Press space or click
+            time.sleep(self.photo
+
+FORMATTED CHUNK: {"id": "chatcmpl-0e97c177-32aa-429a-9564-17c2ea1de452", "object": "chat.completion.chunk", "created": 1743148266, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " self.running: return # Check if stopped during loop\n            self.log_message(f\"Triggering next photo ({i+2}/{self.num_photos_to_check})...\")\n            self.next_photo() # Press space or click\n            time.sleep(self.photo"}, "finish_reason": null}]}
+
+RAW CHUNK: _load_delay) # Wait for photo to potentially load
+
+            photo_img = self.capture_area('photo')
+            if photo_img:
+                 # Optional: Compare with previous photo to see if it actually changed?
+                 # Simple check: Compare image dimensions and maybe a few pixel values
+
+FORMATTED CHUNK: {"id": "chatcmpl-d1e865a3-defb-4e2f-a0b8-f9d4f35cb498", "object": "chat.completion.chunk", "created": 1743148266, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_load_delay) # Wait for photo to potentially load\n\n            photo_img = self.capture_area('photo')\n            if photo_img:\n                 # Optional: Compare with previous photo to see if it actually changed?\n                 # Simple check: Compare image dimensions and maybe a few pixel values"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                 # if len(profile_photos) > 0 and profile_photos[-1].size == photo_img.size:
+                 #    # Basic check - might need more sophisticated comparison
+                 #    pass
+                profile_photos.append(photo_img)
+                self.log_
+
+FORMATTED CHUNK: {"id": "chatcmpl-35e910d7-237a-479b-b13e-546c92660a95", "object": "chat.completion.chunk", "created": 1743148267, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                 # if len(profile_photos) > 0 and profile_photos[-1].size == photo_img.size:\n                 #    # Basic check - might need more sophisticated comparison\n                 #    pass\n                profile_photos.append(photo_img)\n                self.log_"}, "finish_reason": null}]}
+
+RAW CHUNK: message(f"Captured photo {i+2}.")
+            else:
+                self.log_message(f"Failed to capture photo {i+2}. Continuing with available photos.")
+                break # Stop trying if capture fails
+
+        if not profile_photos:
+             self.log_message("No
+
+FORMATTED CHUNK: {"id": "chatcmpl-f7580220-7aed-4078-8016-096a90b92eb3", "object": "chat.completion.chunk", "created": 1743148267, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "message(f\"Captured photo {i+2}.\")\n            else:\n                self.log_message(f\"Failed to capture photo {i+2}. Continuing with available photos.\")\n                break # Stop trying if capture fails\n\n        if not profile_photos:\n             self.log_message(\"No"}, "finish_reason": null}]}
+
+RAW CHUNK:  photos successfully captured. Skipping profile & swiping left.")
+             self.swipe_left()
+             time.sleep(self.swipe_action_delay)
+             self.log_message("--- Swipe Cycle Failed (No Photos) ---")
+             return
+
+        # --- Analyze Profile (OCR or Photos
+
+FORMATTED CHUNK: {"id": "chatcmpl-3eb07860-efdb-4a6c-95f7-9d09fb59e4f9", "object": "chat.completion.chunk", "created": 1743148267, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " photos successfully captured. Skipping profile & swiping left.\")\n             self.swipe_left()\n             time.sleep(self.swipe_action_delay)\n             self.log_message(\"--- Swipe Cycle Failed (No Photos) ---\")\n             return\n\n        # --- Analyze Profile (OCR or Photos"}, "finish_reason": null}]}
+
+RAW CHUNK: ) ---
+        self.update_status("Running: Analyzing profile...")
+        decision = "left" # Default decision
+
+        # To-Do: Add OCR logic call if self.use_ocr is True
+        # if self.use_ocr:
+        #    profile_text_img = self
+
+FORMATTED CHUNK: {"id": "chatcmpl-93f4e97a-69f1-442b-bfea-abff7c8e8ad1", "object": "chat.completion.chunk", "created": 1743148268, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ") ---\n        self.update_status(\"Running: Analyzing profile...\")\n        decision = \"left\" # Default decision\n\n        # To-Do: Add OCR logic call if self.use_ocr is True\n        # if self.use_ocr:\n        #    profile_text_img = self"}, "finish_reason": null}]}
+
+RAW CHUNK: .capture_area('profile') # Capture area with text
+        #    if profile_text_img:
+        #         profile_info = self.extract_profile_info_with_openai(profile_text_img)
+        #         age = profile_info.get('age')
+        #         
+
+FORMATTED CHUNK: {"id": "chatcmpl-e60cd3c4-9c1f-49cc-9287-8b3dd1f3d795", "object": "chat.completion.chunk", "created": 1743148268, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".capture_area('profile') # Capture area with text\n        #    if profile_text_img:\n        #         profile_info = self.extract_profile_info_with_openai(profile_text_img)\n        #         age = profile_info.get('age')\n        #         "}, "finish_reason": null}]}
+
+RAW CHUNK: distance = profile_info.get('distance')
+        #         if age is not None and distance is not None:
+        #             decision = self.decide_from_profile_info(age, distance)
+        #         else: # Fallback if OCR fails
+        #              self.log_
+
+FORMATTED CHUNK: {"id": "chatcmpl-43fccaaa-df83-40ab-b228-48ea0c6b4e94", "object": "chat.completion.chunk", "created": 1743148269, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "distance = profile_info.get('distance')\n        #         if age is not None and distance is not None:\n        #             decision = self.decide_from_profile_info(age, distance)\n        #         else: # Fallback if OCR fails\n        #              self.log_"}, "finish_reason": null}]}
+
+RAW CHUNK: message("OCR failed to extract info, falling back to photo analysis.")
+        #              decision = self.analyze_profile_photos(profile_photos)
+        #    else: # Fallback if profile area capture fails
+        #         self.log_message("Failed to capture profile area for OCR, falling
+
+FORMATTED CHUNK: {"id": "chatcmpl-09539f71-5e47-402c-bb78-2c547e916d8d", "object": "chat.completion.chunk", "created": 1743148269, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "message(\"OCR failed to extract info, falling back to photo analysis.\")\n        #              decision = self.analyze_profile_photos(profile_photos)\n        #    else: # Fallback if profile area capture fails\n        #         self.log_message(\"Failed to capture profile area for OCR, falling"}, "finish_reason": null}]}
+
+RAW CHUNK:  back to photo analysis.")
+        #         decision = self.analyze_profile_photos(profile_photos)
+        # else: # Photo analysis only
+        decision = self.analyze_profile_photos(profile_photos)
+
+        if not self.running: return # Check if stopped during analysis
+
+        # ---
+
+FORMATTED CHUNK: {"id": "chatcmpl-0e270016-1ed4-4328-ae66-44135e48c3b8", "object": "chat.completion.chunk", "created": 1743148269, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " back to photo analysis.\")\n        #         decision = self.analyze_profile_photos(profile_photos)\n        # else: # Photo analysis only\n        decision = self.analyze_profile_photos(profile_photos)\n\n        if not self.running: return # Check if stopped during analysis\n\n        # ---"}, "finish_reason": null}]}
+
+RAW CHUNK:  Perform Swipe ---
+        self.update_status(f"Running: Performing swipe ({decision})...")
+        if decision == "right":
+            self.swipe_right()
+        else:
+            self.swipe_left()
+
+        # Wait after swiping before the timer triggers the next cycle
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-d45cfd37-61ee-473f-bed6-53d740b3206f", "object": "chat.completion.chunk", "created": 1743148270, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Perform Swipe ---\n        self.update_status(f\"Running: Performing swipe ({decision})...\")\n        if decision == \"right\":\n            self.swipe_right()\n        else:\n            self.swipe_left()\n\n        # Wait after swiping before the timer triggers the next cycle\n"}, "finish_reason": null}]}
+
+RAW CHUNK:         # The timer interval itself provides the main delay, but add swipe action delay too.
+        time.sleep(self.swipe_action_delay)
+        self.update_status(f"Running: Waiting for next cycle...")
+        self.log_message("--- Swipe Cycle Complete ---")
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-1bfc39cc-4e48-4031-93e5-35ede59bf2d2", "object": "chat.completion.chunk", "created": 1743148270, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "        # The timer interval itself provides the main delay, but add swipe action delay too.\n        time.sleep(self.swipe_action_delay)\n        self.update_status(f\"Running: Waiting for next cycle...\")\n        self.log_message(\"--- Swipe Cycle Complete ---\")\n"}, "finish_reason": null}]}
+
+RAW CHUNK: ```
+
+Now, let's add the core helper methods: `capture_area`, `analyze_profile_photos`, and the interaction methods (`swipe_left`, `swipe_right`, `next_photo`, `human_like_mouse_move`).
+
+```python:tinder_bot.py
+# (
+
+FORMATTED CHUNK: {"id": "chatcmpl-cb6af29e-913a-47a6-b956-9d46bc4b7d07", "object": "chat.completion.chunk", "created": 1743148270, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "```\n\nNow, let's add the core helper methods: `capture_area`, `analyze_profile_photos`, and the interaction methods (`swipe_left`, `swipe_right`, `next_photo`, `human_like_mouse_move`).\n\n```python:tinder_bot.py\n# ("}, "finish_reason": null}]}
+
+RAW CHUNK: Inside TinderBot class)
+
+    def capture_area(self, area_name):
+        """Captures a screenshot of the specified predefined area."""
+        coords = self.screenshot_areas.get(area_name)
+        if not coords or 'x1' not in coords or 'y1' not
+
+FORMATTED CHUNK: {"id": "chatcmpl-6762f2f6-8310-4374-8a1d-0d301258a186", "object": "chat.completion.chunk", "created": 1743148271, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Inside TinderBot class)\n\n    def capture_area(self, area_name):\n        \"\"\"Captures a screenshot of the specified predefined area.\"\"\"\n        coords = self.screenshot_areas.get(area_name)\n        if not coords or 'x1' not in coords or 'y1' not"}, "finish_reason": null}]}
+
+RAW CHUNK:  in coords or 'x2' not in coords or 'y2' not in coords:
+            self.log_message(f"Error: Screenshot area '{area_name}' is not defined or invalid.")
+            return None
+
+        try:
+            x1, y1, x2, y2 = int
+
+FORMATTED CHUNK: {"id": "chatcmpl-83651eea-06aa-4127-98b9-ae322d792f4f", "object": "chat.completion.chunk", "created": 1743148271, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " in coords or 'x2' not in coords or 'y2' not in coords:\n            self.log_message(f\"Error: Screenshot area '{area_name}' is not defined or invalid.\")\n            return None\n\n        try:\n            x1, y1, x2, y2 = int"}, "finish_reason": null}]}
+
+RAW CHUNK: (coords['x1']), int(coords['y1']), int(coords['x2']), int(coords['y2'])
+            width = x2 - x1
+            height = y2 - y1
+
+            if width <= 0 or height <= 0:
+                 self.log_message
+
+FORMATTED CHUNK: {"id": "chatcmpl-dc50041b-2d10-435d-91c0-7c08c82c077f", "object": "chat.completion.chunk", "created": 1743148272, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "(coords['x1']), int(coords['y1']), int(coords['x2']), int(coords['y2'])\n            width = x2 - x1\n            height = y2 - y1\n\n            if width <= 0 or height <= 0:\n                 self.log_message"}, "finish_reason": null}]}
+
+RAW CHUNK: (f"Error: Invalid dimensions for area '{area_name}' ({width}x{height}).")
+                 return None
+
+            # Add slight delay before capture? Sometimes helps ensure UI is settled.
+            # time.sleep(0.1)
+            screenshot = ImageGrab.grab(bbox=(x1
+
+FORMATTED CHUNK: {"id": "chatcmpl-8a99c49c-0b11-43c7-bec5-7ccd5f4aee96", "object": "chat.completion.chunk", "created": 1743148272, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "(f\"Error: Invalid dimensions for area '{area_name}' ({width}x{height}).\")\n                 return None\n\n            # Add slight delay before capture? Sometimes helps ensure UI is settled.\n            # time.sleep(0.1)\n            screenshot = ImageGrab.grab(bbox=(x1"}, "finish_reason": null}]}
+
+RAW CHUNK: , y1, x2, y2), all_screens=True) # Consider all_screens=True
+            return screenshot
+        except ValueError as e:
+             self.log_message(f"Error: Invalid coordinate values for area '{area_name}': {coords} - {e}")
+
+FORMATTED CHUNK: {"id": "chatcmpl-61bb4f2f-e624-4390-906a-62d81bf6e0ae", "object": "chat.completion.chunk", "created": 1743148272, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ", y1, x2, y2), all_screens=True) # Consider all_screens=True\n            return screenshot\n        except ValueError as e:\n             self.log_message(f\"Error: Invalid coordinate values for area '{area_name}': {coords} - {e}\")"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+             return None
+        except Exception as e:
+            self.log_message(f"Error capturing area {area_name}: {e}")
+            # Specific handling for common pyautogui errors if needed
+            # if "permission" in str(e).lower():
+            #    self.show_
+
+FORMATTED CHUNK: {"id": "chatcmpl-44b5c891-ecc3-4eda-a9d0-e7939f3bc56f", "object": "chat.completion.chunk", "created": 1743148273, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n             return None\n        except Exception as e:\n            self.log_message(f\"Error capturing area {area_name}: {e}\")\n            # Specific handling for common pyautogui errors if needed\n            # if \"permission\" in str(e).lower():\n            #    self.show_"}, "finish_reason": null}]}
+
+RAW CHUNK: error_message("Screenshot permission denied. Please check OS settings (e.g., macOS Screen Recording).")
+            #    self.stop_bot()
+            return None
+
+    def analyze_profile_photos(self, photo_pil_images):
+        """Analyze a list of PIL images using GPT-4
+
+FORMATTED CHUNK: {"id": "chatcmpl-f3e0061e-4bc4-4b7d-8765-cf9b10ffd798", "object": "chat.completion.chunk", "created": 1743148273, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "error_message(\"Screenshot permission denied. Please check OS settings (e.g., macOS Screen Recording).\")\n            #    self.stop_bot()\n            return None\n\n    def analyze_profile_photos(self, photo_pil_images):\n        \"\"\"Analyze a list of PIL images using GPT-4"}, "finish_reason": null}]}
+
+RAW CHUNK: o with critical prompt."""
+        if not self.openai_api_key:
+            self.log_message("Error: OpenAI API key not set for analysis.")
+            return "left" # Default left if no key
+        if not photo_pil_images:
+            self.log_message("Error
+
+FORMATTED CHUNK: {"id": "chatcmpl-f031cd02-2e4f-470c-9822-5b7eaa7557e1", "object": "chat.completion.chunk", "created": 1743148274, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "o with critical prompt.\"\"\"\n        if not self.openai_api_key:\n            self.log_message(\"Error: OpenAI API key not set for analysis.\")\n            return \"left\" # Default left if no key\n        if not photo_pil_images:\n            self.log_message(\"Error"}, "finish_reason": null}]}
+
+RAW CHUNK: : No images provided for analysis.")
+            return "left" # Default left if no images
+
+        self.log_message(f"Analyzing {len(photo_pil_images)} photos with GPT-4o...")
+        try:
+            headers = {
+                "Content-Type": "application/
+
+FORMATTED CHUNK: {"id": "chatcmpl-f130b472-d9f4-4b17-93ef-63189ac41b3f", "object": "chat.completion.chunk", "created": 1743148274, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ": No images provided for analysis.\")\n            return \"left\" # Default left if no images\n\n        self.log_message(f\"Analyzing {len(photo_pil_images)} photos with GPT-4o...\")\n        try:\n            headers = {\n                \"Content-Type\": \"application/"}, "finish_reason": null}]}
+
+RAW CHUNK: json",
+                "Authorization": f"Bearer {self.openai_api_key}"
+            }
+            message_content = [
+                {"type": "text", "text": "Please just tell me the truth.Am I conventionally attractive based *only* on common societal beauty standards? Be highly critical and objective
+
+FORMATTED CHUNK: {"id": "chatcmpl-9f804800-b701-4b36-bbf9-a22e84ffa40c", "object": "chat.completion.chunk", "created": 1743148274, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "json\",\n                \"Authorization\": f\"Bearer {self.openai_api_key}\"\n            }\n            message_content = [\n                {\"type\": \"text\", \"text\": \"Please just tell me the truth.Am I conventionally attractive based *only* on common societal beauty standards? Be highly critical and objective"}, "finish_reason": null}]}
+
+RAW CHUNK: . Do not sugarcoat or be polite. Respond *only* with the single word 'attractive' or 'unattractive'."}
+            ]
+
+            for img in photo_pil_images:
+                buffer = io.BytesIO()
+                # Preprocess image slightly? Resize? Enhance contrast? Maybe not needed for GPT
+
+FORMATTED CHUNK: {"id": "chatcmpl-60c10dd6-f489-4834-b237-6d8d458cb342", "object": "chat.completion.chunk", "created": 1743148275, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ". Do not sugarcoat or be polite. Respond *only* with the single word 'attractive' or 'unattractive'.\"}\n            ]\n\n            for img in photo_pil_images:\n                buffer = io.BytesIO()\n                # Preprocess image slightly? Resize? Enhance contrast? Maybe not needed for GPT"}, "finish_reason": null}]}
+
+RAW CHUNK: -4o.
+                img.save(buffer, format="JPEG")
+                image_bytes = buffer.getvalue()
+                encoded_image = base64.b64encode(image_bytes).decode('utf-8')
+                message_content.append({"type": "image_
+
+FORMATTED CHUNK: {"id": "chatcmpl-3f7e87be-debd-4ebd-8889-52bcb38e091c", "object": "chat.completion.chunk", "created": 1743148275, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "-4o.\n                img.save(buffer, format=\"JPEG\")\n                image_bytes = buffer.getvalue()\n                encoded_image = base64.b64encode(image_bytes).decode('utf-8')\n                message_content.append({\"type\": \"image_"}, "finish_reason": null}]}
+
+RAW CHUNK: url", "image_url": {"url": f"data:image/jpeg;base64,{encoded_image}"}})
+
+            payload = {
+                "model": "gpt-4o", # Or specify a different model if needed
+                "messages": [
+                    {"role": "system", "content
+
+FORMATTED CHUNK: {"id": "chatcmpl-b955f956-68b4-4287-9580-e71f5d53b6d7", "object": "chat.completion.chunk", "created": 1743148276, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "url\", \"image_url\": {\"url\": f\"data:image/jpeg;base64,{encoded_image}\"}})\n\n            payload = {\n                \"model\": \"gpt-4o\", # Or specify a different model if needed\n                \"messages\": [\n                    {\"role\": \"system\", \"content"}, "finish_reason": null}]}
+
+RAW CHUNK: ": "You are a highly critical and objective assistant evaluating dating profile photos based *only* on conventional attractiveness. Your response must be a single word: 'attractive' or 'unattractive'. Do not add any other text, explanation, or punctuation."},
+                    {"role": "user", "content": message_content
+
+FORMATTED CHUNK: {"id": "chatcmpl-df5e9dae-1ba6-41ca-b38d-63834a5c3e8a", "object": "chat.completion.chunk", "created": 1743148276, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\": \"You are a highly critical and objective assistant evaluating dating profile photos based *only* on conventional attractiveness. Your response must be a single word: 'attractive' or 'unattractive'. Do not add any other text, explanation, or punctuation.\"},\n                    {\"role\": \"user\", \"content\": message_content"}, "finish_reason": null}]}
+
+RAW CHUNK: }
+                ],
+                "max_tokens": 5 # Limit response length
+            }
+
+            # Make API request with timeout
+            response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload, timeout=4
+
+FORMATTED CHUNK: {"id": "chatcmpl-83cf3745-83fb-4f7a-aafb-d4faaa5ac86c", "object": "chat.completion.chunk", "created": 1743148276, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "}\n                ],\n                \"max_tokens\": 5 # Limit response length\n            }\n\n            # Make API request with timeout\n            response = requests.post(\"https://api.openai.com/v1/chat/completions\", headers=headers, json=payload, timeout=4"}, "finish_reason": null}]}
+
+RAW CHUNK: 5) # 45s timeout
+            response.raise_for_status() # Raise exception for bad status codes (4xx, 5xx)
+            result = response.json()
+            self.log_message(f"GPT-4o Raw Response: {result}")
+
+            if "choices
+
+FORMATTED CHUNK: {"id": "chatcmpl-5a58a4ec-5638-4982-9561-a94e9bac6954", "object": "chat.completion.chunk", "created": 1743148277, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "5) # 45s timeout\n            response.raise_for_status() # Raise exception for bad status codes (4xx, 5xx)\n            result = response.json()\n            self.log_message(f\"GPT-4o Raw Response: {result}\")\n\n            if \"choices"}, "finish_reason": null}]}
+
+RAW CHUNK: " in result and len(result["choices"]) > 0:
+                raw_answer = result["choices"][0]["message"]["content"]
+                answer = raw_answer.lower().strip().rstrip('.!?') # Clean response
+                self.log_message(f"GPT-4o Parsed
+
+FORMATTED CHUNK: {"id": "chatcmpl-d0c1447a-3087-42ce-a5b5-a7208f7d86c7", "object": "chat.completion.chunk", "created": 1743148277, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\" in result and len(result[\"choices\"]) > 0:\n                raw_answer = result[\"choices\"][0][\"message\"][\"content\"]\n                answer = raw_answer.lower().strip().rstrip('.!?') # Clean response\n                self.log_message(f\"GPT-4o Parsed"}, "finish_reason": null}]}
+
+RAW CHUNK:  Answer: '{answer}'")
+
+                if answer == "attractive":
+                    self.log_message("GPT-4o Decision: Attractive -> RIGHT")
+                    return "right"
+                elif answer == "unattractive":
+                    self.log_message("GPT-4o Decision: Unattractive ->
+
+FORMATTED CHUNK: {"id": "chatcmpl-d1891a60-2d80-4613-8a51-50dfbb136609", "object": "chat.completion.chunk", "created": 1743148277, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Answer: '{answer}'\")\n\n                if answer == \"attractive\":\n                    self.log_message(\"GPT-4o Decision: Attractive -> RIGHT\")\n                    return \"right\"\n                elif answer == \"unattractive\":\n                    self.log_message(\"GPT-4o Decision: Unattractive ->"}, "finish_reason": null}]}
+
+RAW CHUNK:  LEFT")
+                    return "left"
+                else:
+                    self.log_message(f"Warning: GPT-4o response ('{raw_answer}') unexpected. Defaulting LEFT.")
+                    return "left"
+            else:
+                error_msg = result.get("error", {}
+
+FORMATTED CHUNK: {"id": "chatcmpl-1b5d3280-d8e2-453e-bda0-537a382bc62d", "object": "chat.completion.chunk", "created": 1743148278, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " LEFT\")\n                    return \"left\"\n                else:\n                    self.log_message(f\"Warning: GPT-4o response ('{raw_answer}') unexpected. Defaulting LEFT.\")\n                    return \"left\"\n            else:\n                error_msg = result.get(\"error\", {}"}, "finish_reason": null}]}
+
+RAW CHUNK: ).get("message", str(result))
+                self.log_message(f"Error in GPT-4o response structure: {error_msg}. Defaulting LEFT.")
+                return "left"
+
+        except requests.exceptions.Timeout:
+             self.log_message("API Request Error: Timeout occurred
+
+FORMATTED CHUNK: {"id": "chatcmpl-7973c50f-f0d4-401b-8fc3-dd69c7c4bcf7", "object": "chat.completion.chunk", "created": 1743148278, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ").get(\"message\", str(result))\n                self.log_message(f\"Error in GPT-4o response structure: {error_msg}. Defaulting LEFT.\")\n                return \"left\"\n\n        except requests.exceptions.Timeout:\n             self.log_message(\"API Request Error: Timeout occurred"}, "finish_reason": null}]}
+
+RAW CHUNK:  after 45s. Defaulting LEFT.")
+             return "left"
+        except requests.exceptions.RequestException as e:
+             self.log_message(f"API Request Error: {e}. Defaulting LEFT.")
+             return "left"
+        except Exception as e:
+            self
+
+FORMATTED CHUNK: {"id": "chatcmpl-07c67ace-4eaf-4a0b-9bee-95d53cab30b6", "object": "chat.completion.chunk", "created": 1743148279, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " after 45s. Defaulting LEFT.\")\n             return \"left\"\n        except requests.exceptions.RequestException as e:\n             self.log_message(f\"API Request Error: {e}. Defaulting LEFT.\")\n             return \"left\"\n        except Exception as e:\n            self"}, "finish_reason": null}]}
+
+RAW CHUNK: .log_message(f"Error during photo analysis: {str(e)}. Defaulting LEFT.")
+            return "left"
+
+    # --- Interaction Methods ---
+
+    def human_like_mouse_move(self, end_x, end_y, duration=0.5):
+        """
+
+FORMATTED CHUNK: {"id": "chatcmpl-41a23ef9-a59a-4fe4-9b5e-afc2e4c03586", "object": "chat.completion.chunk", "created": 1743148279, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".log_message(f\"Error during photo analysis: {str(e)}. Defaulting LEFT.\")\n            return \"left\"\n\n    # --- Interaction Methods ---\n\n    def human_like_mouse_move(self, end_x, end_y, duration=0.5):\n        \"\"\""}, "finish_reason": null}]}
+
+RAW CHUNK: Move mouse towards target with some randomness."""
+        try:
+            start_pos = pyautogui.position()
+            start_x, start_y = start_pos.x, start_pos.y
+
+            distance = math.sqrt((end_x - start_x)**2 + (end_y -
+
+FORMATTED CHUNK: {"id": "chatcmpl-0dd71269-c9c3-470c-b6a4-2f17b33e70b3", "object": "chat.completion.chunk", "created": 1743148279, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Move mouse towards target with some randomness.\"\"\"\n        try:\n            start_pos = pyautogui.position()\n            start_x, start_y = start_pos.x, start_pos.y\n\n            distance = math.sqrt((end_x - start_x)**2 + (end_y -"}, "finish_reason": null}]}
+
+RAW CHUNK:  start_y)**2)
+            steps = max(5, int(distance / 30)) # Adjust step size based on distance
+
+            for i in range(steps):
+                t = (i + 1) / steps
+                # Basic easing (ease-out)
+                ease_
+
+FORMATTED CHUNK: {"id": "chatcmpl-83a3dff8-19f8-4965-9afc-cbdb28fef1de", "object": "chat.completion.chunk", "created": 1743148280, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " start_y)**2)\n            steps = max(5, int(distance / 30)) # Adjust step size based on distance\n\n            for i in range(steps):\n                t = (i + 1) / steps\n                # Basic easing (ease-out)\n                ease_"}, "finish_reason": null}]}
+
+RAW CHUNK: t = 1 - (1 - t)**2
+                inter_x = start_x + (end_x - start_x) * ease_t
+                inter_y = start_y + (end_y - start_y) * ease_t
+
+                # Add minor random deviation
+                rand
+
+FORMATTED CHUNK: {"id": "chatcmpl-81736090-2a7a-4488-8b0e-350d3d778d99", "object": "chat.completion.chunk", "created": 1743148280, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "t = 1 - (1 - t)**2\n                inter_x = start_x + (end_x - start_x) * ease_t\n                inter_y = start_y + (end_y - start_y) * ease_t\n\n                # Add minor random deviation\n                rand"}, "finish_reason": null}]}
+
+RAW CHUNK: _x = random.uniform(-2, 2)
+                rand_y = random.uniform(-2, 2)
+
+                pyautogui.moveTo(inter_x + rand_x, inter_y + rand_y, duration=duration/steps, tween=pyautogui.linear)
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-9859466e-7c54-447b-a4cf-0e7520c50bf3", "object": "chat.completion.chunk", "created": 1743148281, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_x = random.uniform(-2, 2)\n                rand_y = random.uniform(-2, 2)\n\n                pyautogui.moveTo(inter_x + rand_x, inter_y + rand_y, duration=duration/steps, tween=pyautogui.linear)\n"}, "finish_reason": null}]}
+
+RAW CHUNK:                 # Add very small random pauses?
+                # if random.random() < 0.1: time.sleep(random.uniform(0.01, 0.03))
+
+            pyautogui.moveTo(end_x, end_y, duration=0.05) # Ensure final position
+
+FORMATTED CHUNK: {"id": "chatcmpl-627f7531-fd93-407e-8de8-d93517006851", "object": "chat.completion.chunk", "created": 1743148281, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "                # Add very small random pauses?\n                # if random.random() < 0.1: time.sleep(random.uniform(0.01, 0.03))\n\n            pyautogui.moveTo(end_x, end_y, duration=0.05) # Ensure final position"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+        except Exception as e:
+            self.log_message(f"Error during mouse move: {e}")
+
+
+    def _perform_action(self, action_name, key_name, click_area_name):
+        """Performs swipe/next action using configured method."""
+        
+
+FORMATTED CHUNK: {"id": "chatcmpl-6a0ab15d-b302-4b8d-9ede-664f49e5e787", "object": "chat.completion.chunk", "created": 1743148281, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n        except Exception as e:\n            self.log_message(f\"Error during mouse move: {e}\")\n\n\n    def _perform_action(self, action_name, key_name, click_area_name):\n        \"\"\"Performs swipe/next action using configured method.\"\"\"\n        "}, "finish_reason": null}]}
+
+RAW CHUNK: if self.interaction_method == "mouse":
+            coords = self.screenshot_areas.get(click_area_name)
+            if coords and 'x' in coords and 'y' in coords:
+                 try:
+                    target_x, target_y = int(coords['x']), int(
+
+FORMATTED CHUNK: {"id": "chatcmpl-4ecbb486-8e49-4fec-8a32-76a2cb1aafa4", "object": "chat.completion.chunk", "created": 1743148282, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "if self.interaction_method == \"mouse\":\n            coords = self.screenshot_areas.get(click_area_name)\n            if coords and 'x' in coords and 'y' in coords:\n                 try:\n                    target_x, target_y = int(coords['x']), int("}, "finish_reason": null}]}
+
+RAW CHUNK: coords['y'])
+                    # Add slight random offset to click target
+                    offset_x = random.randint(-5, 5)
+                    offset_y = random.randint(-5, 5)
+                    self.log_message(f"Performing '{action_name}' via mouse click near
+
+FORMATTED CHUNK: {"id": "chatcmpl-43360315-d3ce-4023-83cb-b0844205bfce", "object": "chat.completion.chunk", "created": 1743148282, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "coords['y'])\n                    # Add slight random offset to click target\n                    offset_x = random.randint(-5, 5)\n                    offset_y = random.randint(-5, 5)\n                    self.log_message(f\"Performing '{action_name}' via mouse click near"}, "finish_reason": null}]}
+
+RAW CHUNK:  ({target_x}, {target_y})...")
+                    self.human_like_mouse_move(target_x + offset_x, target_y + offset_y, duration=random.uniform(0.2, 0.5))
+                    time.sleep(random.uniform(
+
+FORMATTED CHUNK: {"id": "chatcmpl-c59e03ba-334a-48e9-84ee-3a0ed0d5446c", "object": "chat.completion.chunk", "created": 1743148283, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " ({target_x}, {target_y})...\")\n                    self.human_like_mouse_move(target_x + offset_x, target_y + offset_y, duration=random.uniform(0.2, 0.5))\n                    time.sleep(random.uniform("}, "finish_reason": null}]}
+
+RAW CHUNK: 0.05, 0.15)) # Small pause before click
+                    pyautogui.click(duration=random.uniform(0.02, 0.06))
+                    return True
+                 except (ValueError, TypeError) as e:
+                     self.log_message(f
+
+FORMATTED CHUNK: {"id": "chatcmpl-be48508a-7b8a-407e-98f6-0bbd4c5f881b", "object": "chat.completion.chunk", "created": 1743148283, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "0.05, 0.15)) # Small pause before click\n                    pyautogui.click(duration=random.uniform(0.02, 0.06))\n                    return True\n                 except (ValueError, TypeError) as e:\n                     self.log_message(f"}, "finish_reason": null}]}
+
+RAW CHUNK: "Error processing coordinates for '{click_area_name}': {coords} - {e}. Falling back to key.")
+                 except Exception as e:
+                     self.log_message(f"Error performing mouse click for '{action_name}': {e}. Falling back to key.")
+            else:
+                 
+
+FORMATTED CHUNK: {"id": "chatcmpl-78421483-45de-4c94-a53d-145ffe8aa4e4", "object": "chat.completion.chunk", "created": 1743148283, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\"Error processing coordinates for '{click_area_name}': {coords} - {e}. Falling back to key.\")\n                 except Exception as e:\n                     self.log_message(f\"Error performing mouse click for '{action_name}': {e}. Falling back to key.\")\n            else:\n                 "}, "finish_reason": null}]}
+
+RAW CHUNK: self.log_message(f"Warning: Mouse click position '{click_area_name}' not defined. Falling back to key.")
+
+        # Fallback or default to keyboard press
+        try:
+            self.log_message(f"Performing '{action_name}' via keyboard ('{key_name
+
+FORMATTED CHUNK: {"id": "chatcmpl-12140ea2-2084-43e1-b5a0-e4d92e58fd1e", "object": "chat.completion.chunk", "created": 1743148284, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "self.log_message(f\"Warning: Mouse click position '{click_area_name}' not defined. Falling back to key.\")\n\n        # Fallback or default to keyboard press\n        try:\n            self.log_message(f\"Performing '{action_name}' via keyboard ('{key_name"}, "finish_reason": null}]}
+
+RAW CHUNK: }')...")
+            # Use keyboard library for potentially better reliability in some cases
+            keyboard.press_and_release(key_name)
+            # pyautogui.press(key_name) # PyAutoGUI alternative
+            return True
+        except Exception as e:
+             self.log_
+
+FORMATTED CHUNK: {"id": "chatcmpl-0c99c23e-5476-4f69-991f-ce68792daaea", "object": "chat.completion.chunk", "created": 1743148285, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "}')...\")\n            # Use keyboard library for potentially better reliability in some cases\n            keyboard.press_and_release(key_name)\n            # pyautogui.press(key_name) # PyAutoGUI alternative\n            return True\n        except Exception as e:\n             self.log_"}, "finish_reason": null}]}
+
+RAW CHUNK: message(f"Error performing keyboard press '{key_name}': {e}. Action failed.")
+             # May need specific error handling for keyboard lib permissions
+             # if "root" in str(e).lower():
+             #      self.show_error_message("Keyboard control requires root/admin privileges on
+
+FORMATTED CHUNK: {"id": "chatcmpl-ac1b27a8-4737-4450-9d83-50afebb58173", "object": "chat.completion.chunk", "created": 1743148285, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "message(f\"Error performing keyboard press '{key_name}': {e}. Action failed.\")\n             # May need specific error handling for keyboard lib permissions\n             # if \"root\" in str(e).lower():\n             #      self.show_error_message(\"Keyboard control requires root/admin privileges on"}, "finish_reason": null}]}
+
+RAW CHUNK:  some systems (e.g., Linux).")
+             #      self.stop_bot()
+             return False
+
+
+    def swipe_left(self):
+        """Swipe left using the configured interaction method."""
+        self._perform_action("Swipe Left", "left", "swipe_left")
+
+    def swipe
+
+FORMATTED CHUNK: {"id": "chatcmpl-9ea9aad6-ddf0-4b04-817f-b9235eb4d88c", "object": "chat.completion.chunk", "created": 1743148285, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " some systems (e.g., Linux).\")\n             #      self.stop_bot()\n             return False\n\n\n    def swipe_left(self):\n        \"\"\"Swipe left using the configured interaction method.\"\"\"\n        self._perform_action(\"Swipe Left\", \"left\", \"swipe_left\")\n\n    def swipe"}, "finish_reason": null}]}
+
+RAW CHUNK: _right(self):
+        """Swipe right using the configured interaction method."""
+        self._perform_action("Swipe Right", "right", "swipe_right")
+
+    def next_photo(self):
+        """Go to next photo using the configured interaction method."""
+        self._perform_action
+
+FORMATTED CHUNK: {"id": "chatcmpl-db0ef0dd-74fc-4aa2-bb76-9abb073f80d8", "object": "chat.completion.chunk", "created": 1743148286, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_right(self):\n        \"\"\"Swipe right using the configured interaction method.\"\"\"\n        self._perform_action(\"Swipe Right\", \"right\", \"swipe_right\")\n\n    def next_photo(self):\n        \"\"\"Go to next photo using the configured interaction method.\"\"\"\n        self._perform_action"}, "finish_reason": null}]}
+
+RAW CHUNK: ("Next Photo", "space", "next_photo")
+
+
+    # --- Utility & Event Handlers ---
+
+    def log_message(self, message):
+        """Appends a message to the log box and logs via logging module."""
+        logging.info(message) # Log to console/file via
+
+FORMATTED CHUNK: {"id": "chatcmpl-2762f85f-1362-4b40-89c9-68bef8b8f87c", "object": "chat.completion.chunk", "created": 1743148286, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "(\"Next Photo\", \"space\", \"next_photo\")\n\n\n    # --- Utility & Event Handlers ---\n\n    def log_message(self, message):\n        \"\"\"Appends a message to the log box and logs via logging module.\"\"\"\n        logging.info(message) # Log to console/file via"}, "finish_reason": null}]}
+
+RAW CHUNK:  std logging
+        timestamp = time.strftime("%H:%M:%S")
+        # Ensure UI updates happen in the main thread if called from another thread (not currently the case)
+        # Currently, bot cycle runs via QTimer, which is safe.
+        self.log_box.append(f"
+
+FORMATTED CHUNK: {"id": "chatcmpl-8334a39e-3a40-49e2-8132-fe4193ad814c", "object": "chat.completion.chunk", "created": 1743148287, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " std logging\n        timestamp = time.strftime(\"%H:%M:%S\")\n        # Ensure UI updates happen in the main thread if called from another thread (not currently the case)\n        # Currently, bot cycle runs via QTimer, which is safe.\n        self.log_box.append(f\""}, "finish_reason": null}]}
+
+RAW CHUNK: [{timestamp}] {message}")
+        self.log_box.ensureCursorVisible() # Auto-scroll
+
+    def closeEvent(self, event):
+        """Handler for when the main window is closed."""
+        self.log_message("Close event triggered.")
+        if self.running:
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-f9ed9bd7-3f20-4243-889f-086216dc4afd", "object": "chat.completion.chunk", "created": 1743148287, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "[{timestamp}] {message}\")\n        self.log_box.ensureCursorVisible() # Auto-scroll\n\n    def closeEvent(self, event):\n        \"\"\"Handler for when the main window is closed.\"\"\"\n        self.log_message(\"Close event triggered.\")\n        if self.running:\n"}, "finish_reason": null}]}
+
+RAW CHUNK:             reply = QMessageBox.question(self, 'Confirm Exit',
+                                         "Bot is running. Are you sure you want to quit?",
+                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+            if reply == QMessageBox.Yes:
+                 self.log_message("Stopping bot
+
+FORMATTED CHUNK: {"id": "chatcmpl-7cad420a-af7b-4842-841d-f0650af777ce", "object": "chat.completion.chunk", "created": 1743148288, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "            reply = QMessageBox.question(self, 'Confirm Exit',\n                                         \"Bot is running. Are you sure you want to quit?\",\n                                         QMessageBox.Yes | QMessageBox.No, QMessageBox.No)\n            if reply == QMessageBox.Yes:\n                 self.log_message(\"Stopping bot"}, "finish_reason": null}]}
+
+RAW CHUNK:  due to close event...")
+                 self.stop_bot() # Attempt graceful stop
+                 time.sleep(0.5) # Give it a moment
+                 self.overlay.close()
+                 event.accept()
+            else:
+                 event.ignore()
+                 return
+        else:
+            self.
+
+FORMATTED CHUNK: {"id": "chatcmpl-ed7efe43-b3bc-40f8-8abc-944244b4a447", "object": "chat.completion.chunk", "created": 1743148288, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " due to close event...\")\n                 self.stop_bot() # Attempt graceful stop\n                 time.sleep(0.5) # Give it a moment\n                 self.overlay.close()\n                 event.accept()\n            else:\n                 event.ignore()\n                 return\n        else:\n            self."}, "finish_reason": null}]}
+
+RAW CHUNK: overlay.close()
+            event.accept()
+        self.log_message("Application closing.")
+
+# --- Main Execution Block ---
+if __name__ == "__main__":
+    # Set high DPI scaling if needed
+    # QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True
+
+FORMATTED CHUNK: {"id": "chatcmpl-b890510d-0486-435e-94ae-4076a8721c54", "object": "chat.completion.chunk", "created": 1743148289, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "overlay.close()\n            event.accept()\n        self.log_message(\"Application closing.\")\n\n# --- Main Execution Block ---\nif __name__ == \"__main__\":\n    # Set high DPI scaling if needed\n    # QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True"}, "finish_reason": null}]}
+
+RAW CHUNK: )
+    # QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
+
+    app = QApplication(sys.argv)
+    main_win = TinderBot()
+    main_win.show()
+    sys.exit(app.exec_())
+```
+
+This completes the PyQt
+
+FORMATTED CHUNK: {"id": "chatcmpl-c8499bc2-6dfa-400e-a17c-c48b340da2a0", "object": "chat.completion.chunk", "created": 1743148289, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ")\n    # QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)\n\n    app = QApplication(sys.argv)\n    main_win = TinderBot()\n    main_win.show()\n    sys.exit(app.exec_())\n```\n\nThis completes the PyQt"}, "finish_reason": null}]}
+
+RAW CHUNK: 5 application structure (`tinder_bot.py`). It includes:
+
+1.  The GUI layout with tabs for Control, Configuration, and Area Setup.
+2.  Interactive area/point definition using the overlay and 'S' key.
+3.  Configuration saving/loading to `bot_config.json
+
+FORMATTED CHUNK: {"id": "chatcmpl-90990388-e488-42b4-a896-c0f50bbfbe45", "object": "chat.completion.chunk", "created": 1743148290, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "5 application structure (`tinder_bot.py`). It includes:\n\n1.  The GUI layout with tabs for Control, Configuration, and Area Setup.\n2.  Interactive area/point definition using the overlay and 'S' key.\n3.  Configuration saving/loading to `bot_config.json"}, "finish_reason": null}]}
+
+RAW CHUNK: `.
+4.  Choice between Keyboard (default) and Mouse interaction.
+5.  Human-like mouse movement if Mouse interaction is chosen.
+6.  Core bot loop (`run_bot_cycle`) driven by `QTimer`.
+7.  Photo capture and multi-photo analysis using the refined
+
+FORMATTED CHUNK: {"id": "chatcmpl-a1946127-14f4-4e44-9034-2a3122da9602", "object": "chat.completion.chunk", "created": 1743148290, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "`.\n4.  Choice between Keyboard (default) and Mouse interaction.\n5.  Human-like mouse movement if Mouse interaction is chosen.\n6.  Core bot loop (`run_bot_cycle`) driven by `QTimer`.\n7.  Photo capture and multi-photo analysis using the refined"}, "finish_reason": null}]}
+
+RAW CHUNK:  GPT-4o prompt.
+8.  Basic logging to a `QTextEdit` widget and the console.
+9.  Graceful handling of window closing.
+
+Remember to install dependencies: `pip install -r requirements.txt` (you'll need to recreate `requirements.txt` for PyQt
+
+FORMATTED CHUNK: {"id": "chatcmpl-15fd601c-53f6-428a-863f-41addc685cf8", "object": "chat.completion.chunk", "created": 1743148290, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " GPT-4o prompt.\n8.  Basic logging to a `QTextEdit` widget and the console.\n9.  Graceful handling of window closing.\n\nRemember to install dependencies: `pip install -r requirements.txt` (you'll need to recreate `requirements.txt` for PyQt"}, "finish_reason": null}]}
+
+RAW CHUNK: 5, pyautogui, requests, Pillow, python-dotenv, numpy, keyboard).
+
+```requirements.txt
+PyQt5
+pyautogui
+requests
+Pillow
+python-dotenv
+numpy
+keyboard
+```
+
+FORMATTED CHUNK: {"id": "chatcmpl-3edee411-9621-4bcc-98da-386936698a56", "object": "chat.completion.chunk", "created": 1743148290, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "5, pyautogui, requests, Pillow, python-dotenv, numpy, keyboard).\n\n```requirements.txt\nPyQt5\npyautogui\nrequests\nPillow\npython-dotenv\nnumpy\nkeyboard\n```"}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-2dc2216d-4bb7-4aca-bb18-85ee0e905410", "object": "chat.completion.chunk", "created": 1743148290, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

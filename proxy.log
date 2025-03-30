@@ -1,0 +1,1494 @@
+2025-03-26 04:06:54,625 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:06:54,627 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:09:32,790 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:09:32,790 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:09:33,297 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:09:33,299 - __main__ - INFO - Started ngrok process (PID: 57392)
+2025-03-26 04:09:33,299 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:09:36,300 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:20:08,219 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:20:08,228 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:20:08,281 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:20:08,284 - __main__ - INFO - Started ngrok process (PID: 77468)
+2025-03-26 04:20:08,284 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:20:11,285 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:20:13,319 - __main__ - INFO - ngrok public URL: https://48b5-154-47-16-53.ngrok-free.app
+2025-03-26 04:20:13,322 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:25:59,971 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:25:59,971 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:26:00,026 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:26:00,029 - __main__ - INFO - Started ngrok process (PID: 40648)
+2025-03-26 04:26:00,029 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:26:03,029 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:26:05,069 - __main__ - INFO - ngrok public URL: https://d3a5-154-47-16-53.ngrok-free.app
+2025-03-26 04:26:05,072 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:27:53,212 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:27:53,214 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5
+2025-03-26 04:27:53,214 - __main__ - INFO - Setting system prompt (length: 15665)
+2025-03-26 04:27:53,215 - __main__ - ERROR - Error in Gemini streaming: 'ChatSession' object has no attribute 'send_message_streaming'
+2025-03-26 04:27:53,215 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy.py", line 476, in generate_streaming_response
+    response_stream = chat.send_message_streaming(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ChatSession' object has no attribute 'send_message_streaming'. Did you mean: 'send_message_async'?
+
+2025-03-26 04:29:46,308 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:29:46,309 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:29:46,364 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:29:46,366 - __main__ - INFO - Started ngrok process (PID: 80124)
+2025-03-26 04:29:46,366 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:29:49,367 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:29:51,407 - __main__ - INFO - ngrok public URL: https://33a2-154-47-16-53.ngrok-free.app
+2025-03-26 04:29:51,409 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:30:22,950 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:30:22,950 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:30:23,005 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:30:23,008 - __main__ - INFO - Started ngrok process (PID: 52516)
+2025-03-26 04:30:23,008 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:30:26,010 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:30:28,041 - __main__ - INFO - ngrok public URL: https://c6fb-154-47-16-53.ngrok-free.app
+2025-03-26 04:30:28,044 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:30:48,754 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:30:48,755 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-26 04:30:48,755 - __main__ - INFO - Setting system prompt (length: 15665)
+2025-03-26 04:30:48,755 - __main__ - ERROR - Error in Gemini streaming: content must not be empty
+2025-03-26 04:30:48,756 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy.py", line 477, in generate_streaming_response
+    response_stream = chat.send_message(
+                      ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 358, in send_message
+    content = content_types.to_content(content)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 194, in to_content
+    raise ValueError("content must not be empty")
+ValueError: content must not be empty
+
+2025-03-26 04:34:07,040 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:34:07,040 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:34:07,098 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:34:07,101 - __main__ - INFO - Started ngrok process (PID: 62320)
+2025-03-26 04:34:07,101 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:34:10,101 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:34:12,140 - __main__ - INFO - ngrok public URL: https://0bc8-154-47-16-53.ngrok-free.app
+2025-03-26 04:34:12,143 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:35:28,064 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:35:28,065 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-26 04:35:28,065 - __main__ - INFO - Setting system prompt (length: 15665)
+2025-03-26 04:45:09,334 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:45:09,336 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:45:09,389 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:45:09,390 - __main__ - INFO - Started ngrok process (PID: 44088)
+2025-03-26 04:45:09,390 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:45:12,392 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:45:14,414 - __main__ - INFO - ngrok public URL: https://80d7-154-47-16-53.ngrok-free.app
+2025-03-26 04:45:14,417 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:45:35,807 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:45:35,807 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-26 04:45:35,809 - __main__ - INFO - Setting system prompt (length: 15665)
+2025-03-26 04:46:22,580 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:46:22,581 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-26 04:46:22,581 - __main__ - INFO - Setting system prompt (length: 8359)
+2025-03-26 04:46:28,999 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-26 04:46:29,759 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:46:29,760 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-26 04:46:29,760 - __main__ - INFO - Setting system prompt (length: 20699)
+2025-03-26 04:46:43,589 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-26 04:46:44,863 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:46:44,863 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-26 04:46:44,863 - __main__ - INFO - Setting system prompt (length: 20699)
+2025-03-26 04:47:01,653 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:47:01,653 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5
+2025-03-26 04:47:01,653 - __main__ - INFO - Setting system prompt (length: 20699)
+2025-03-26 04:47:13,354 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-26 04:47:17,390 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:47:17,391 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5
+2025-03-26 04:47:17,391 - __main__ - INFO - Setting system prompt (length: 20699)
+2025-03-26 04:52:08,571 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-26 04:52:08,572 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-26 04:52:08,627 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-26 04:52:08,630 - __main__ - INFO - Started ngrok process (PID: 51020)
+2025-03-26 04:52:08,630 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-26 04:52:11,631 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-26 04:52:13,667 - __main__ - INFO - ngrok public URL: https://714f-154-47-16-53.ngrok-free.app
+2025-03-26 04:52:13,670 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-26 04:54:32,716 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:54:32,718 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 7
+2025-03-26 04:54:32,718 - __main__ - INFO - Setting system prompt (length: 27232)
+2025-03-26 04:55:06,219 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-26 04:55:06,220 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-26 04:55:06,220 - __main__ - INFO - Setting system prompt (length: 27232)
+2025-03-27 00:10:23,823 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 00:10:23,831 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 00:10:24,322 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 00:10:24,323 - __main__ - INFO - Started ngrok process (PID: 16720)
+2025-03-27 00:10:24,323 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 00:10:27,325 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 00:10:29,351 - __main__ - INFO - ngrok public URL: https://5838-154-47-16-40.ngrok-free.app
+2025-03-27 00:10:29,354 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 00:11:44,052 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:11:44,055 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 11
+2025-03-27 00:11:44,055 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:12:02,583 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:12:02,583 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 13
+2025-03-27 00:12:02,584 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:12:31,112 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:12:31,122 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 15
+2025-03-27 00:12:31,122 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:12:49,959 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:12:49,959 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 17
+2025-03-27 00:12:49,959 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:13:06,417 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:13:06,418 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 19
+2025-03-27 00:13:06,418 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:13:32,057 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:13:32,059 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 21
+2025-03-27 00:13:32,059 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:13:36,230 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 00:13:42,539 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:13:42,539 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 21
+2025-03-27 00:13:42,539 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:13:59,398 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 00:13:59,399 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 23
+2025-03-27 00:13:59,399 - __main__ - INFO - Setting system prompt (length: 26990)
+2025-03-27 00:39:11,354 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 01:09:11,278 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 01:39:11,613 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 02:09:11,448 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 02:39:14,321 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 03:09:14,230 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 03:39:14,461 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 04:09:14,351 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 04:39:14,374 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 05:09:14,332 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 05:39:14,313 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 06:09:14,088 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 06:39:14,196 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 07:09:13,966 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 07:39:13,950 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 08:09:14,170 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 08:39:13,967 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 09:09:14,066 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 09:39:13,977 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 10:09:13,780 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 10:39:10,556 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 11:09:10,088 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 11:39:10,146 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 12:09:10,172 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 12:39:09,987 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 13:08:53,670 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:08:53,670 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-27 13:08:53,671 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:09:10,267 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 13:11:22,106 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:11:22,106 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5
+2025-03-27 13:11:22,106 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:12:32,299 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:12:32,301 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 7
+2025-03-27 13:12:32,301 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:12:42,365 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:12:46,058 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:12:46,059 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 7
+2025-03-27 13:12:46,059 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:13:01,036 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:13:06,462 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:13:06,463 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 7
+2025-03-27 13:13:06,463 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:14:03,948 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:14:03,948 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:14:03,948 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:14:23,274 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:14:27,263 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:14:27,263 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:14:27,263 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:14:43,350 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:14:43,351 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:14:43,351 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:14:44,462 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:14:56,302 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:14:56,302 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:14:56,303 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:14:58,169 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:15:08,779 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:15:08,779 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:15:08,779 - __main__ - INFO - Setting system prompt (length: 22198)
+2025-03-27 13:15:12,248 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:15:28,218 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:16:44,948 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:16:44,948 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:16:45,037 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:16:45,040 - __main__ - INFO - Started ngrok process (PID: 14664)
+2025-03-27 13:16:45,040 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:16:48,040 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:16:50,071 - __main__ - INFO - ngrok public URL: https://de34-154-47-16-40.ngrok-free.app
+2025-03-27 13:16:50,073 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:22:29,574 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:22:29,574 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:22:29,627 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:22:29,630 - __main__ - INFO - Started ngrok process (PID: 11712)
+2025-03-27 13:22:29,630 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:22:32,631 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:22:34,665 - __main__ - INFO - ngrok public URL: https://b6a3-154-47-16-40.ngrok-free.app
+2025-03-27 13:22:34,667 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:23:06,974 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:23:06,974 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:23:07,028 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:23:07,031 - __main__ - INFO - Started ngrok process (PID: 15188)
+2025-03-27 13:23:07,031 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:23:10,032 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:23:12,059 - __main__ - INFO - ngrok public URL: https://4171-154-47-16-40.ngrok-free.app
+2025-03-27 13:23:12,061 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:23:37,253 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:23:37,254 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:23:37,254 - __main__ - INFO - Setting system prompt (length: 35566)
+2025-03-27 13:24:01,486 - waitress - WARNING - 1 thread(s) still running
+2025-03-27 13:24:08,250 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:24:08,250 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:24:08,302 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:24:08,305 - __main__ - INFO - Started ngrok process (PID: 11964)
+2025-03-27 13:24:08,305 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:24:11,306 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:24:13,339 - __main__ - INFO - ngrok public URL: https://d782-154-47-16-40.ngrok-free.app
+2025-03-27 13:24:13,340 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:24:19,797 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:24:19,797 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:24:19,797 - __main__ - INFO - Setting system prompt (length: 40358)
+2025-03-27 13:24:36,591 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:24:47,362 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:24:47,364 - __main__ - INFO - Processing chat request with model: claude-3-7-sonnet-20250219-thinking, stream: True, message count: 58
+2025-03-27 13:24:47,364 - __main__ - INFO - Setting system prompt (length: 24603)
+2025-03-27 13:24:47,364 - __main__ - ERROR - Error in Gemini completion: 'ProtoType' object has no attribute 'DESCRIPTOR'
+2025-03-27 13:24:47,377 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy.py", line 544, in run_gemini_completion
+    chat = model.start_chat(history=gemini_messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 312, in start_chat
+    return ChatSession(
+           ^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 344, in __init__
+    self._history: list[glm.Content] = content_types.to_contents(history)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 232, in to_contents
+    contents = [strict_to_content(c) for c in contents]
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 210, in strict_to_content
+    content = _convert_dict(content)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 96, in _convert_dict
+    content["parts"] = [to_part(part) for part in content["parts"]]
+                        ^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 164, in to_part
+    part = _convert_dict(part)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 102, in _convert_dict
+    return glm.Part(part)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\message.py", line 728, in __init__
+    pb_value = marshal.to_proto(pb_type, value)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in to_proto
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in <genexpr>
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 229, in to_proto
+    proto_type.DESCRIPTOR.has_options
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ProtoType' object has no attribute 'DESCRIPTOR'
+
+2025-03-27 13:32:27,816 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:32:27,818 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:32:27,875 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:32:27,878 - __main__ - INFO - Started ngrok process (PID: 35536)
+2025-03-27 13:32:27,879 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:32:30,879 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:32:32,905 - __main__ - INFO - ngrok public URL: https://2522-154-47-16-40.ngrok-free.app
+2025-03-27 13:32:32,908 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:32:37,261 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 13:32:41,117 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:32:41,119 - __main__ - INFO - Processing chat request with model: claude-3-7-sonnet-20250219-thinking, stream: True, message count: 7
+2025-03-27 13:32:41,121 - __main__ - INFO - Setting system prompt (length: 24603)
+2025-03-27 13:32:41,121 - __main__ - ERROR - Error in Gemini completion: 'ProtoType' object has no attribute 'DESCRIPTOR'
+2025-03-27 13:32:41,122 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy.py", line 544, in run_gemini_completion
+    chat = model.start_chat(history=gemini_messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 312, in start_chat
+    return ChatSession(
+           ^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 344, in __init__
+    self._history: list[glm.Content] = content_types.to_contents(history)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 232, in to_contents
+    contents = [strict_to_content(c) for c in contents]
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 210, in strict_to_content
+    content = _convert_dict(content)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 96, in _convert_dict
+    content["parts"] = [to_part(part) for part in content["parts"]]
+                        ^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 164, in to_part
+    part = _convert_dict(part)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 102, in _convert_dict
+    return glm.Part(part)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\message.py", line 728, in __init__
+    pb_value = marshal.to_proto(pb_type, value)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in to_proto
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in <genexpr>
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 229, in to_proto
+    proto_type.DESCRIPTOR.has_options
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ProtoType' object has no attribute 'DESCRIPTOR'
+
+2025-03-27 13:32:49,720 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:32:49,721 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:32:49,721 - __main__ - INFO - Setting system prompt (length: 40358)
+2025-03-27 13:33:08,580 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:34:38,070 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:34:38,070 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:34:38,121 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:34:38,124 - __main__ - INFO - Started ngrok process (PID: 31812)
+2025-03-27 13:34:38,125 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:34:41,125 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:34:43,162 - __main__ - INFO - ngrok public URL: https://069e-154-47-16-40.ngrok-free.app
+2025-03-27 13:34:43,165 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:34:53,310 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:34:53,312 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:34:53,312 - __main__ - INFO - Setting system prompt (length: 40358)
+2025-03-27 13:35:12,279 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:39:28,964 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:39:28,964 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:39:29,015 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:39:29,018 - __main__ - INFO - Started ngrok process (PID: 35020)
+2025-03-27 13:39:29,018 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:39:32,019 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:39:34,053 - __main__ - INFO - ngrok public URL: https://9528-154-47-16-40.ngrok-free.app
+2025-03-27 13:39:34,056 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:39:51,653 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:39:51,654 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:39:51,654 - __main__ - INFO - Added system instruction (length: 40358)
+2025-03-27 13:39:51,656 - __main__ - INFO - Sending streaming request to Gemini API for model gemini-2.0-pro-exp
+2025-03-27 13:39:52,078 - __main__ - ERROR - Error in Gemini streaming: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.0-pro-exp:generateContent?key=AIzaSyCPLRjIy-PoGoqc1KUM1jHqWfVu8i74pcQ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+2025-03-27 13:39:52,131 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 713, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 1015, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connection.py", line 419, in connect
+    self.sock = ssl_wrap_socket(
+                ^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\util\ssl_.py", line 458, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\util\ssl_.py", line 502, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "C:\Python312\Lib\ssl.py", line 1319, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\adapters.py", line 489, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.0-pro-exp:generateContent?key=AIzaSyCPLRjIy-PoGoqc1KUM1jHqWfVu8i74pcQ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy.py", line 552, in generate_streaming_response
+    with requests.post(
+         ^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.0-pro-exp:generateContent?key=AIzaSyCPLRjIy-PoGoqc1KUM1jHqWfVu8i74pcQ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+2025-03-27 13:40:22,861 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:40:22,862 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:40:22,862 - __main__ - INFO - Added system instruction (length: 40358)
+2025-03-27 13:40:22,862 - __main__ - INFO - Sending streaming request to Gemini API for model gemini-2.0-pro-exp
+2025-03-27 13:40:23,145 - __main__ - ERROR - Error in Gemini streaming: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.0-pro-exp:generateContent?key=AIzaSyCPLRjIy-PoGoqc1KUM1jHqWfVu8i74pcQ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+2025-03-27 13:40:23,147 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 713, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 1015, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connection.py", line 419, in connect
+    self.sock = ssl_wrap_socket(
+                ^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\util\ssl_.py", line 458, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\util\ssl_.py", line 502, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "C:\Python312\Lib\ssl.py", line 1319, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\adapters.py", line 489, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\connectionpool.py", line 802, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.0-pro-exp:generateContent?key=AIzaSyCPLRjIy-PoGoqc1KUM1jHqWfVu8i74pcQ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy.py", line 552, in generate_streaming_response
+    with requests.post(
+         ^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\requests\adapters.py", line 563, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.0-pro-exp:generateContent?key=AIzaSyCPLRjIy-PoGoqc1KUM1jHqWfVu8i74pcQ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1000)')))
+
+2025-03-27 13:41:12,503 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:41:12,503 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:41:12,558 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:41:12,561 - __main__ - INFO - Started ngrok process (PID: 36524)
+2025-03-27 13:41:12,561 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:41:15,562 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:41:17,620 - __main__ - INFO - ngrok public URL: https://bda9-154-47-16-40.ngrok-free.app
+2025-03-27 13:41:17,623 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:41:28,144 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:41:28,144 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:41:28,145 - __main__ - INFO - Added system instruction (length: 40358)
+2025-03-27 13:41:28,146 - __main__ - INFO - Sending streaming request to Gemini API for model gemini-2.0-pro-exp
+2025-03-27 13:41:29,036 - __main__ - ERROR - Gemini API error: 400 - {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"streamGenerationConfig\": Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+
+2025-03-27 13:42:15,674 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:42:15,675 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:42:15,727 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:42:15,730 - __main__ - INFO - Started ngrok process (PID: 30300)
+2025-03-27 13:42:15,730 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:42:18,731 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:42:20,788 - __main__ - INFO - ngrok public URL: https://ad5a-154-47-16-40.ngrok-free.app
+2025-03-27 13:42:20,790 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:42:26,721 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 13:42:36,788 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:42:36,789 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:42:36,789 - __main__ - INFO - Added system instruction (length: 40358)
+2025-03-27 13:42:36,789 - __main__ - INFO - Sending streaming request to Gemini API for model gemini-2.0-pro-exp
+2025-03-27 13:42:37,650 - __main__ - ERROR - Gemini API error: 400 - {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"stream\": Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type":
+2025-03-27 13:47:09,774 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:47:09,775 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:47:09,833 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:47:09,834 - __main__ - INFO - Started ngrok process (PID: 34072)
+2025-03-27 13:47:09,836 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:47:12,837 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:47:14,865 - __main__ - INFO - ngrok public URL: https://9730-154-47-16-40.ngrok-free.app
+2025-03-27 13:47:14,867 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:47:27,056 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:47:27,057 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:47:27,057 - __main__ - INFO - Added system instruction (length: 40358)
+2025-03-27 13:47:27,058 - __main__ - INFO - Sending request to Gemini API for model gemini-2.0-pro-exp
+2025-03-27 13:47:28,237 - __main__ - ERROR - Gemini API error: 503 - {
+  "error": {
+    "code": 503,
+    "message": "The model is overloaded. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+2025-03-27 13:47:36,025 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:47:36,027 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:47:36,027 - __main__ - INFO - Added system instruction (length: 40358)
+2025-03-27 13:47:36,027 - __main__ - INFO - Sending request to Gemini API for model gemini-2.0-pro-exp
+2025-03-27 13:48:04,599 - __main__ - INFO - Received response from Gemini API
+2025-03-27 13:48:04,610 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 13:58:31,884 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 13:58:31,884 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 13:58:31,942 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 13:58:31,946 - __main__ - INFO - Started ngrok process (PID: 2764)
+2025-03-27 13:58:31,946 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 13:58:34,946 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 13:58:36,964 - __main__ - INFO - ngrok public URL: https://dd06-154-47-16-40.ngrok-free.app
+2025-03-27 13:58:36,967 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 13:58:47,320 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 13:58:47,320 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 13:58:47,321 - __main__ - INFO - Setting system prompt (length: 40358)
+2025-03-27 13:59:05,829 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:00:19,888 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 14:00:19,890 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 14:00:19,940 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 14:00:19,944 - __main__ - INFO - Started ngrok process (PID: 35936)
+2025-03-27 14:00:19,944 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 14:00:22,945 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 14:00:24,978 - __main__ - INFO - ngrok public URL: https://b0b4-154-47-16-40.ngrok-free.app
+2025-03-27 14:00:24,981 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 14:00:38,679 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 14:01:02,006 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:01:02,007 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 14:01:02,008 - __main__ - INFO - Setting system prompt (length: 40289)
+2025-03-27 14:01:19,405 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:01:19,452 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:01:19,453 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-27 14:01:19,453 - __main__ - INFO - Setting system prompt (length: 40289)
+2025-03-27 14:01:35,882 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:02:26,304 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:02:26,305 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 38
+2025-03-27 14:02:26,305 - __main__ - INFO - Setting system prompt (length: 40289)
+2025-03-27 14:04:12,725 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:04:12,726 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 6
+2025-03-27 14:04:12,726 - __main__ - INFO - Setting system prompt (length: 40289)
+2025-03-27 14:04:33,308 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:04:39,223 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:04:39,226 - __main__ - INFO - Processing chat request with model: claude-3-7-sonnet-20250219-thinking, stream: True, message count: 37
+2025-03-27 14:04:39,226 - __main__ - INFO - Setting system prompt (length: 24534)
+2025-03-27 14:04:39,226 - __main__ - ERROR - Error in Gemini completion: 'ProtoType' object has no attribute 'DESCRIPTOR'
+2025-03-27 14:04:39,227 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy.py", line 637, in run_gemini_completion
+    chat = model.start_chat(history=gemini_messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 312, in start_chat
+    return ChatSession(
+           ^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 344, in __init__
+    self._history: list[glm.Content] = content_types.to_contents(history)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 232, in to_contents
+    contents = [strict_to_content(c) for c in contents]
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 210, in strict_to_content
+    content = _convert_dict(content)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 96, in _convert_dict
+    content["parts"] = [to_part(part) for part in content["parts"]]
+                        ^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 164, in to_part
+    part = _convert_dict(part)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 102, in _convert_dict
+    return glm.Part(part)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\message.py", line 728, in __init__
+    pb_value = marshal.to_proto(pb_type, value)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in to_proto
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in <genexpr>
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 229, in to_proto
+    proto_type.DESCRIPTOR.has_options
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ProtoType' object has no attribute 'DESCRIPTOR'
+
+2025-03-27 14:04:55,600 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:04:55,600 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 4
+2025-03-27 14:04:55,600 - __main__ - INFO - Setting system prompt (length: 40289)
+2025-03-27 14:07:20,651 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:07:20,651 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 6
+2025-03-27 14:07:20,651 - __main__ - INFO - Setting system prompt (length: 40289)
+2025-03-27 14:13:05,538 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 14:13:05,540 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 14:13:05,541 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 14:13:05,598 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 14:13:05,600 - __main__ - INFO - Started ngrok process (PID: 31420)
+2025-03-27 14:13:05,601 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 14:13:08,601 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 14:13:10,634 - __main__ - INFO - ngrok public URL: https://ccd7-154-47-16-40.ngrok-free.app
+2025-03-27 14:13:10,635 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 14:13:34,960 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:13:34,962 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9
+2025-03-27 14:13:34,962 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:13:54,027 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:14:09,518 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:14:09,519 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3
+2025-03-27 14:14:09,519 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:14:52,510 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:15:59,384 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 14:15:59,385 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 14:15:59,385 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 14:15:59,437 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 14:15:59,440 - __main__ - INFO - Started ngrok process (PID: 36952)
+2025-03-27 14:15:59,440 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 14:16:02,440 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 14:16:04,474 - __main__ - INFO - ngrok public URL: https://7ee8-154-47-16-40.ngrok-free.app
+2025-03-27 14:16:04,476 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 14:16:26,899 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 14:17:48,974 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:17:48,976 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 4
+2025-03-27 14:17:48,976 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:19:30,460 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:19:30,461 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 4
+2025-03-27 14:19:30,461 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:21:18,142 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:21:18,143 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 6
+2025-03-27 14:21:18,143 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:22:32,873 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:22:32,874 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:22:32,874 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:22:49,494 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:22:49,494 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:22:49,494 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:22:51,316 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:23:04,849 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:23:04,850 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:23:04,850 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:23:15,887 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:23:19,976 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:23:19,976 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:23:19,976 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:23:25,247 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:23:42,237 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:23:42,238 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:23:42,238 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:23:56,272 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:23:56,560 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:23:56,562 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:23:56,562 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:24:10,829 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:24:19,954 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:24:19,955 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:24:19,955 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:24:35,879 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:24:52,435 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 14:24:52,798 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:25:24,557 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:25:24,557 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:25:24,558 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:25:54,483 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:26:01,229 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:26:01,230 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 8
+2025-03-27 14:26:01,230 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:26:39,550 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 14:41:11,115 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 14:41:11,117 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 14:41:11,117 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 14:41:11,118 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 14:41:11,118 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 14:41:11,179 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 14:41:11,180 - __main__ - INFO - Started ngrok process (PID: 40788)
+2025-03-27 14:41:11,182 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 14:41:14,182 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 14:41:16,196 - __main__ - INFO - ngrok public URL: https://36b9-154-47-16-40.ngrok-free.app
+2025-03-27 14:41:16,197 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 14:41:34,144 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 14:41:34,145 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5, conversation_id: 295f8e82-bce8-40ef-9f17-8fb94901a3ae
+2025-03-27 14:41:34,145 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 14:41:50,239 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 19:43:55,128 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 19:43:55,131 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 19:43:55,131 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 19:43:55,131 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 19:43:55,133 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 19:43:55,625 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 19:43:55,628 - __main__ - INFO - Started ngrok process (PID: 24516)
+2025-03-27 19:43:55,628 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 19:43:58,628 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 19:44:00,663 - __main__ - INFO - ngrok public URL: https://dcb3-154-47-16-53.ngrok-free.app
+2025-03-27 19:44:00,665 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 19:44:08,717 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 19:53:02,771 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 19:53:02,773 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 19:53:02,773 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 19:53:02,773 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 19:53:02,774 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 19:53:02,838 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 19:53:02,841 - __main__ - INFO - Started ngrok process (PID: 15696)
+2025-03-27 19:53:02,841 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 19:53:05,842 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 19:53:07,901 - __main__ - INFO - ngrok public URL: https://a827-154-47-16-53.ngrok-free.app
+2025-03-27 19:53:07,903 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 19:54:25,131 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 19:54:25,132 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 4, conversation_id: f88a1fd7-2b29-4879-86a8-00033ea3a441
+2025-03-27 19:54:25,132 - __main__ - INFO - Setting system prompt (length: 29688)
+2025-03-27 19:54:45,831 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 19:54:45,832 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 20, conversation_id: 4b522de9-f4fa-4b2b-9060-3ac51b048015
+2025-03-27 19:54:45,832 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 19:56:38,160 - __main__ - INFO - Response status: 405 METHOD NOT ALLOWED
+2025-03-27 19:56:43,484 - __main__ - INFO - Response status: 405 METHOD NOT ALLOWED
+2025-03-27 19:56:48,490 - __main__ - INFO - Response status: 405 METHOD NOT ALLOWED
+2025-03-27 19:56:53,478 - __main__ - INFO - Response status: 405 METHOD NOT ALLOWED
+2025-03-27 19:58:22,091 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:10:19,510 - __main__ - INFO - Loaded Gemini system prompt from gemini_system_prompt_generated.txt
+2025-03-27 20:10:19,512 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 20:10:19,512 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 20:10:19,512 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 20:10:19,512 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 20:10:19,581 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 20:10:19,584 - __main__ - INFO - Started ngrok process (PID: 52360)
+2025-03-27 20:10:19,584 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 20:10:22,586 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 20:10:24,616 - __main__ - INFO - ngrok public URL: https://ab59-154-47-16-53.ngrok-free.app
+2025-03-27 20:10:24,618 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 20:12:21,365 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:12:23,368 - __main__ - INFO - Loaded Gemini system prompt from gemini_system_prompt_generated.txt
+2025-03-27 20:12:23,369 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 20:12:23,369 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 20:12:23,369 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 20:12:23,371 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 20:12:23,428 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 20:12:23,430 - __main__ - INFO - Started ngrok process (PID: 35108)
+2025-03-27 20:12:23,430 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 20:12:26,432 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 20:12:28,480 - __main__ - INFO - ngrok public URL: https://34dc-154-47-16-53.ngrok-free.app
+2025-03-27 20:12:28,483 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 20:14:04,179 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:14:06,407 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 20:14:06,409 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 20:14:06,409 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 20:14:06,409 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 20:14:06,410 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 20:14:06,464 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 20:14:06,467 - __main__ - INFO - Started ngrok process (PID: 14100)
+2025-03-27 20:14:06,467 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 20:14:09,467 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 20:14:11,502 - __main__ - INFO - ngrok public URL: https://5e36-154-47-16-53.ngrok-free.app
+2025-03-27 20:14:11,506 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 20:14:44,737 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:14:46,455 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 20:14:46,456 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 20:14:46,456 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 20:14:46,458 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 20:14:46,458 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 20:14:46,519 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 20:14:46,524 - __main__ - INFO - Started ngrok process (PID: 42892)
+2025-03-27 20:14:46,524 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 20:14:49,525 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 20:14:51,583 - __main__ - INFO - ngrok public URL: https://5d80-154-47-16-53.ngrok-free.app
+2025-03-27 20:14:51,585 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 20:15:18,762 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:15:24,050 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 20:15:24,053 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 20:15:24,053 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 20:15:24,053 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 20:15:24,054 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 20:15:24,110 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 20:15:24,113 - __main__ - INFO - Started ngrok process (PID: 29532)
+2025-03-27 20:15:24,113 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 20:15:27,114 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 20:15:29,131 - __main__ - INFO - ngrok public URL: https://f6c8-154-47-16-53.ngrok-free.app
+2025-03-27 20:15:29,133 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 20:16:05,391 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:16:21,595 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 20:16:21,598 - __main__ - INFO - Starting Gemini proxy server on 0.0.0.0:5000
+2025-03-27 20:16:21,598 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 20:16:21,598 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 20:16:21,598 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 20:16:21,657 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 20:16:21,658 - __main__ - INFO - Started ngrok process (PID: 45840)
+2025-03-27 20:16:21,660 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 20:16:24,660 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 20:16:26,674 - __main__ - INFO - ngrok public URL: https://38c4-154-47-16-53.ngrok-free.app
+2025-03-27 20:16:26,677 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 20:16:36,928 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:16:36,930 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5, conversation_id: dabc4ab7-fb77-4006-9870-09224666c738
+2025-03-27 20:16:36,930 - __main__ - INFO - Setting system prompt (length: 29688)
+2025-03-27 20:16:43,540 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:16:43,541 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5, conversation_id: da6fcb52-68e1-4fc5-9a4c-c36ce142a047
+2025-03-27 20:16:43,541 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:16:47,555 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:16:49,084 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 20:16:55,365 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 20:16:55,368 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 20:16:55,368 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 20:16:55,368 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 20:16:55,368 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 20:16:55,424 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 20:16:55,427 - __main__ - INFO - Started ngrok process (PID: 49108)
+2025-03-27 20:16:55,427 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 20:16:58,428 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 20:17:00,463 - __main__ - INFO - ngrok public URL: https://f92b-154-47-16-53.ngrok-free.app
+2025-03-27 20:17:00,465 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 20:17:14,159 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:17:14,161 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3, conversation_id: 73bed1cf-8bc0-4590-8b3d-9c501dcde591
+2025-03-27 20:17:14,161 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:17:32,506 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:17:32,507 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5, conversation_id: fe433497-4ec9-4678-81bd-884d5058acab
+2025-03-27 20:17:32,507 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:17:45,792 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 20:18:00,750 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:18:00,750 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3, conversation_id: 2ceb51b5-9b0e-4c7c-845c-e6b617422a77
+2025-03-27 20:18:00,750 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:18:24,759 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:18:24,759 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5, conversation_id: 130740ca-bf9b-4c37-9a13-787936355be0
+2025-03-27 20:18:24,759 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:18:39,376 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:18:39,377 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 7, conversation_id: 0b016b8a-c9c1-4a2c-8dcc-d31f5d736323
+2025-03-27 20:18:39,377 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:18:58,579 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:18:58,580 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9, conversation_id: 97f3bde4-379c-4dc5-b82a-2fb9809e2c87
+2025-03-27 20:18:58,580 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:19:19,817 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:19:19,818 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 11, conversation_id: c06b615d-1055-4e1d-b7dd-321d87cdbc18
+2025-03-27 20:19:19,818 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:20:10,812 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:20:10,813 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 13, conversation_id: 9692adc3-2429-4454-a61f-d23e65f127d9
+2025-03-27 20:20:10,813 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:20:25,606 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:20:25,606 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 15, conversation_id: 5a04c312-d422-486f-98ba-6728deb68bef
+2025-03-27 20:20:25,606 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:20:35,970 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:20:35,971 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 17, conversation_id: bdddfb8d-e00c-4f6c-8f4b-29f94abaa462
+2025-03-27 20:20:35,971 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:21:53,234 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:21:53,235 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 26, conversation_id: 85e597f5-07c1-4c49-a985-0e5c49af8ba0
+2025-03-27 20:21:53,235 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:22:09,755 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:22:09,755 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 28, conversation_id: 268bda70-04db-4440-8f0e-0aefded5f8b0
+2025-03-27 20:22:09,755 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:22:29,652 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:22:29,653 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 30, conversation_id: 9cdf1d5e-2f88-4ebc-9de9-18a5c0f74d60
+2025-03-27 20:22:29,654 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:23:08,288 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:23:08,289 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 32, conversation_id: 547edf3c-2413-475b-9624-cadcf84c885d
+2025-03-27 20:23:08,289 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:23:22,772 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:23:22,773 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 34, conversation_id: 0b1aef96-1d8f-4cac-b076-e7123270fdf0
+2025-03-27 20:23:22,773 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:24:11,803 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:24:11,804 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 34, conversation_id: 7ba2ec2f-417c-4045-80f8-0b5adb56134f
+2025-03-27 20:24:11,804 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 20:24:50,613 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 20:24:50,614 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 36, conversation_id: e0ac4360-c325-4c7a-8e85-df3c372f9527
+2025-03-27 20:24:50,614 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:11:46,514 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:11:46,517 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:11:46,517 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:11:46,517 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:11:46,517 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:11:46,582 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:11:46,584 - __main__ - INFO - Started ngrok process (PID: 36740)
+2025-03-27 21:11:46,584 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:11:49,585 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:11:51,619 - __main__ - INFO - ngrok public URL: https://b707-154-47-16-53.ngrok-free.app
+2025-03-27 21:11:51,622 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:12:04,275 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 21:12:17,253 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:12:17,254 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 42, conversation_id: f6bd540d-b1e3-42b8-b98b-9f8a85ea3a04
+2025-03-27 21:12:17,254 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:12:29,907 - __main__ - ERROR - Error in Gemini streaming: name 'accumulated_text' is not defined
+2025-03-27 21:12:29,910 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2.py", line 597, in generate_streaming_response
+    openai_chunk = gemini_streaming_chunk_to_openai_chunk(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2.py", line 479, in gemini_streaming_chunk_to_openai_chunk
+    elif "{antml:function_calls}" in accumulated_text:
+                                     ^^^^^^^^^^^^^^^^
+NameError: name 'accumulated_text' is not defined. Did you mean: 'accumulated_chunk_text'?
+
+2025-03-27 21:13:12,879 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:13:28,491 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:13:28,493 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:13:28,495 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:13:28,495 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:13:28,495 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:13:28,553 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:13:28,556 - __main__ - INFO - Started ngrok process (PID: 42920)
+2025-03-27 21:13:28,556 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:13:31,557 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:13:33,584 - __main__ - INFO - ngrok public URL: https://35a7-154-47-16-53.ngrok-free.app
+2025-03-27 21:13:33,586 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:13:50,898 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:13:50,900 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 49, conversation_id: 597e8db8-3206-4b1c-908c-e772031c2e37
+2025-03-27 21:13:50,900 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:17:55,282 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:20:07,251 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:20:07,253 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:20:07,253 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:20:07,253 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:20:07,254 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:20:07,313 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:20:07,316 - __main__ - INFO - Started ngrok process (PID: 11568)
+2025-03-27 21:20:07,316 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:20:10,318 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:20:12,349 - __main__ - INFO - ngrok public URL: https://8e57-154-47-16-53.ngrok-free.app
+2025-03-27 21:20:12,353 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:20:23,875 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 21:20:40,945 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:20:40,947 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: False, message count: 2, conversation_id: 31d813dd-7733-4851-959e-7c0d180f0227
+2025-03-27 21:20:40,947 - __main__ - INFO - Setting system prompt (length: 23794)
+2025-03-27 21:20:58,874 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:20:58,875 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 7, conversation_id: 1a7d3881-7aea-4113-83db-f0cb52e8d2c7
+2025-03-27 21:20:58,876 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:21:09,312 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:21:09,313 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 9, conversation_id: e598d35e-3a1b-4fd3-bc6c-a69e1ecb9d9a
+2025-03-27 21:21:09,313 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:21:24,010 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:21:24,011 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 11, conversation_id: 3f5fb174-4f49-46ef-97e9-096d0b8a120e
+2025-03-27 21:21:24,011 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:21:37,830 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:21:37,830 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 13, conversation_id: f0116f13-48d8-463f-876f-10b594a7fd06
+2025-03-27 21:21:37,830 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:21:53,248 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:21:53,249 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 15, conversation_id: 3f90d418-fb8a-450e-92cc-5d21b59dbbbb
+2025-03-27 21:21:53,249 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:22:14,392 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:22:14,392 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 17, conversation_id: 1e1e7d43-ed00-48b8-9ec7-b32c1716c3d7
+2025-03-27 21:22:14,392 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:22:30,109 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:22:30,110 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 19, conversation_id: 31f5933b-671b-40c4-8a2d-47de4a78c4be
+2025-03-27 21:22:30,110 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:23:08,341 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:23:08,342 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 21, conversation_id: 8a7498ac-9a5a-48b9-b99d-dd88b6fa8395
+2025-03-27 21:23:08,343 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:23:51,269 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:23:51,271 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 23, conversation_id: b7ff618c-41f7-4fc5-8a39-a9d301a9e9f8
+2025-03-27 21:23:51,271 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:24:23,353 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:24:23,354 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 25, conversation_id: 6636a7ea-704c-48d5-9c86-3e0cc41a612f
+2025-03-27 21:24:23,354 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:24:56,342 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:24:56,343 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 27, conversation_id: 9dda4317-9186-42a3-9407-032ba369af2a
+2025-03-27 21:24:56,343 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:25:07,001 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:25:07,002 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 29, conversation_id: 223b4c1e-8aed-4b17-baf3-f756572211da
+2025-03-27 21:25:07,002 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:25:45,782 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:25:45,784 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 31, conversation_id: 029d27b6-c105-4a53-8177-5b308a56fdef
+2025-03-27 21:25:45,784 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:26:04,453 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:26:04,454 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 33, conversation_id: 16dfab0e-e248-47bf-9c1b-2221091e70c0
+2025-03-27 21:26:04,454 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:26:42,629 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:26:42,630 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 35, conversation_id: 844bc6a7-d18e-41a4-bfb1-55376d34cc9f
+2025-03-27 21:26:42,630 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 21:26:55,976 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:26:55,977 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 37, conversation_id: 701a102e-047e-46bb-8434-44926bfd87e8
+2025-03-27 21:26:55,977 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 21:27:10,233 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:27:10,233 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 39, conversation_id: c8f7b0dd-157d-4d43-809a-1ec1a77c8072
+2025-03-27 21:27:10,233 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 21:27:34,863 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:31:05,083 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:31:05,086 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:31:05,086 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:31:05,086 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:31:05,086 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:31:05,140 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:31:05,143 - __main__ - INFO - Started ngrok process (PID: 39160)
+2025-03-27 21:31:05,145 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:31:08,145 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:31:10,180 - __main__ - INFO - ngrok public URL: https://3ddb-154-47-16-53.ngrok-free.app
+2025-03-27 21:31:10,183 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:31:45,675 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:31:45,678 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 77, conversation_id: 926712e7-ae1a-410e-bfb1-1f0a989f88d6
+2025-03-27 21:31:45,678 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 21:31:55,954 - __main__ - INFO - Handling tool usage logic for: read_file with parameters: ['target_file']
+2025-03-27 21:31:56,760 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:31:57,956 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:31:59,333 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:32:05,074 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 21:35:11,997 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:35:16,620 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:35:16,623 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:35:16,623 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:35:16,623 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:35:16,623 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:35:16,684 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:35:16,687 - __main__ - INFO - Started ngrok process (PID: 48548)
+2025-03-27 21:35:16,687 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:35:19,688 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:35:21,732 - __main__ - INFO - ngrok public URL: https://432f-154-47-16-53.ngrok-free.app
+2025-03-27 21:35:21,737 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:35:40,452 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:35:40,454 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 81, conversation_id: 7ced3676-3b11-41ae-a996-5c276ff581f2
+2025-03-27 21:35:40,455 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 21:36:26,113 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:36:26,117 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 81, conversation_id: dd87187d-4443-4aa3-9b13-05c0052fc068
+2025-03-27 21:36:26,117 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 21:36:35,588 - __main__ - INFO - Handling tool usage logic for: read_file with parameters: ['target_file']
+2025-03-27 21:36:35,745 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:36:39,472 - __main__ - INFO - Handling tool usage logic for: codebase_search with parameters: ['query', 'explanation']
+2025-03-27 21:36:39,472 - __main__ - INFO - Resetting consecutive file edit counter as tool 'codebase_search' is not 'edit_file'.
+2025-03-27 21:36:40,080 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:36:41,184 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:37:12,945 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:37:12,948 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 83, conversation_id: 3b6d09c6-838b-4a9c-8323-c61b47794839
+2025-03-27 21:37:12,948 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 21:37:22,911 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:37:23,669 - __main__ - INFO - Handling tool usage logic for: edit_file with parameters: ['target_file', 'instructions', 'code_edit']
+2025-03-27 21:37:23,669 - __main__ - WARNING - Exceeded maximum consecutive edits (3) for src/utils/test_tooling.py
+2025-03-27 21:43:03,803 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:43:09,532 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:43:09,534 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:43:09,534 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:43:09,535 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:43:09,535 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:43:09,595 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:43:09,598 - __main__ - INFO - Started ngrok process (PID: 45536)
+2025-03-27 21:43:09,598 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:43:12,599 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:43:14,638 - __main__ - INFO - ngrok public URL: https://0371-154-47-16-53.ngrok-free.app
+2025-03-27 21:43:14,641 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:44:06,318 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:44:06,319 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 30, conversation_id: a224925c-1b87-4461-b671-f563b97c6d87
+2025-03-27 21:44:06,319 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:44:39,238 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:44:39,240 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 32, conversation_id: 5af4796f-195b-4270-b570-bf76c2c310fc
+2025-03-27 21:44:39,240 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:44:45,576 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 21:44:52,177 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:44:52,178 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 30, conversation_id: 93807048-9a4f-4c6e-9a12-a821df5f13dc
+2025-03-27 21:44:52,179 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:45:52,202 - __main__ - ERROR - Error in Gemini streaming: 504 Deadline Exceeded
+2025-03-27 21:45:52,220 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\api_core\grpc_helpers.py", line 116, in __next__
+    return next(self._wrapped)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\grpc\_channel.py", line 543, in __next__
+    return self._next()
+           ^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\grpc\_channel.py", line 969, in _next
+    raise self
+grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+	status = StatusCode.DEADLINE_EXCEEDED
+	details = "Deadline Exceeded"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Deadline Exceeded", grpc_status:4, created_time:"2025-03-28T01:45:52.1921731+00:00"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 455, in generate_streaming_response
+    for chunk in response_stream:
+                 ^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\generation_types.py", line 419, in __iter__
+    raise self._error
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\generation_types.py", line 428, in __iter__
+    item = next(self._iterator)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\api_core\grpc_helpers.py", line 119, in __next__
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.DeadlineExceeded: 504 Deadline Exceeded
+
+2025-03-27 21:46:16,901 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 21:46:25,872 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:54:00,197 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:54:00,199 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:54:00,199 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:54:00,199 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:54:00,199 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 21:54:00,199 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:54:00,264 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:54:00,267 - __main__ - INFO - Started ngrok process (PID: 48276)
+2025-03-27 21:54:00,267 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:54:03,268 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:54:05,331 - __main__ - INFO - ngrok public URL: https://d74f-154-47-16-53.ngrok-free.app
+2025-03-27 21:54:05,334 - __main__ - INFO - Waitress threads: 4
+2025-03-27 21:54:05,334 - __main__ - INFO - Waitress connection timeout: 150s
+2025-03-27 21:54:05,334 - __main__ - INFO - Waitress channel timeout: 120s
+2025-03-27 21:54:08,816 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:54:08,818 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:54:08,818 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:54:08,818 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:54:08,818 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 21:54:08,819 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:54:08,876 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:54:08,881 - __main__ - INFO - Started ngrok process (PID: 50892)
+2025-03-27 21:54:08,881 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:54:11,882 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:54:11,885 - __main__ - INFO - ngrok public URL: https://d74f-154-47-16-53.ngrok-free.app
+2025-03-27 21:54:11,887 - __main__ - INFO - Waitress threads: 4
+2025-03-27 21:54:11,887 - __main__ - INFO - Waitress connection timeout: 150s
+2025-03-27 21:54:11,887 - __main__ - INFO - Waitress channel timeout: 120s
+2025-03-27 21:54:45,535 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:54:45,537 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:54:45,537 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:54:45,538 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:54:45,538 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 21:54:45,538 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:54:45,596 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:54:45,600 - __main__ - INFO - Started ngrok process (PID: 38932)
+2025-03-27 21:54:45,600 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:54:48,601 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:54:48,604 - __main__ - INFO - ngrok public URL: https://d74f-154-47-16-53.ngrok-free.app
+2025-03-27 21:54:48,604 - __main__ - INFO - Waitress threads: 4
+2025-03-27 21:54:48,606 - __main__ - INFO - Waitress timeout: 120s
+2025-03-27 21:55:30,263 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:55:30,266 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:55:30,266 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:55:30,266 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:55:30,266 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 21:55:30,266 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:55:30,328 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:55:30,331 - __main__ - INFO - Started ngrok process (PID: 19848)
+2025-03-27 21:55:30,331 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:55:33,333 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:55:33,336 - __main__ - INFO - ngrok public URL: https://d74f-154-47-16-53.ngrok-free.app
+2025-03-27 21:55:33,337 - __main__ - INFO - Waitress threads: 4
+2025-03-27 21:55:33,337 - __main__ - INFO - Waitress channel_timeout: 120s
+2025-03-27 21:55:33,339 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:55:39,797 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 21:56:16,726 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:56:16,728 - __main__ - INFO - Processing chat request with model: claude-3-7-sonnet-20250219, stream: True, message count: 88, conversation_id: 93ea9e88-aa30-4c1e-8136-495da2036fdb
+2025-03-27 21:56:16,728 - __main__ - ERROR - Error creating Gemini model: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+2025-03-27 21:56:16,730 - __main__ - ERROR - Error in Gemini completion: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+2025-03-27 21:56:16,730 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 425, in run_gemini_completion
+    model = genai.GenerativeModel(model_name=gemini_model_name, client_options=client_options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 431, in run_gemini_completion
+    model = genai.GenerativeModel(model_name=MODEL_MAPPINGS["default"], client_options=client_options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+
+2025-03-27 21:56:34,743 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:56:34,745 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 92, conversation_id: 4caf8fa6-bfb1-497a-b3aa-6479d1f7c33b
+2025-03-27 21:56:34,745 - __main__ - ERROR - Error creating Gemini model: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+2025-03-27 21:56:34,745 - __main__ - ERROR - Error in Gemini completion: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+2025-03-27 21:56:34,746 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 425, in run_gemini_completion
+    model = genai.GenerativeModel(model_name=gemini_model_name, client_options=client_options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 431, in run_gemini_completion
+    model = genai.GenerativeModel(model_name=MODEL_MAPPINGS["default"], client_options=client_options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+
+2025-03-27 21:56:42,935 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:56:45,814 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:56:45,816 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:56:45,816 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:56:45,816 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:56:45,816 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 21:56:45,817 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:56:45,875 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:56:45,879 - __main__ - INFO - Started ngrok process (PID: 45180)
+2025-03-27 21:56:45,879 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:56:48,880 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:56:50,896 - __main__ - INFO - ngrok public URL: https://1e1a-154-47-16-53.ngrok-free.app
+2025-03-27 21:56:50,898 - __main__ - INFO - Waitress threads: 4
+2025-03-27 21:56:50,898 - __main__ - INFO - Waitress channel_timeout: 120s
+2025-03-27 21:56:50,899 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:57:01,683 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:57:01,686 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 92, conversation_id: 9e2c9bd3-298e-4ed0-bf08-3d7d83dd0905
+2025-03-27 21:57:01,686 - __main__ - ERROR - Error creating Gemini model: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+2025-03-27 21:57:01,686 - __main__ - ERROR - Error in Gemini completion: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+2025-03-27 21:57:01,687 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 425, in run_gemini_completion
+    model = genai.GenerativeModel(model_name=gemini_model_name, client_options=client_options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 431, in run_gemini_completion
+    model = genai.GenerativeModel(model_name=MODEL_MAPPINGS["default"], client_options=client_options)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+
+2025-03-27 21:57:43,015 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:57:44,814 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:57:44,817 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:57:44,817 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:57:44,817 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:57:44,817 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 21:57:44,817 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:57:44,881 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:57:44,883 - __main__ - INFO - Started ngrok process (PID: 45712)
+2025-03-27 21:57:44,883 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:57:47,885 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:57:49,910 - __main__ - INFO - ngrok public URL: https://96fd-154-47-16-53.ngrok-free.app
+2025-03-27 21:57:49,912 - __main__ - INFO - Waitress threads: 4
+2025-03-27 21:57:49,912 - __main__ - INFO - Waitress channel_timeout: 120s
+2025-03-27 21:57:49,914 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:58:19,864 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:58:19,866 - __main__ - INFO - Processing chat request with model: claude-3-7-sonnet-20250219, stream: True, message count: 93, conversation_id: 6322029b-b108-41a9-a512-8056956a998f
+2025-03-27 21:58:19,866 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 21:58:19,866 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 21:58:19,866 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 21:58:19,866 - __main__ - INFO - Setting system prompt (length: 23764)
+2025-03-27 21:58:19,866 - __main__ - ERROR - Error in Gemini completion: 'ProtoType' object has no attribute 'DESCRIPTOR'
+2025-03-27 21:58:19,869 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 481, in run_gemini_completion
+    chat = model.start_chat(history=gemini_messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 312, in start_chat
+    return ChatSession(
+           ^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 344, in __init__
+    self._history: list[glm.Content] = content_types.to_contents(history)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 232, in to_contents
+    contents = [strict_to_content(c) for c in contents]
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 210, in strict_to_content
+    content = _convert_dict(content)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 96, in _convert_dict
+    content["parts"] = [to_part(part) for part in content["parts"]]
+                        ^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 164, in to_part
+    part = _convert_dict(part)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 102, in _convert_dict
+    return glm.Part(part)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\message.py", line 728, in __init__
+    pb_value = marshal.to_proto(pb_type, value)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in to_proto
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in <genexpr>
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 229, in to_proto
+    proto_type.DESCRIPTOR.has_options
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ProtoType' object has no attribute 'DESCRIPTOR'
+
+2025-03-27 21:59:00,236 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 21:59:02,353 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 21:59:02,356 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 21:59:02,356 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 21:59:02,356 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 21:59:02,356 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 21:59:02,357 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 21:59:02,432 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 21:59:02,433 - __main__ - INFO - Started ngrok process (PID: 56208)
+2025-03-27 21:59:02,435 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 21:59:05,435 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 21:59:07,449 - __main__ - INFO - ngrok public URL: https://cd6d-154-47-16-53.ngrok-free.app
+2025-03-27 21:59:07,452 - __main__ - INFO - Waitress threads: 4
+2025-03-27 21:59:07,452 - __main__ - INFO - Waitress channel_timeout: 120s
+2025-03-27 21:59:07,452 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 21:59:23,703 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 21:59:23,706 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 97, conversation_id: c38e91a9-d46b-4026-ae42-fe42e69c2d53
+2025-03-27 21:59:23,706 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 21:59:23,706 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 21:59:23,706 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 21:59:23,706 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 21:59:23,706 - __main__ - WARNING - System prompt is very large (30287 chars), trimming to 25000 chars
+2025-03-27 22:00:32,078 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:00:32,080 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 97, conversation_id: c554063a-f6de-4a91-9a8c-83e81ee54136
+2025-03-27 22:00:32,080 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:00:32,080 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:00:32,080 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:00:32,080 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 22:00:32,080 - __main__ - WARNING - System prompt is very large (28256 chars), trimming to 25000 chars
+2025-03-27 22:01:32,096 - __main__ - ERROR - Error in Gemini streaming: 504 Deadline Exceeded
+2025-03-27 22:01:32,097 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\api_core\grpc_helpers.py", line 116, in __next__
+    return next(self._wrapped)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\grpc\_channel.py", line 543, in __next__
+    return self._next()
+           ^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\grpc\_channel.py", line 969, in _next
+    raise self
+grpc._channel._MultiThreadedRendezvous: <_MultiThreadedRendezvous of RPC that terminated with:
+	status = StatusCode.DEADLINE_EXCEEDED
+	details = "Deadline Exceeded"
+	debug_error_string = "UNKNOWN:Error received from peer  {grpc_message:"Deadline Exceeded", grpc_status:4, created_time:"2025-03-28T02:01:32.0855916+00:00"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 498, in generate_streaming_response
+    for chunk in response_stream:
+                 ^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\generation_types.py", line 419, in __iter__
+    raise self._error
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\generation_types.py", line 428, in __iter__
+    item = next(self._iterator)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\api_core\grpc_helpers.py", line 119, in __next__
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.DeadlineExceeded: 504 Deadline Exceeded
+
+2025-03-27 22:02:04,138 - __main__ - INFO - OPTIONS request: /models
+2025-03-27 22:02:37,358 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 22:04:57,821 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 22:04:57,824 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 22:04:57,824 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 22:04:57,824 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 22:04:57,824 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 22:04:57,824 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 22:04:57,887 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 22:04:57,891 - __main__ - INFO - Started ngrok process (PID: 28160)
+2025-03-27 22:04:57,891 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 22:05:00,892 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 22:05:02,915 - __main__ - INFO - ngrok public URL: https://0d58-154-47-16-53.ngrok-free.app
+2025-03-27 22:05:02,916 - __main__ - INFO - Waitress threads: 4
+2025-03-27 22:05:02,916 - __main__ - INFO - Waitress channel_timeout: 120s
+2025-03-27 22:05:02,918 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 22:06:38,672 - __main__ - INFO - Shutdown signal received, shutting down server...
+2025-03-27 22:06:41,880 - __main__ - INFO - Loaded system prompt from CursorSystemPrompt.md
+2025-03-27 22:06:41,882 - __main__ - INFO - Starting Gemini proxy server v2 (direct content passthrough) on 0.0.0.0:5000
+2025-03-27 22:06:41,882 - __main__ - INFO - Agent mode enabled: True
+2025-03-27 22:06:41,882 - __main__ - INFO - Auto-continuation enabled: True
+2025-03-27 22:06:41,882 - __main__ - INFO - API timeout: 120 seconds
+2025-03-27 22:06:41,882 - __main__ - INFO - Starting ngrok tunnel...
+2025-03-27 22:06:41,950 - __main__ - INFO - Starting ngrok on port 5000...
+2025-03-27 22:06:41,952 - __main__ - INFO - Started ngrok process (PID: 32892)
+2025-03-27 22:06:41,952 - __main__ - INFO - Waiting for ngrok to initialize...
+2025-03-27 22:06:44,953 - __main__ - INFO - Requesting tunnel information from ngrok API...
+2025-03-27 22:06:46,974 - __main__ - INFO - ngrok public URL: https://92cd-154-47-16-53.ngrok-free.app
+2025-03-27 22:06:46,976 - __main__ - INFO - Waitress threads: 4
+2025-03-27 22:06:46,976 - __main__ - INFO - Waitress channel_timeout: 120s
+2025-03-27 22:06:46,976 - waitress - INFO - Serving on http://0.0.0.0:5000
+2025-03-27 22:07:21,998 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:07:21,998 - __main__ - INFO - Processing chat request with model: claude-3-7-sonnet-20250219, stream: True, message count: 1, conversation_id: 74808b33-b20e-4bc4-9264-fd75a8088e50
+2025-03-27 22:07:21,998 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:07:21,999 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:07:21,999 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:07:21,999 - __main__ - INFO - Setting system prompt (length: 23764)
+2025-03-27 22:07:21,999 - __main__ - ERROR - Error in Gemini completion: 'ProtoType' object has no attribute 'DESCRIPTOR'
+2025-03-27 22:07:22,001 - __main__ - ERROR - Traceback (most recent call last):
+  File "C:\Users\aleja\Code\local models\CursorCustomModels\src\gemini_proxy_v2_fixed.py", line 488, in run_gemini_completion
+    chat = model.start_chat(history=gemini_messages)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 312, in start_chat
+    return ChatSession(
+           ^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\generative_models.py", line 344, in __init__
+    self._history: list[glm.Content] = content_types.to_contents(history)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 232, in to_contents
+    contents = [strict_to_content(c) for c in contents]
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 210, in strict_to_content
+    content = _convert_dict(content)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 96, in _convert_dict
+    content["parts"] = [to_part(part) for part in content["parts"]]
+                        ^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 164, in to_part
+    part = _convert_dict(part)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\google\generativeai\types\content_types.py", line 102, in _convert_dict
+    return glm.Part(part)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\message.py", line 728, in __init__
+    pb_value = marshal.to_proto(pb_type, value)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in to_proto
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 218, in <genexpr>
+    return type(value)(self.to_proto(proto_type, i) for i in value)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aleja\AppData\Roaming\Python\Python312\site-packages\proto\marshal\marshal.py", line 229, in to_proto
+    proto_type.DESCRIPTOR.has_options
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ProtoType' object has no attribute 'DESCRIPTOR'
+
+2025-03-27 22:07:28,343 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:07:28,345 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3, conversation_id: 0cc8d380-2792-456f-b7a7-dcd751afc44e
+2025-03-27 22:07:28,345 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:07:28,345 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:07:28,345 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:07:28,346 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 22:07:28,346 - __main__ - WARNING - System prompt is very large (30287 chars), trimming to 25000 chars
+2025-03-27 22:07:51,121 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:07:51,121 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5, conversation_id: 42c26d2d-115b-40d8-98f8-8ddc39f7f3d9
+2025-03-27 22:07:51,121 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:07:51,122 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:07:51,122 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:07:51,122 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 22:07:51,122 - __main__ - WARNING - System prompt is very large (30287 chars), trimming to 25000 chars
+2025-03-27 22:08:06,607 - waitress - INFO - Client disconnected while serving /chat/completions
+2025-03-27 22:08:07,404 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:08:07,404 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 5, conversation_id: f7a50532-6ac9-4118-9285-2bc8ebc4c304
+2025-03-27 22:08:07,404 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:08:07,404 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:08:07,404 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:08:07,404 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 22:08:07,404 - __main__ - WARNING - System prompt is very large (30287 chars), trimming to 25000 chars
+2025-03-27 22:08:41,786 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:08:41,787 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3, conversation_id: 9c192b4c-f7e6-4e24-87ff-807d4dc00116
+2025-03-27 22:08:41,787 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:08:41,787 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:08:41,787 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:08:41,788 - __main__ - INFO - Setting system prompt (length: 30287)
+2025-03-27 22:08:41,788 - __main__ - WARNING - System prompt is very large (30287 chars), trimming to 25000 chars
+2025-03-27 22:09:08,581 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:09:08,582 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3, conversation_id: e89f3616-a0d8-4750-bd42-97609f20fd98
+2025-03-27 22:09:08,582 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:09:08,582 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:09:08,582 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:09:08,582 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 22:09:08,583 - __main__ - WARNING - System prompt is very large (28256 chars), trimming to 25000 chars
+2025-03-27 22:09:28,144 - __main__ - INFO - Request to Cursor chat completion endpoint
+2025-03-27 22:09:28,145 - __main__ - INFO - Processing chat request with model: gpt-4o, stream: True, message count: 3, conversation_id: ed7e9200-1e35-4529-b615-333738f24c89
+2025-03-27 22:09:28,145 - __main__ - INFO - Created Gemini model: gemini-2.5-pro-exp-03-25
+2025-03-27 22:09:28,145 - __main__ - INFO - Setting global API timeout to 120 seconds
+2025-03-27 22:09:28,145 - __main__ - WARNING - Could not set Gemini API timeout: configure() got an unexpected keyword argument 'timeout'
+2025-03-27 22:09:28,146 - __main__ - INFO - Setting system prompt (length: 28256)
+2025-03-27 22:09:28,146 - __main__ - WARNING - System prompt is very large (28256 chars), trimming to 25000 chars

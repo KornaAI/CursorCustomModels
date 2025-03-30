@@ -1,0 +1,9 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:46:20.649586 ===
+
+RAW CHUNK: <cmd>[System.Convert]::ToBase64String((Get-Random -Count 32))</cmd>
+
+FORMATTED CHUNK: {"id": "chatcmpl-0adf7abb-5f5e-490f-9bd1-3ede4fcea4c4", "object": "chat.completion.chunk", "created": 1743147980, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "<cmd>[System.Convert]::ToBase64String((Get-Random -Count 32))</cmd>"}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-79cc9ece-82ed-4d6e-bf4c-86b4cf895d0c", "object": "chat.completion.chunk", "created": 1743147980, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

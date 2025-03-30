@@ -1,0 +1,15 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T02:45:06.827411 ===
+
+RAW CHUNK: Okay, I can help with that. What would you like to name the new file?
+
+Once you provide a filename (e.g.,
+
+FORMATTED CHUNK: {"id": "chatcmpl-cd2a72ea-9e2a-42f2-bea1-df35c86c5f02", "object": "chat.completion.chunk", "created": 1743144306, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Okay, I can help with that. What would you like to name the new file?\n\nOnce you provide a filename (e.g.,"}, "finish_reason": null}]}
+
+RAW CHUNK:  `gemini_v2.py`), I will create it with the contents of `CursorCustomModels/src/gemini.py`.
+
+FORMATTED CHUNK: {"id": "chatcmpl-acd611ad-6fc3-4fe6-bba3-00474db91926", "object": "chat.completion.chunk", "created": 1743144306, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " `gemini_v2.py`), I will create it with the contents of `CursorCustomModels/src/gemini.py`."}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-7d41ea09-943e-457d-a25c-7521322d3ead", "object": "chat.completion.chunk", "created": 1743144306, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

@@ -14,6 +14,7 @@ A flexible proxy server that enables [Cursor IDE](https://cursor.sh/) to work wi
 - **Streaming Support**: Efficient streaming responses for real-time interaction
 - **Format Conversion**: Handles format conversion between different API structures
 - **Ngrok Integration**: Optional ngrok integration for exposing your local proxy
+- **Auto-Continuation**: Enables the agent to continue autonomously after tool use without requiring a new user message
 
 ## How It Works
 
@@ -89,6 +90,7 @@ The proxy is highly configurable through environment variables or the `.env` fil
 - Custom model mappings and provider URLs
 - Logging and performance settings
 - System prompt customization
+- Auto-continuation settings (`AUTO_CONTINUATION_ENABLED`, `AUTO_CONTINUATION_MAX_TURNS`)
 
 ## Usage
 
@@ -191,7 +193,37 @@ graph TD
     B -.->|"Uses tools based on AI responses"| D2
     B -.->|"Uses tools based on AI responses"| D3
     B -.->|"Uses tools based on AI responses"| D4
+    
+    subgraph "Auto-Continuation Flow"
+    E1[AI Uses Tool] -->|"Tool result returned"| E2[Continuation Detection]
+    E2 -->|"Auto-continuation triggered"| E3[AI Continues Task]
+    E3 -->|"May use another tool"| E1
+    end
 ```
+
+## Auto-Continuation Feature
+
+The auto-continuation feature enables the agent to continue working autonomously after using a tool, without requiring a new user message. This creates a more fluid agent experience for complex tasks.
+
+### How Auto-Continuation Works
+
+1. When the agent uses a tool (like reading a file, running a command, or searching code), the proxy detects this tool usage
+2. After the tool results are returned, the proxy automatically sends a continuation prompt to the agent
+3. The agent processes the tool results and continues with the next steps of its task
+4. This cycle can repeat up to the configured maximum number of turns
+
+### Configuration Options
+
+Auto-continuation can be configured through these environment variables:
+
+- `AUTO_CONTINUATION_ENABLED`: Set to `1` to enable (default) or `0` to disable
+- `AUTO_CONTINUATION_MAX_TURNS`: Maximum number of auto-continuation turns allowed without user input (default: 5)
+
+### Benefits
+
+- **Improved Agent Autonomy**: The agent can complete multi-step tasks without constant user prompting
+- **Better Tool Utilization**: Encourages the agent to fully use tools to complete tasks
+- **Reduced User Friction**: Creates a more natural, flowing conversation with the agent
 
 ## Troubleshooting
 

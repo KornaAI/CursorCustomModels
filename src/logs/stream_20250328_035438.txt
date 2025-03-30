@@ -1,0 +1,70 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:54:41.953738 ===
+
+RAW CHUNK: Okay, you're asking where the files for installed Chrome extensions are located on your hard drive, accessible through Windows File
+
+FORMATTED CHUNK: {"id": "chatcmpl-eb42bfe1-abe9-44f9-b041-ebef2624b113", "object": "chat.completion.chunk", "created": 1743148478, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Okay, you're asking where the files for installed Chrome extensions are located on your hard drive, accessible through Windows File"}, "finish_reason": null}]}
+
+RAW CHUNK:  Explorer.
+
+Chrome stores extension files within your user profile data. The typical location is:
+
+```
+C:\Users\<YourUsername>\AppData\Local\Google\Chrome\User Data\<ProfileName>\Extensions
+```
+
+Here's a breakdown and how to get there:
+
+1.  **`<YourUsername>`**:
+
+FORMATTED CHUNK: {"id": "chatcmpl-e12cac04-3dbc-435f-9324-2d684ea36d2f", "object": "chat.completion.chunk", "created": 1743148479, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Explorer.\n\nChrome stores extension files within your user profile data. The typical location is:\n\n```\nC:\\Users\\<YourUsername>\\AppData\\Local\\Google\\Chrome\\User Data\\<ProfileName>\\Extensions\n```\n\nHere's a breakdown and how to get there:\n\n1.  **`<YourUsername>`**:"}, "finish_reason": null}]}
+
+RAW CHUNK:  Replace this with your actual Windows username.
+2.  **`AppData`**: This folder is hidden by default.
+    *   **To show hidden folders:** Open File Explorer, go to the "View" tab, and check the box for "Hidden items".
+    *   **Easier way:** You
+
+FORMATTED CHUNK: {"id": "chatcmpl-0be1df54-6dcb-440e-a607-d58ae3cc3dc1", "object": "chat.completion.chunk", "created": 1743148479, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Replace this with your actual Windows username.\n2.  **`AppData`**: This folder is hidden by default.\n    *   **To show hidden folders:** Open File Explorer, go to the \"View\" tab, and check the box for \"Hidden items\".\n    *   **Easier way:** You"}, "finish_reason": null}]}
+
+RAW CHUNK:  can use an environment variable shortcut. Press `Win + R` to open the Run dialog, type `%localappdata%`, and press Enter. This will take you directly to `C:\Users\<YourUsername>\AppData\Local`. From there, navigate into `Google\Chrome\User Data`.
+3.  
+
+FORMATTED CHUNK: {"id": "chatcmpl-3ef1901a-5519-46e3-b4a8-a2db5da0bd30", "object": "chat.completion.chunk", "created": 1743148480, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " can use an environment variable shortcut. Press `Win + R` to open the Run dialog, type `%localappdata%`, and press Enter. This will take you directly to `C:\\Users\\<YourUsername>\\AppData\\Local`. From there, navigate into `Google\\Chrome\\User Data`.\n3.  "}, "finish_reason": null}]}
+
+RAW CHUNK: **`<ProfileName>`**: This is usually `Default` if you only use one Chrome profile. If you have multiple profiles, it might be `Profile 1`, `Profile 2`, etc. Check the `Default` folder first.
+4.  **`Extensions`**: Inside the profile folder, you'
+
+FORMATTED CHUNK: {"id": "chatcmpl-be239982-1c64-4faf-a354-a5cb77983626", "object": "chat.completion.chunk", "created": 1743148480, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "**`<ProfileName>`**: This is usually `Default` if you only use one Chrome profile. If you have multiple profiles, it might be `Profile 1`, `Profile 2`, etc. Check the `Default` folder first.\n4.  **`Extensions`**: Inside the profile folder, you'"}, "finish_reason": null}]}
+
+RAW CHUNK: ll find the `Extensions` directory.
+
+**Inside the `Extensions` folder:**
+
+*   You won't see extension names directly. Instead, you'll see folders with long, cryptic names (e.g., `apdfllckaahabafndbhieahigkjlhalf`). These are the unique
+
+FORMATTED CHUNK: {"id": "chatcmpl-6aa0d18c-d8a8-4c75-a14b-5175a5b9b3b1", "object": "chat.completion.chunk", "created": 1743148481, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "ll find the `Extensions` directory.\n\n**Inside the `Extensions` folder:**\n\n*   You won't see extension names directly. Instead, you'll see folders with long, cryptic names (e.g., `apdfllckaahabafndbhieahigkjlhalf`). These are the unique"}, "finish_reason": null}]}
+
+RAW CHUNK:  **Extension IDs**.
+*   Inside each Extension ID folder, you'll find another folder, usually named with the extension's version number (e.g., `1.5.0_0`).
+*   Inside *that* version folder are the actual files that make up the extension: `manifest.json
+
+FORMATTED CHUNK: {"id": "chatcmpl-c107d954-50cb-4db2-9e1b-c05292b586ea", "object": "chat.completion.chunk", "created": 1743148481, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " **Extension IDs**.\n*   Inside each Extension ID folder, you'll find another folder, usually named with the extension's version number (e.g., `1.5.0_0`).\n*   Inside *that* version folder are the actual files that make up the extension: `manifest.json"}, "finish_reason": null}]}
+
+RAW CHUNK: `, JavaScript files (`.js`), CSS files (`.css`), images, HTML pages, etc.
+
+**In summary, the easiest way to get to the extensions directory is:**
+
+1.  Press `Win + R`.
+2.  Paste: `%localappdata%\Google\Chrome\User Data\Default
+
+FORMATTED CHUNK: {"id": "chatcmpl-20416d46-2aaa-4e32-95a9-f521a007a179", "object": "chat.completion.chunk", "created": 1743148481, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "`, JavaScript files (`.js`), CSS files (`.css`), images, HTML pages, etc.\n\n**In summary, the easiest way to get to the extensions directory is:**\n\n1.  Press `Win + R`.\n2.  Paste: `%localappdata%\\Google\\Chrome\\User Data\\Default"}, "finish_reason": null}]}
+
+RAW CHUNK: \Extensions`
+3.  Press Enter.
+
+Remember that directly modifying files in these folders is generally **not recommended** as it can break the extensions or Chrome's management of them.
+
+FORMATTED CHUNK: {"id": "chatcmpl-7b1a2222-edcf-4949-b34f-d5fe6e9dc3f6", "object": "chat.completion.chunk", "created": 1743148481, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\\Extensions`\n3.  Press Enter.\n\nRemember that directly modifying files in these folders is generally **not recommended** as it can break the extensions or Chrome's management of them."}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-43e116ed-9935-4981-aa76-0a4af97d7dd0", "object": "chat.completion.chunk", "created": 1743148481, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

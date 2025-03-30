@@ -1,0 +1,21 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:29:54.154555 ===
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811F620>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-5a2dd542-775b-490d-9220-401ad808455f", "object": "chat.completion.chunk", "created": 1743146993, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "My"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F80BCB00>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-0f1e450c-19ee-4e17-9c76-c76400e2ed94", "object": "chat.completion.chunk", "created": 1743146993, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " responses are based on the current information and instructions provided, including the contents of `Cursor"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811E1E0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-742934ec-a8b6-47cd-9366-39c4ebe892d0", "object": "chat.completion.chunk", "created": 1743146994, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "SystemPrompt.md`.  If my response seems repetitive, it's because"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811E2A0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-972ee08a-a19f-455e-a2c0-9148f94c591c", "object": "chat.completion.chunk", "created": 1743146994, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " the relevant instructions or context haven't changed.  I can only generate code; I cannot save files directly.\n"}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-c0ad1030-e938-4312-bab9-35506480ceb5", "object": "chat.completion.chunk", "created": 1743146994, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

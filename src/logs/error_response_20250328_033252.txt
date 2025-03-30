@@ -1,0 +1,26 @@
+=== ERROR_RESPONSE LOG - 2025-03-28T03:32:52.152927 ===
+
+{
+  "error": "'ProtoType' object has no attribute 'DESCRIPTOR'",
+  "error_response": {
+    "id": "chatcmpl-2930d66e-f573-4053-a0dc-1bc8d5e6fa03",
+    "object": "chat.completion",
+    "created": 1743147172,
+    "model": "claude-3-5-sonnet-20241022",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Error: 'ProtoType' object has no attribute 'DESCRIPTOR'\n\nPlease try again or check your API key configuration."
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "total_tokens": 0
+    }
+  }
+}

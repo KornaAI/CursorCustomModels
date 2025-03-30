@@ -1,0 +1,29 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:29:11.397294 ===
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811D2B0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-8fae1925-41e3-4265-adfb-a86c10f52305", "object": "chat.completion.chunk", "created": 1743146949, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "I"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811DA90>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-e36e63e0-be50-47b1-8efc-cacd008f8f4b", "object": "chat.completion.chunk", "created": 1743146949, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " understand the suggestion to save the code.  I don't have the capability to"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811CBC0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-22e79daf-ac70-4045-8514-e2e616282a19", "object": "chat.completion.chunk", "created": 1743146950, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " directly interact with your file system, so I can't save files for you."}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F80BCAD0>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-268c1dfc-817f-4505-a042-84f65eefa4f3", "object": "chat.completion.chunk", "created": 1743146950, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " When I provide code, you need to copy and save it into a file yourself.  In the previous examples, I've provided instructions on how to save the code"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811C710>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-bb886932-27c0-409f-8fb6-105868167b07", "object": "chat.completion.chunk", "created": 1743146951, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " into files like `2.py`.\n\nIf you've lost the code I previously generated, please let me know, and I can provide it again.  I"}, "finish_reason": null}]}
+
+RAW CHUNK: {"type": "raw_chunk", "chunk": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x00000237F811DA90>"}
+
+FORMATTED TEXT CHUNK: {"id": "chatcmpl-22d9dcd8-168a-491d-b823-191d4cde1f5e", "object": "chat.completion.chunk", "created": 1743146951, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " suggest keeping a separate file or using a code editor to store and manage the code I generate for you.\n"}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-f08eff91-b0f1-4eb4-ad7f-baab0401429e", "object": "chat.completion.chunk", "created": 1743146951, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

@@ -1,0 +1,1109 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T02:46:01.880951 ===
+
+RAW CHUNK: Okay, creating the file `blah.py` with the content from `CursorCustomModels/src/gemini.py`.
+
+```blah.py (lines 1-688)
+from flask import Flask, request,
+
+FORMATTED CHUNK: {"id": "chatcmpl-e39a30fe-3edb-4be1-80af-1aa3c5d36596", "object": "chat.completion.chunk", "created": 1743144324, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Okay, creating the file `blah.py` with the content from `CursorCustomModels/src/gemini.py`.\n\n```blah.py (lines 1-688)\nfrom flask import Flask, request,"}, "finish_reason": null}]}
+
+RAW CHUNK:  jsonify, make_response, Response, g
+import requests
+import os
+import json
+import logging
+from waitress import serve
+import time
+import sys
+import traceback  # Add traceback for error logging
+from flask_cors import CORS
+import uuid
+from dotenv import load_dotenv
+import google.generativeai
+
+FORMATTED CHUNK: {"id": "chatcmpl-efba0a46-27cb-4638-adf0-62e0fd57e2ea", "object": "chat.completion.chunk", "created": 1743144324, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " jsonify, make_response, Response, g\nimport requests\nimport os\nimport json\nimport logging\nfrom waitress import serve\nimport time\nimport sys\nimport traceback  # Add traceback for error logging\nfrom flask_cors import CORS\nimport uuid\nfrom dotenv import load_dotenv\nimport google.generativeai"}, "finish_reason": null}]}
+
+RAW CHUNK:  as genai
+import subprocess  # Added for ngrok
+import datetime  # For timestamping logs
+
+# Load environment variables from .env file
+load_dotenv()
+
+# ============================================================================
+# CONFIGURATION SECTION
+# ============================================================================
+
+# API Key configuration
+GOOGLE_API_KEY
+
+FORMATTED CHUNK: {"id": "chatcmpl-48f7951f-f709-4973-b7a7-3af8253c477f", "object": "chat.completion.chunk", "created": 1743144324, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " as genai\nimport subprocess  # Added for ngrok\nimport datetime  # For timestamping logs\n\n# Load environment variables from .env file\nload_dotenv()\n\n# ============================================================================\n# CONFIGURATION SECTION\n# ============================================================================\n\n# API Key configuration\nGOOGLE_API_KEY"}, "finish_reason": null}]}
+
+RAW CHUNK:  = os.environ.get("GOOGLE_API_KEY", "")
+if not GOOGLE_API_KEY:
+    print("ERROR: GOOGLE_API_KEY is not set in environment variables")
+    print("Please set the GOOGLE_API_KEY environment variable and restart the server")
+
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-cc330b6f-bd35-43b9-a164-1b1a773feb6e", "object": "chat.completion.chunk", "created": 1743144325, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " = os.environ.get(\"GOOGLE_API_KEY\", \"\")\nif not GOOGLE_API_KEY:\n    print(\"ERROR: GOOGLE_API_KEY is not set in environment variables\")\n    print(\"Please set the GOOGLE_API_KEY environment variable and restart the server\")\n\n"}, "finish_reason": null}]}
+
+RAW CHUNK: # Configure the Gemini API
+try:
+    genai.configure(api_key=GOOGLE_API_KEY)
+except Exception as e:
+    print(f"Error configuring Gemini API: {str(e)}")
+
+# OpenAI API endpoints that we'll intercept
+OPENAI_CHAT_ENDPOINT
+
+FORMATTED CHUNK: {"id": "chatcmpl-ffb40402-eeab-4294-bfcf-e58c02090f4c", "object": "chat.completion.chunk", "created": 1743144325, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "# Configure the Gemini API\ntry:\n    genai.configure(api_key=GOOGLE_API_KEY)\nexcept Exception as e:\n    print(f\"Error configuring Gemini API: {str(e)}\")\n\n# OpenAI API endpoints that we'll intercept\nOPENAI_CHAT_ENDPOINT"}, "finish_reason": null}]}
+
+RAW CHUNK:  = "/v1/chat/completions"
+CURSOR_CHAT_ENDPOINT = "/chat/completions"
+
+# Model mapping - map OpenAI models to Gemini models
+MODEL_MAPPINGS = {
+    "gpt-4o": "gemini-2.5-pro-exp-
+
+FORMATTED CHUNK: {"id": "chatcmpl-a0f4342a-177c-4bec-b112-4cbb23225d43", "object": "chat.completion.chunk", "created": 1743144326, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " = \"/v1/chat/completions\"\nCURSOR_CHAT_ENDPOINT = \"/chat/completions\"\n\n# Model mapping - map OpenAI models to Gemini models\nMODEL_MAPPINGS = {\n    \"gpt-4o\": \"gemini-2.5-pro-exp-"}, "finish_reason": null}]}
+
+RAW CHUNK: 03-25",
+    "gpt-4o-2024-08-06": "gemini-2.5-pro-exp-03-25",
+    "default": "gemini-2.5-pro-exp-03-2
+
+FORMATTED CHUNK: {"id": "chatcmpl-8e793614-95f2-4a37-8d9a-7d622315b7c1", "object": "chat.completion.chunk", "created": 1743144326, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "03-25\",\n    \"gpt-4o-2024-08-06\": \"gemini-2.5-pro-exp-03-25\",\n    \"default\": \"gemini-2.5-pro-exp-03-2"}, "finish_reason": null}]}
+
+RAW CHUNK: 5",
+    "gpt-3.5-turbo": "gemini-2.5-pro-exp-03-25"
+}
+
+# API request settings
+API_TIMEOUT = int(os.environ.get("API_TIMEOUT", "120"))
+
+# Configure logging
+logging
+
+FORMATTED CHUNK: {"id": "chatcmpl-7ff41fe9-b063-4c84-8279-75d756ba3198", "object": "chat.completion.chunk", "created": 1743144326, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "5\",\n    \"gpt-3.5-turbo\": \"gemini-2.5-pro-exp-03-25\"\n}\n\n# API request settings\nAPI_TIMEOUT = int(os.environ.get(\"API_TIMEOUT\", \"120\"))\n\n# Configure logging\nlogging"}, "finish_reason": null}]}
+
+RAW CHUNK: .basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# File logging settings
+LOG_TO_FILE = os.environ.get("
+
+FORMATTED CHUNK: {"id": "chatcmpl-7711cbcf-d88f-4ce0-82d0-48a8712cafd6", "object": "chat.completion.chunk", "created": 1743144327, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".basicConfig(\n    level=logging.INFO,\n    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'\n)\nlogger = logging.getLogger(__name__)\n\n# File logging settings\nLOG_TO_FILE = os.environ.get(\""}, "finish_reason": null}]}
+
+RAW CHUNK: LOG_TO_FILE", "1") == "1"
+LOG_DIR = os.environ.get("LOG_DIR", "logs")
+if LOG_TO_FILE and not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR, exist_ok=
+
+FORMATTED CHUNK: {"id": "chatcmpl-e7011379-3254-4534-afeb-04c37aa9b842", "object": "chat.completion.chunk", "created": 1743144327, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "LOG_TO_FILE\", \"1\") == \"1\"\nLOG_DIR = os.environ.get(\"LOG_DIR\", \"logs\")\nif LOG_TO_FILE and not os.path.exists(LOG_DIR):\n    os.makedirs(LOG_DIR, exist_ok="}, "finish_reason": null}]}
+
+RAW CHUNK: True)
+    logger.info(f"Created log directory: {LOG_DIR}")
+
+# Initialize Flask app
+app = Flask(__name__)
+CORS(app)
+
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
+
+def log_to_
+
+FORMATTED CHUNK: {"id": "chatcmpl-69d84b2f-334d-4dac-905f-c3138dc60ce6", "object": "chat.completion.chunk", "created": 1743144327, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "True)\n    logger.info(f\"Created log directory: {LOG_DIR}\")\n\n# Initialize Flask app\napp = Flask(__name__)\nCORS(app)\n\n# ============================================================================\n# HELPER FUNCTIONS\n# ============================================================================\n\ndef log_to_"}, "finish_reason": null}]}
+
+RAW CHUNK: file(content, prefix="response", include_timestamp=True):
+    """Log content to a text file for debugging"""
+    if not LOG_TO_FILE:
+        return
+    
+    try:
+        # Create a timestamp for the filename
+        timestamp = datetime.datetime.now().
+
+FORMATTED CHUNK: {"id": "chatcmpl-900f4458-1cc0-4dce-8fa0-7898b7102d4e", "object": "chat.completion.chunk", "created": 1743144328, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "file(content, prefix=\"response\", include_timestamp=True):\n    \"\"\"Log content to a text file for debugging\"\"\"\n    if not LOG_TO_FILE:\n        return\n    \n    try:\n        # Create a timestamp for the filename\n        timestamp = datetime.datetime.now()."}, "finish_reason": null}]}
+
+RAW CHUNK: strftime("%Y%m%d_%H%M%S")
+        filename = f"{LOG_DIR}/{prefix}_{timestamp}.txt"
+        
+        # Format the content
+        if isinstance(content, dict) or isinstance(content, list):
+            formatted_content = json.dumps(
+
+FORMATTED CHUNK: {"id": "chatcmpl-6fec3bda-0abf-42fe-9de6-34537189391a", "object": "chat.completion.chunk", "created": 1743144328, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "strftime(\"%Y%m%d_%H%M%S\")\n        filename = f\"{LOG_DIR}/{prefix}_{timestamp}.txt\"\n        \n        # Format the content\n        if isinstance(content, dict) or isinstance(content, list):\n            formatted_content = json.dumps("}, "finish_reason": null}]}
+
+RAW CHUNK: content, indent=2)
+        else:
+            formatted_content = str(content)
+            
+        # Add a timestamp at the top of the file
+        if include_timestamp:
+            header = f"=== {prefix.upper()} LOG - {datetime.datetime.now().isoformat
+
+FORMATTED CHUNK: {"id": "chatcmpl-e85dbe36-468b-42de-b371-a4cc64e4e588", "object": "chat.completion.chunk", "created": 1743144328, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "content, indent=2)\n        else:\n            formatted_content = str(content)\n            \n        # Add a timestamp at the top of the file\n        if include_timestamp:\n            header = f\"=== {prefix.upper()} LOG - {datetime.datetime.now().isoformat"}, "finish_reason": null}]}
+
+RAW CHUNK: ()} ===\n\n"
+        else:
+            header = ""
+            
+        # Write to file
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(header + formatted_content)
+            
+        logger.info(f
+
+FORMATTED CHUNK: {"id": "chatcmpl-c6fa7f14-8aa2-4b4f-a74b-7b38eb165156", "object": "chat.completion.chunk", "created": 1743144329, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "()} ===\\n\\n\"\n        else:\n            header = \"\"\n            \n        # Write to file\n        with open(filename, \"w\", encoding=\"utf-8\") as f:\n            f.write(header + formatted_content)\n            \n        logger.info(f"}, "finish_reason": null}]}
+
+RAW CHUNK: "Logged {prefix} content to {filename}")
+        return filename
+    except Exception as e:
+        logger.error(f"Error logging to file: {str(e)}")
+        return None
+
+def map_openai_model_to_gemini(model_name):
+    """Map
+
+FORMATTED CHUNK: {"id": "chatcmpl-71ca5e77-a218-4072-a58c-654d0abb4a8e", "object": "chat.completion.chunk", "created": 1743144329, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\"Logged {prefix} content to {filename}\")\n        return filename\n    except Exception as e:\n        logger.error(f\"Error logging to file: {str(e)}\")\n        return None\n\ndef map_openai_model_to_gemini(model_name):\n    \"\"\"Map"}, "finish_reason": null}]}
+
+RAW CHUNK:  OpenAI model name to Gemini model name"""
+    return MODEL_MAPPINGS.get(model_name, MODEL_MAPPINGS["default"])
+
+def convert_openai_messages_to_gemini(messages):
+    """Convert OpenAI message format to Gemini format"""
+    formatted_messages = []
+
+FORMATTED CHUNK: {"id": "chatcmpl-3bdf6f59-a107-4b8e-aa17-f11bf3664d00", "object": "chat.completion.chunk", "created": 1743144330, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " OpenAI model name to Gemini model name\"\"\"\n    return MODEL_MAPPINGS.get(model_name, MODEL_MAPPINGS[\"default\"])\n\ndef convert_openai_messages_to_gemini(messages):\n    \"\"\"Convert OpenAI message format to Gemini format\"\"\"\n    formatted_messages = []"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+    
+    # Process system message first if present
+    system_content = None
+    for message in messages:
+        if message.get('role') == 'system':
+            system_content = message.get('content', '')
+            break
+    
+    # Process other messages
+    
+
+FORMATTED CHUNK: {"id": "chatcmpl-1cba00c6-6b8f-4a41-b627-8eac06c94146", "object": "chat.completion.chunk", "created": 1743144330, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n    \n    # Process system message first if present\n    system_content = None\n    for message in messages:\n        if message.get('role') == 'system':\n            system_content = message.get('content', '')\n            break\n    \n    # Process other messages\n    "}, "finish_reason": null}]}
+
+RAW CHUNK: for message in messages:
+        role = message.get('role')
+        content = message.get('content', '')
+        
+        if role == 'system':
+            # System messages handled separately
+            continue
+        elif role == 'user':
+            formatted_messages.append({'role':
+
+FORMATTED CHUNK: {"id": "chatcmpl-9a10279e-c257-41ef-a96e-79542f69b348", "object": "chat.completion.chunk", "created": 1743144330, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "for message in messages:\n        role = message.get('role')\n        content = message.get('content', '')\n        \n        if role == 'system':\n            # System messages handled separately\n            continue\n        elif role == 'user':\n            formatted_messages.append({'role':"}, "finish_reason": null}]}
+
+RAW CHUNK:  'user', 'parts': [{'text': content}]})
+        elif role == 'assistant':
+            formatted_messages.append({'role': 'model', 'parts': [{'text': content}]})
+        elif role == 'function':
+            # Pass through function responses as user messages with clear labeling
+            formatted_
+
+FORMATTED CHUNK: {"id": "chatcmpl-f819c1b3-ff1b-4283-a4b1-eb610b5943e5", "object": "chat.completion.chunk", "created": 1743144331, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " 'user', 'parts': [{'text': content}]})\n        elif role == 'assistant':\n            formatted_messages.append({'role': 'model', 'parts': [{'text': content}]})\n        elif role == 'function':\n            # Pass through function responses as user messages with clear labeling\n            formatted_"}, "finish_reason": null}]}
+
+RAW CHUNK: messages.append({
+                'role': 'user', 
+                'parts': [{'text': f"Function result: {message.get('name', '')}\n{content}"}]
+            })
+    
+    return formatted_messages, system_content
+
+def gemini_streaming_chunk_
+
+FORMATTED CHUNK: {"id": "chatcmpl-ea476539-4130-4496-ae79-197938a3bcdf", "object": "chat.completion.chunk", "created": 1743144331, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "messages.append({\n                'role': 'user', \n                'parts': [{'text': f\"Function result: {message.get('name', '')}\\n{content}\"}]\n            })\n    \n    return formatted_messages, system_content\n\ndef gemini_streaming_chunk_"}, "finish_reason": null}]}
+
+RAW CHUNK: to_openai_chunk(chunk_text, model_name):
+    """Convert a Gemini streaming chunk to OpenAI streaming format"""
+    # Create a delta with the content
+    delta = {"content": chunk_text}
+    
+    chunk = {
+        "id": f"chatcmpl
+
+FORMATTED CHUNK: {"id": "chatcmpl-bf2ffc1d-754b-49f7-a6a0-0eff7bcb74db", "object": "chat.completion.chunk", "created": 1743144332, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "to_openai_chunk(chunk_text, model_name):\n    \"\"\"Convert a Gemini streaming chunk to OpenAI streaming format\"\"\"\n    # Create a delta with the content\n    delta = {\"content\": chunk_text}\n    \n    chunk = {\n        \"id\": f\"chatcmpl"}, "finish_reason": null}]}
+
+RAW CHUNK: -{str(uuid.uuid4())}",
+        "object": "chat.completion.chunk",
+        "created": int(time.time()),
+        "model": model_name,
+        "choices": [{
+            "index": 0,
+            "delta": delta,
+            
+
+FORMATTED CHUNK: {"id": "chatcmpl-0ae9f7b9-6dd8-4369-a556-ef8ad14dd51d", "object": "chat.completion.chunk", "created": 1743144332, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "-{str(uuid.uuid4())}\",\n        \"object\": \"chat.completion.chunk\",\n        \"created\": int(time.time()),\n        \"model\": model_name,\n        \"choices\": [{\n            \"index\": 0,\n            \"delta\": delta,\n            "}, "finish_reason": null}]}
+
+RAW CHUNK: "finish_reason": None
+        }]
+    }
+    
+    return chunk
+
+def start_ngrok(port):
+    """Start ngrok and return the public URL"""
+    try:
+        # Check if ngrok is installed
+        try:
+            subprocess.run(["ngrok
+
+FORMATTED CHUNK: {"id": "chatcmpl-796e6411-d527-4400-8f9d-9388f611106c", "object": "chat.completion.chunk", "created": 1743144332, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\"finish_reason\": None\n        }]\n    }\n    \n    return chunk\n\ndef start_ngrok(port):\n    \"\"\"Start ngrok and return the public URL\"\"\"\n    try:\n        # Check if ngrok is installed\n        try:\n            subprocess.run([\"ngrok"}, "finish_reason": null}]}
+
+RAW CHUNK: ", "--version"], check=True, capture_output=True)
+        except (subprocess.CalledProcessError, FileNotFoundError):
+            logger.error("ngrok is not installed or not in PATH. Please install ngrok first.")
+            print("ngrok is not installed or not in PATH. Please install ng
+
+FORMATTED CHUNK: {"id": "chatcmpl-10033551-72c9-4550-a989-30bf8d70f586", "object": "chat.completion.chunk", "created": 1743144333, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\", \"--version\"], check=True, capture_output=True)\n        except (subprocess.CalledProcessError, FileNotFoundError):\n            logger.error(\"ngrok is not installed or not in PATH. Please install ngrok first.\")\n            print(\"ngrok is not installed or not in PATH. Please install ng"}, "finish_reason": null}]}
+
+RAW CHUNK: rok first.")
+            print("Visit https://ngrok.com/download to download and install ngrok")
+            return None
+            
+        # Start ngrok with recommended settings for Cursor
+        logger.info(f"Starting ngrok on port {port}...")
+        ngrok_process =
+
+FORMATTED CHUNK: {"id": "chatcmpl-c9f9633c-015a-48e0-9973-1510c3daaa62", "object": "chat.completion.chunk", "created": 1743144333, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "rok first.\")\n            print(\"Visit https://ngrok.com/download to download and install ngrok\")\n            return None\n            \n        # Start ngrok with recommended settings for Cursor\n        logger.info(f\"Starting ngrok on port {port}...\")\n        ngrok_process ="}, "finish_reason": null}]}
+
+RAW CHUNK:  subprocess.Popen(
+            ["ngrok", "http", str(port)],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        logger.info(f"Started ngrok process (PID: {ngrok_process.pid})")
+        
+        #
+
+FORMATTED CHUNK: {"id": "chatcmpl-18d289d2-02e7-43b6-9529-c3228124818c", "object": "chat.completion.chunk", "created": 1743144333, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " subprocess.Popen(\n            [\"ngrok\", \"http\", str(port)],\n            stdout=subprocess.PIPE,\n            stderr=subprocess.PIPE\n        )\n        logger.info(f\"Started ngrok process (PID: {ngrok_process.pid})\")\n        \n        #"}, "finish_reason": null}]}
+
+RAW CHUNK:  Wait for ngrok to start
+        logger.info("Waiting for ngrok to initialize...")
+        time.sleep(3)
+        
+        # Get the public URL from ngrok API
+        try:
+            logger.info("Requesting tunnel information from ngrok API...")
+            response = requests.get("
+
+FORMATTED CHUNK: {"id": "chatcmpl-bb99d8f2-a10e-4d3f-aa56-9a0bcc413cd2", "object": "chat.completion.chunk", "created": 1743144334, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Wait for ngrok to start\n        logger.info(\"Waiting for ngrok to initialize...\")\n        time.sleep(3)\n        \n        # Get the public URL from ngrok API\n        try:\n            logger.info(\"Requesting tunnel information from ngrok API...\")\n            response = requests.get(\""}, "finish_reason": null}]}
+
+RAW CHUNK: http://localhost:4040/api/tunnels")
+            tunnels = response.json()["tunnels"]
+            if tunnels:
+                # Using https tunnel is recommended for Cursor
+                https_tunnels = [t for t in tunnels if t["public_url"].startswith("https
+
+FORMATTED CHUNK: {"id": "chatcmpl-0f97ba3a-bfdb-4d90-9635-2138c91fcb6b", "object": "chat.completion.chunk", "created": 1743144334, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "http://localhost:4040/api/tunnels\")\n            tunnels = response.json()[\"tunnels\"]\n            if tunnels:\n                # Using https tunnel is recommended for Cursor\n                https_tunnels = [t for t in tunnels if t[\"public_url\"].startswith(\"https"}, "finish_reason": null}]}
+
+RAW CHUNK: ")]
+                if https_tunnels:
+                    public_url = https_tunnels[0]["public_url"]
+                else:
+                    public_url = tunnels[0]["public_url"]
+                
+                logger.info(f"ngrok public URL: {public_url}")
+
+FORMATTED CHUNK: {"id": "chatcmpl-7400f11b-adad-4850-81a4-e755935fb1fa", "object": "chat.completion.chunk", "created": 1743144335, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\")]\n                if https_tunnels:\n                    public_url = https_tunnels[0][\"public_url\"]\n                else:\n                    public_url = tunnels[0][\"public_url\"]\n                \n                logger.info(f\"ngrok public URL: {public_url}\")"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                
+                print(f"\n{'='*60}")
+                print(f"NGROK PUBLIC URL: {public_url}")
+                print(f"NGROK INSPECTOR: http://localhost:4040")
+                print(f"Use this URL in Cursor
+
+FORMATTED CHUNK: {"id": "chatcmpl-44f50014-6b3f-4fa7-9fa1-6855dfaeac80", "object": "chat.completion.chunk", "created": 1743144335, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                \n                print(f\"\\n{'='*60}\")\n                print(f\"NGROK PUBLIC URL: {public_url}\")\n                print(f\"NGROK INSPECTOR: http://localhost:4040\")\n                print(f\"Use this URL in Cursor"}, "finish_reason": null}]}
+
+RAW CHUNK:  as your OpenAI API base URL")
+                print(f"{'='*60}\n")
+                
+                # Print example PowerShell command
+                print("Example PowerShell command to test the proxy:")
+                print(f"""
+$headers = @{{
+    "Content-Type" = "application/json"
+
+FORMATTED CHUNK: {"id": "chatcmpl-5d71c10a-2b75-4baa-97f8-b2bc209c2854", "object": "chat.completion.chunk", "created": 1743144335, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " as your OpenAI API base URL\")\n                print(f\"{'='*60}\\n\")\n                \n                # Print example PowerShell command\n                print(\"Example PowerShell command to test the proxy:\")\n                print(f\"\"\"\n$headers = @{{\n    \"Content-Type\" = \"application/json\""}, "finish_reason": null}]}
+
+RAW CHUNK: 
+    "Authorization" = "Bearer fake-api-key"
+}}
+
+$body = @{{
+    "messages" = @(
+        @{{
+            "role" = "system"
+            "content" = "You are a test assistant."
+        }},
+        @{{
+            "
+
+FORMATTED CHUNK: {"id": "chatcmpl-66683e6a-e18b-4426-975d-8a794ec37173", "object": "chat.completion.chunk", "created": 1743144336, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n    \"Authorization\" = \"Bearer fake-api-key\"\n}}\n\n$body = @{{\n    \"messages\" = @(\n        @{{\n            \"role\" = \"system\"\n            \"content\" = \"You are a test assistant.\"\n        }},\n        @{{\n            \""}, "finish_reason": null}]}
+
+RAW CHUNK: role" = "user"
+            "content" = "Testing. Just say hi and nothing else."
+        }}
+    )
+    "model" = "gpt-4o"
+}} | ConvertTo-Json
+
+Invoke-WebRequest -Uri "{public_url}/v1/chat/com
+
+FORMATTED CHUNK: {"id": "chatcmpl-befb299e-24f7-4d6c-a9e6-65d674bfe118", "object": "chat.completion.chunk", "created": 1743144336, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "role\" = \"user\"\n            \"content\" = \"Testing. Just say hi and nothing else.\"\n        }}\n    )\n    \"model\" = \"gpt-4o\"\n}} | ConvertTo-Json\n\nInvoke-WebRequest -Uri \"{public_url}/v1/chat/com"}, "finish_reason": null}]}
+
+RAW CHUNK: pletions" -Method Post -Headers $headers -Body $body
+                """)
+                
+                # Print curl command for testing
+                print("\nOr use this curl command:")
+                print(f"""
+curl -X POST \\
+  {public_url}/v1/chat/complet
+
+FORMATTED CHUNK: {"id": "chatcmpl-ce2d1a6d-d8ad-4f97-b897-e7e8f85fc1a2", "object": "chat.completion.chunk", "created": 1743144336, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "pletions\" -Method Post -Headers $headers -Body $body\n                \"\"\")\n                \n                # Print curl command for testing\n                print(\"\\nOr use this curl command:\")\n                print(f\"\"\"\ncurl -X POST \\\\\n  {public_url}/v1/chat/complet"}, "finish_reason": null}]}
+
+RAW CHUNK: ions \\
+  -H "Content-Type: application/json" \\
+  -H "Authorization: Bearer fake-api-key" \\
+  -d '{{
+    "model": "gpt-4o",
+    "messages": [
+      {{"role": "system",
+
+FORMATTED CHUNK: {"id": "chatcmpl-7c3d5957-0c71-46c7-a81a-2bfc2d3c5fca", "object": "chat.completion.chunk", "created": 1743144337, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "ions \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -H \"Authorization: Bearer fake-api-key\" \\\\\n  -d '{{\n    \"model\": \"gpt-4o\",\n    \"messages\": [\n      {{\"role\": \"system\","}, "finish_reason": null}]}
+
+RAW CHUNK:  "content": "You are a test assistant."}},
+      {{"role": "user", "content": "Testing. Just say hi and nothing else."}}
+    ]
+  }}'
+                """)
+                
+                # Print instructions for Cursor
+                print("\nTo configure Cursor:")
+                
+
+FORMATTED CHUNK: {"id": "chatcmpl-8f06c144-a04d-48c4-b2a0-3a21c896a7f6", "object": "chat.completion.chunk", "created": 1743144337, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " \"content\": \"You are a test assistant.\"}},\n      {{\"role\": \"user\", \"content\": \"Testing. Just say hi and nothing else.\"}}\n    ]\n  }}'\n                \"\"\")\n                \n                # Print instructions for Cursor\n                print(\"\\nTo configure Cursor:\")\n                "}, "finish_reason": null}]}
+
+RAW CHUNK: print(f"1. Set the OpenAI API base URL to: {public_url}")
+                print("2. Use any OpenAI model name that Cursor supports")
+                print("3. Set any API key (it won't be checked)")
+                print("4. Check the ngrok inspector at http://
+
+FORMATTED CHUNK: {"id": "chatcmpl-5376f7a3-5c0f-4cb2-9586-08fc775fe843", "object": "chat.completion.chunk", "created": 1743144338, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "print(f\"1. Set the OpenAI API base URL to: {public_url}\")\n                print(\"2. Use any OpenAI model name that Cursor supports\")\n                print(\"3. Set any API key (it won't be checked)\")\n                print(\"4. Check the ngrok inspector at http://"}, "finish_reason": null}]}
+
+RAW CHUNK: localhost:4040 to debug traffic")
+                
+                return public_url
+            else:
+                logger.error("No ngrok tunnels found")
+                print("No ngrok tunnels found. Please check ngrok configuration.")
+                return None
+        except Exception as e:
+            logger
+
+FORMATTED CHUNK: {"id": "chatcmpl-fb075cd5-23e4-4aa3-bb74-7d9678ae1c24", "object": "chat.completion.chunk", "created": 1743144338, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "localhost:4040 to debug traffic\")\n                \n                return public_url\n            else:\n                logger.error(\"No ngrok tunnels found\")\n                print(\"No ngrok tunnels found. Please check ngrok configuration.\")\n                return None\n        except Exception as e:\n            logger"}, "finish_reason": null}]}
+
+RAW CHUNK: .error(f"Error getting ngrok URL: {str(e)}")
+            print(f"Error getting ngrok URL: {str(e)}")
+            return None
+    except Exception as e:
+        logger.error(f"Error starting ngrok: {str(e)}")
+        
+
+FORMATTED CHUNK: {"id": "chatcmpl-540839ab-ed2b-41b6-9dc6-105bf159027a", "object": "chat.completion.chunk", "created": 1743144338, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".error(f\"Error getting ngrok URL: {str(e)}\")\n            print(f\"Error getting ngrok URL: {str(e)}\")\n            return None\n    except Exception as e:\n        logger.error(f\"Error starting ngrok: {str(e)}\")\n        "}, "finish_reason": null}]}
+
+RAW CHUNK: print(f"Error starting ngrok: {str(e)}")
+        return None
+
+def load_system_prompt():
+    """Load the system prompt from CursorSystemPrompt.md file"""
+    try:
+        # Try to find the file in the current directory or one level up
+        file
+
+FORMATTED CHUNK: {"id": "chatcmpl-3889742b-0783-4566-80d4-0fed5ccb4890", "object": "chat.completion.chunk", "created": 1743144339, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "print(f\"Error starting ngrok: {str(e)}\")\n        return None\n\ndef load_system_prompt():\n    \"\"\"Load the system prompt from CursorSystemPrompt.md file\"\"\"\n    try:\n        # Try to find the file in the current directory or one level up\n        file"}, "finish_reason": null}]}
+
+RAW CHUNK: _paths = [
+            "CursorSystemPrompt.md",
+            "../CursorSystemPrompt.md",
+            "CursorCustomModels/CursorSystemPrompt.md",
+            "../CursorCustomModels/CursorSystemPrompt.md"
+        ]
+        
+        for file_path in file_
+
+FORMATTED CHUNK: {"id": "chatcmpl-67338d48-30b5-4134-9c8a-1981f41eabb0", "object": "chat.completion.chunk", "created": 1743144339, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_paths = [\n            \"CursorSystemPrompt.md\",\n            \"../CursorSystemPrompt.md\",\n            \"CursorCustomModels/CursorSystemPrompt.md\",\n            \"../CursorCustomModels/CursorSystemPrompt.md\"\n        ]\n        \n        for file_path in file_"}, "finish_reason": null}]}
+
+RAW CHUNK: paths:
+            if os.path.exists(file_path):
+                with open(file_path, 'r', encoding='utf-8') as file:
+                    logger.info(f"Loaded system prompt from {file_path}")
+                    return file.read()
+        
+        
+
+FORMATTED CHUNK: {"id": "chatcmpl-23054c1c-3ba4-47d5-988e-b98eed67ce4e", "object": "chat.completion.chunk", "created": 1743144340, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "paths:\n            if os.path.exists(file_path):\n                with open(file_path, 'r', encoding='utf-8') as file:\n                    logger.info(f\"Loaded system prompt from {file_path}\")\n                    return file.read()\n        \n        "}, "finish_reason": null}]}
+
+RAW CHUNK: # If no file found, return default instructions
+        logger.warning("CursorSystemPrompt.md not found. Using default instructions.")
+        return """
+# Default System Instructions
+You are a powerful AI coding assistant. 
+Follow user's instructions carefully.
+Use tools when appropriate.
+        """
+    except
+
+FORMATTED CHUNK: {"id": "chatcmpl-c7fe2d3d-6722-4e19-a151-7fae16354470", "object": "chat.completion.chunk", "created": 1743144340, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "# If no file found, return default instructions\n        logger.warning(\"CursorSystemPrompt.md not found. Using default instructions.\")\n        return \"\"\"\n# Default System Instructions\nYou are a powerful AI coding assistant. \nFollow user's instructions carefully.\nUse tools when appropriate.\n        \"\"\"\n    except"}, "finish_reason": null}]}
+
+RAW CHUNK:  Exception as e:
+        logger.error(f"Error loading system prompt: {str(e)}")
+        return """
+# Default System Instructions (Error Recovery)
+You are a powerful AI coding assistant.
+Follow user's instructions carefully.
+Use tools when appropriate.
+        """
+
+# Load
+
+FORMATTED CHUNK: {"id": "chatcmpl-2640f23c-49b5-4ffc-83a3-28739dbfe251", "object": "chat.completion.chunk", "created": 1743144340, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Exception as e:\n        logger.error(f\"Error loading system prompt: {str(e)}\")\n        return \"\"\"\n# Default System Instructions (Error Recovery)\nYou are a powerful AI coding assistant.\nFollow user's instructions carefully.\nUse tools when appropriate.\n        \"\"\"\n\n# Load"}, "finish_reason": null}]}
+
+RAW CHUNK:  the Cursor system prompt at startup
+CURSOR_SYSTEM_PROMPT = load_system_prompt()
+logger.info(f"Loaded Cursor system prompt ({len(CURSOR_SYSTEM_PROMPT)} characters)")
+
+# ============================================================================
+# ROUTE HANDLERS
+# =================================================
+
+FORMATTED CHUNK: {"id": "chatcmpl-78d96cd0-587a-4c04-91df-9fdfe1bffc10", "object": "chat.completion.chunk", "created": 1743144341, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " the Cursor system prompt at startup\nCURSOR_SYSTEM_PROMPT = load_system_prompt()\nlogger.info(f\"Loaded Cursor system prompt ({len(CURSOR_SYSTEM_PROMPT)} characters)\")\n\n# ============================================================================\n# ROUTE HANDLERS\n# ================================================="}, "finish_reason": null}]}
+
+RAW CHUNK: ===========================
+
+@app.after_request
+def after_request(response):
+    """Add CORS headers to all responses"""
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type
+
+FORMATTED CHUNK: {"id": "chatcmpl-fe43f38c-d8f1-4d86-89d8-f07cbf30deb1", "object": "chat.completion.chunk", "created": 1743144341, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "===========================\n\n@app.after_request\ndef after_request(response):\n    \"\"\"Add CORS headers to all responses\"\"\"\n    response.headers.add('Access-Control-Allow-Origin', '*')\n    response.headers.add('Access-Control-Allow-Headers', 'Content-Type"}, "finish_reason": null}]}
+
+RAW CHUNK: , Authorization, X-Requested-With, Accept, Origin')
+    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
+    response.headers.add('Access-Control-Expose-Headers', 'X-Request-ID,
+
+FORMATTED CHUNK: {"id": "chatcmpl-3a740135-b039-4654-a37b-d72ac328624b", "object": "chat.completion.chunk", "created": 1743144342, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ", Authorization, X-Requested-With, Accept, Origin')\n    response.headers.add('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')\n    response.headers.add('Access-Control-Expose-Headers', 'X-Request-ID,"}, "finish_reason": null}]}
+
+RAW CHUNK:  openai-organization, openai-processing-ms, openai-version')
+    return response
+
+# Handle OPTIONS requests for all routes
+@app.route('/', defaults={'path': ''}, methods=['OPTIONS'])
+@app.route('/<path:path>', methods=['OPTIONS'])
+def handle_options(path
+
+FORMATTED CHUNK: {"id": "chatcmpl-a8d35c46-5ca9-41f4-82a2-5a08f2ebd9f3", "object": "chat.completion.chunk", "created": 1743144342, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " openai-organization, openai-processing-ms, openai-version')\n    return response\n\n# Handle OPTIONS requests for all routes\n@app.route('/', defaults={'path': ''}, methods=['OPTIONS'])\n@app.route('/<path:path>', methods=['OPTIONS'])\ndef handle_options(path"}, "finish_reason": null}]}
+
+RAW CHUNK: ):
+    """Handle OPTIONS requests for all routes"""
+    response = make_response('')
+    response.status_code = 200
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods',
+
+FORMATTED CHUNK: {"id": "chatcmpl-d030f11c-a6d9-4f13-89b0-7df680100102", "object": "chat.completion.chunk", "created": 1743144342, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "):\n    \"\"\"Handle OPTIONS requests for all routes\"\"\"\n    response = make_response('')\n    response.status_code = 200\n    response.headers.add('Access-Control-Allow-Origin', '*')\n    response.headers.add('Access-Control-Allow-Methods',"}, "finish_reason": null}]}
+
+RAW CHUNK:  'GET, POST, OPTIONS, PUT, DELETE')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin')
+    response.headers.add('Access-Control-Expose-Headers', 'X-
+
+FORMATTED CHUNK: {"id": "chatcmpl-d0ac1939-57f9-4c73-b847-50206cf9d707", "object": "chat.completion.chunk", "created": 1743144343, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " 'GET, POST, OPTIONS, PUT, DELETE')\n    response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept, Origin')\n    response.headers.add('Access-Control-Expose-Headers', 'X-"}, "finish_reason": null}]}
+
+RAW CHUNK: Request-ID, openai-organization, openai-processing-ms, openai-version')
+    return response
+
+def process_chat_request():
+    """Common handler for chat completion requests"""
+    try:
+        # Get request data
+        if not request.is_json:
+            return jsonify
+
+FORMATTED CHUNK: {"id": "chatcmpl-fa4d623a-c1c6-471e-8ca9-6823f380aa56", "object": "chat.completion.chunk", "created": 1743144343, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Request-ID, openai-organization, openai-processing-ms, openai-version')\n    return response\n\ndef process_chat_request():\n    \"\"\"Common handler for chat completion requests\"\"\"\n    try:\n        # Get request data\n        if not request.is_json:\n            return jsonify"}, "finish_reason": null}]}
+
+RAW CHUNK: ({"error": "Request must be JSON"}), 400
+        
+        data = request.json
+        
+        # Log the request data
+        log_to_file(data, "request")
+        
+        # Extract request parameters
+        messages = data.get('messages', [])
+
+FORMATTED CHUNK: {"id": "chatcmpl-36420e6d-d66d-4a91-ba1b-4f02d17deeb7", "object": "chat.completion.chunk", "created": 1743144343, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "({\"error\": \"Request must be JSON\"}), 400\n        \n        data = request.json\n        \n        # Log the request data\n        log_to_file(data, \"request\")\n        \n        # Extract request parameters\n        messages = data.get('messages', [])"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+        model_name = data.get('model', 'gpt-4o')  # Store original model name
+        stream = data.get('stream', False)
+        
+        logger.info(f"Processing chat request with model: {model_name}, stream: {stream}")
+        
+
+FORMATTED CHUNK: {"id": "chatcmpl-f794bc6f-3b44-4713-83d6-39f15960d1c9", "object": "chat.completion.chunk", "created": 1743144344, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n        model_name = data.get('model', 'gpt-4o')  # Store original model name\n        stream = data.get('stream', False)\n        \n        logger.info(f\"Processing chat request with model: {model_name}, stream: {stream}\")\n        "}, "finish_reason": null}]}
+
+RAW CHUNK: 
+        # Check if we need to add the system prompt
+        has_system_message = False
+        for message in messages:
+            if message.get('role') == 'system':
+                # Append our Cursor system prompt to the existing system message
+                existing_content = message.get('content', '')
+
+FORMATTED CHUNK: {"id": "chatcmpl-97775ad4-d4a6-4ed6-8f8a-5de82b97f6e7", "object": "chat.completion.chunk", "created": 1743144344, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n        # Check if we need to add the system prompt\n        has_system_message = False\n        for message in messages:\n            if message.get('role') == 'system':\n                # Append our Cursor system prompt to the existing system message\n                existing_content = message.get('content', '')"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                message['content'] = existing_content + "\n\n" + CURSOR_SYSTEM_PROMPT
+                has_system_message = True
+                logger.info("Added Cursor system prompt to existing system message")
+                break
+        
+        # If no system message exists, add one
+
+FORMATTED CHUNK: {"id": "chatcmpl-9e93abae-b846-4fb1-bc57-b8396c9d8d8e", "object": "chat.completion.chunk", "created": 1743144345, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                message['content'] = existing_content + \"\\n\\n\" + CURSOR_SYSTEM_PROMPT\n                has_system_message = True\n                logger.info(\"Added Cursor system prompt to existing system message\")\n                break\n        \n        # If no system message exists, add one"}, "finish_reason": null}]}
+
+RAW CHUNK:  with our Cursor system prompt
+        if not has_system_message:
+            messages.insert(0, {
+                "role": "system",
+                "content": CURSOR_SYSTEM_PROMPT
+            })
+            logger.info("Added new system message with Cursor system prompt")
+            
+
+FORMATTED CHUNK: {"id": "chatcmpl-26db1ae2-9d78-418f-95a3-8705be646ed2", "object": "chat.completion.chunk", "created": 1743144345, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " with our Cursor system prompt\n        if not has_system_message:\n            messages.insert(0, {\n                \"role\": \"system\",\n                \"content\": CURSOR_SYSTEM_PROMPT\n            })\n            logger.info(\"Added new system message with Cursor system prompt\")\n            "}, "finish_reason": null}]}
+
+RAW CHUNK: 
+        # Convert messages to Gemini format
+        gemini_messages, system_content = convert_openai_messages_to_gemini(messages)
+        
+        # Get the Gemini model name
+        gemini_model_name = map_openai_model_to_gemini(model_
+
+FORMATTED CHUNK: {"id": "chatcmpl-af633cf9-07f4-4c0c-b50a-d1f8f5582522", "object": "chat.completion.chunk", "created": 1743144345, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n        # Convert messages to Gemini format\n        gemini_messages, system_content = convert_openai_messages_to_gemini(messages)\n        \n        # Get the Gemini model name\n        gemini_model_name = map_openai_model_to_gemini(model_"}, "finish_reason": null}]}
+
+RAW CHUNK: name)
+        
+        # Configure the model
+        try:
+            gemini_model = genai.GenerativeModel(gemini_model_name)
+            logger.info(f"Created Gemini model: {gemini_model_name}")
+        except Exception as e:
+            
+
+FORMATTED CHUNK: {"id": "chatcmpl-499263af-79f0-46be-876e-57e346558718", "object": "chat.completion.chunk", "created": 1743144346, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "name)\n        \n        # Configure the model\n        try:\n            gemini_model = genai.GenerativeModel(gemini_model_name)\n            logger.info(f\"Created Gemini model: {gemini_model_name}\")\n        except Exception as e:\n            "}, "finish_reason": null}]}
+
+RAW CHUNK: logger.error(f"Error creating Gemini model: {str(e)}")
+            # Fallback to default model
+            gemini_model_name = MODEL_MAPPINGS["default"]
+            gemini_model = genai.GenerativeModel(gemini_model_name)
+            
+
+FORMATTED CHUNK: {"id": "chatcmpl-0cddfe0c-79c0-461c-b088-39442ee92ceb", "object": "chat.completion.chunk", "created": 1743144346, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "logger.error(f\"Error creating Gemini model: {str(e)}\")\n            # Fallback to default model\n            gemini_model_name = MODEL_MAPPINGS[\"default\"]\n            gemini_model = genai.GenerativeModel(gemini_model_name)\n            "}, "finish_reason": null}]}
+
+RAW CHUNK: logger.info(f"Falling back to default model: {gemini_model_name}")
+        
+        # Add system message if present
+        if system_content:
+            gemini_model.system_instruction = system_content
+        
+        # Create the chat
+        chat = gem
+
+FORMATTED CHUNK: {"id": "chatcmpl-653c8a9c-5e05-4787-9ea9-45a29616515f", "object": "chat.completion.chunk", "created": 1743144346, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "logger.info(f\"Falling back to default model: {gemini_model_name}\")\n        \n        # Add system message if present\n        if system_content:\n            gemini_model.system_instruction = system_content\n        \n        # Create the chat\n        chat = gem"}, "finish_reason": null}]}
+
+RAW CHUNK: ini_model.start_chat(history=gemini_messages)
+        
+        if stream:
+            # Handle streaming
+            def generate_streaming_response():
+                try:
+                    # Use send_message with a neutral prompt
+                    response_stream = chat.send_message(
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-3b9c8760-351d-4b1e-96b3-4d5655dc09cd", "object": "chat.completion.chunk", "created": 1743144347, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "ini_model.start_chat(history=gemini_messages)\n        \n        if stream:\n            # Handle streaming\n            def generate_streaming_response():\n                try:\n                    # Use send_message with a neutral prompt\n                    response_stream = chat.send_message(\n"}, "finish_reason": null}]}
+
+RAW CHUNK:                         "Continue the conversation.",
+                        stream=True
+                    )
+                    
+                    # For logging purposes
+                    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+                    stream_log_filename = f"{LOG_DIR}/stream_{timestamp}.
+
+FORMATTED CHUNK: {"id": "chatcmpl-bd8f56be-1dbf-4b1d-a52a-2522655bcef7", "object": "chat.completion.chunk", "created": 1743144347, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "                        \"Continue the conversation.\",\n                        stream=True\n                    )\n                    \n                    # For logging purposes\n                    timestamp = datetime.datetime.now().strftime(\"%Y%m%d_%H%M%S\")\n                    stream_log_filename = f\"{LOG_DIR}/stream_{timestamp}."}, "finish_reason": null}]}
+
+RAW CHUNK: txt"
+                    all_chunks = []
+                    
+                    for chunk in response_stream:
+                        chunk_text = chunk.text if hasattr(chunk, 'text') else ""
+                        
+                        # Log the raw chunk
+                        if LOG_TO_FILE:
+                            all_chunks.append(f"
+
+FORMATTED CHUNK: {"id": "chatcmpl-10f2403c-bf11-459c-a02d-6e26cb8c5b60", "object": "chat.completion.chunk", "created": 1743144348, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "txt\"\n                    all_chunks = []\n                    \n                    for chunk in response_stream:\n                        chunk_text = chunk.text if hasattr(chunk, 'text') else \"\"\n                        \n                        # Log the raw chunk\n                        if LOG_TO_FILE:\n                            all_chunks.append(f\""}, "finish_reason": null}]}
+
+RAW CHUNK: RAW CHUNK: {chunk_text}")
+                        
+                        if chunk_text:
+                            # Convert chunk to OpenAI format
+                            openai_chunk = gemini_streaming_chunk_to_openai_chunk(
+                                chunk_text, 
+                                model_name  # Use original model name
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-865216dd-20e3-4fb9-8b2b-5c4358d2b73c", "object": "chat.completion.chunk", "created": 1743144348, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "RAW CHUNK: {chunk_text}\")\n                        \n                        if chunk_text:\n                            # Convert chunk to OpenAI format\n                            openai_chunk = gemini_streaming_chunk_to_openai_chunk(\n                                chunk_text, \n                                model_name  # Use original model name\n"}, "finish_reason": null}]}
+
+RAW CHUNK:                             )
+                            
+                            # Log the formatted chunk
+                            if LOG_TO_FILE:
+                                all_chunks.append(f"FORMATTED CHUNK: {json.dumps(openai_chunk)}")
+                            
+                            yield f"data: {json.dumps(openai_chunk)}\n\
+
+FORMATTED CHUNK: {"id": "chatcmpl-c587f9b2-0a78-4146-ab34-f43c1cdd266a", "object": "chat.completion.chunk", "created": 1743144348, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "                            )\n                            \n                            # Log the formatted chunk\n                            if LOG_TO_FILE:\n                                all_chunks.append(f\"FORMATTED CHUNK: {json.dumps(openai_chunk)}\")\n                            \n                            yield f\"data: {json.dumps(openai_chunk)}\\n\\"}, "finish_reason": null}]}
+
+RAW CHUNK: n"
+                    
+                    # Send a final chunk with finish_reason
+                    final_chunk = {
+                        "id": f"chatcmpl-{str(uuid.uuid4())}",
+                        "object": "chat.completion.chunk",
+                        "created": int(time.time()),
+
+FORMATTED CHUNK: {"id": "chatcmpl-79899f19-ea89-4ebb-bea2-ac8587dd5e4e", "object": "chat.completion.chunk", "created": 1743144349, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "n\"\n                    \n                    # Send a final chunk with finish_reason\n                    final_chunk = {\n                        \"id\": f\"chatcmpl-{str(uuid.uuid4())}\",\n                        \"object\": \"chat.completion.chunk\",\n                        \"created\": int(time.time()),"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                        "model": model_name,  # Use original model name
+                        "choices": [{
+                            "index": 0,
+                            "delta": {},
+                            "finish_reason": "stop"
+                        }]
+                    }
+                    
+                    # Log the final chunk
+                    if LOG_TO_
+
+FORMATTED CHUNK: {"id": "chatcmpl-2bb90dda-51bf-42a5-970a-958dc8a131dc", "object": "chat.completion.chunk", "created": 1743144349, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                        \"model\": model_name,  # Use original model name\n                        \"choices\": [{\n                            \"index\": 0,\n                            \"delta\": {},\n                            \"finish_reason\": \"stop\"\n                        }]\n                    }\n                    \n                    # Log the final chunk\n                    if LOG_TO_"}, "finish_reason": null}]}
+
+RAW CHUNK: FILE:
+                        all_chunks.append(f"FINAL CHUNK: {json.dumps(final_chunk)}")
+                    
+                    yield f"data: {json.dumps(final_chunk)}\n\n"
+                    
+                    # Send [DONE] marker
+                    if LOG_TO_
+
+FORMATTED CHUNK: {"id": "chatcmpl-4ec330e1-c622-4398-a95f-4e1cea98676f", "object": "chat.completion.chunk", "created": 1743144349, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "FILE:\n                        all_chunks.append(f\"FINAL CHUNK: {json.dumps(final_chunk)}\")\n                    \n                    yield f\"data: {json.dumps(final_chunk)}\\n\\n\"\n                    \n                    # Send [DONE] marker\n                    if LOG_TO_"}, "finish_reason": null}]}
+
+RAW CHUNK: FILE:
+                        all_chunks.append("DONE MARKER: data: [DONE]")
+                    
+                    yield "data: [DONE]\n\n"
+                    
+                    # Write all chunks to a single file
+                    if LOG_TO_FILE:
+                        try:
+                            with open(stream_log
+
+FORMATTED CHUNK: {"id": "chatcmpl-85349578-3afa-4d77-8de4-576649626874", "object": "chat.completion.chunk", "created": 1743144350, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "FILE:\n                        all_chunks.append(\"DONE MARKER: data: [DONE]\")\n                    \n                    yield \"data: [DONE]\\n\\n\"\n                    \n                    # Write all chunks to a single file\n                    if LOG_TO_FILE:\n                        try:\n                            with open(stream_log"}, "finish_reason": null}]}
+
+RAW CHUNK: _filename, "w", encoding="utf-8") as f:
+                                header = f"=== STREAMING RESPONSE LOG - {datetime.datetime.now().isoformat()} ===\n\n"
+                                f.write(header)
+                                f.write("\n\n".join(all
+
+FORMATTED CHUNK: {"id": "chatcmpl-e0641bf6-8107-4096-8492-67c0ce058331", "object": "chat.completion.chunk", "created": 1743144350, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_filename, \"w\", encoding=\"utf-8\") as f:\n                                header = f\"=== STREAMING RESPONSE LOG - {datetime.datetime.now().isoformat()} ===\\n\\n\"\n                                f.write(header)\n                                f.write(\"\\n\\n\".join(all"}, "finish_reason": null}]}
+
+RAW CHUNK: _chunks))
+                            logger.info(f"Logged streaming response to {stream_log_filename}")
+                        except Exception as e:
+                            logger.error(f"Error logging streaming response: {str(e)}")
+                
+                except Exception as e:
+                    logger.error(f"
+
+FORMATTED CHUNK: {"id": "chatcmpl-4f2c1a69-ef7a-4803-ae34-5d844b301f36", "object": "chat.completion.chunk", "created": 1743144351, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_chunks))\n                            logger.info(f\"Logged streaming response to {stream_log_filename}\")\n                        except Exception as e:\n                            logger.error(f\"Error logging streaming response: {str(e)}\")\n                \n                except Exception as e:\n                    logger.error(f\""}, "finish_reason": null}]}
+
+RAW CHUNK: Error in Gemini streaming: {str(e)}")
+                    
+                    error_chunk = {
+                        "id": f"chatcmpl-{str(uuid.uuid4())}",
+                        "object": "chat.completion.chunk",
+                        "created": int(time.time()),
+                        "
+
+FORMATTED CHUNK: {"id": "chatcmpl-c4b8c466-8ddd-42cd-a2f7-df2465158f02", "object": "chat.completion.chunk", "created": 1743144351, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Error in Gemini streaming: {str(e)}\")\n                    \n                    error_chunk = {\n                        \"id\": f\"chatcmpl-{str(uuid.uuid4())}\",\n                        \"object\": \"chat.completion.chunk\",\n                        \"created\": int(time.time()),\n                        \""}, "finish_reason": null}]}
+
+RAW CHUNK: model": model_name,  # Use original model name
+                        "choices": [{
+                            "index": 0,
+                            "delta": {"content": f"\n\nError: {str(e)}"},
+                            "finish_reason": "stop"
+                        }]
+                    }
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-f15759bd-12b6-4805-8e38-e0cb49412b97", "object": "chat.completion.chunk", "created": 1743144351, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "model\": model_name,  # Use original model name\n                        \"choices\": [{\n                            \"index\": 0,\n                            \"delta\": {\"content\": f\"\\n\\nError: {str(e)}\"},\n                            \"finish_reason\": \"stop\"\n                        }]\n                    }\n"}, "finish_reason": null}]}
+
+RAW CHUNK:                     
+                    # Log the error
+                    log_to_file({
+                        "error": str(e),
+                        "error_chunk": error_chunk
+                    }, "stream_error")
+                    
+                    yield f"data: {json.dumps(error_chunk)}\n\n"
+
+FORMATTED CHUNK: {"id": "chatcmpl-b28e56cd-06cb-4e39-bc2a-2c4f54c8b060", "object": "chat.completion.chunk", "created": 1743144352, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "                    \n                    # Log the error\n                    log_to_file({\n                        \"error\": str(e),\n                        \"error_chunk\": error_chunk\n                    }, \"stream_error\")\n                    \n                    yield f\"data: {json.dumps(error_chunk)}\\n\\n\""}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                    yield "data: [DONE]\n\n"
+            
+            return Response(
+                generate_streaming_response(),
+                mimetype='text/event-stream',
+                headers={
+                    'Cache-Control': 'no-cache',
+                    'X-Accel-Buffering
+
+FORMATTED CHUNK: {"id": "chatcmpl-d649537c-3315-4522-94a6-96a2c2877dac", "object": "chat.completion.chunk", "created": 1743144352, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                    yield \"data: [DONE]\\n\\n\"\n            \n            return Response(\n                generate_streaming_response(),\n                mimetype='text/event-stream',\n                headers={\n                    'Cache-Control': 'no-cache',\n                    'X-Accel-Buffering"}, "finish_reason": null}]}
+
+RAW CHUNK: ': 'no',
+                    'Content-Type': 'text/event-stream'
+                }
+            )
+        
+        else:
+            # Handle non-streaming
+            try:
+                response = chat.send_message("Continue the conversation.")
+                
+                # Get content from response
+
+FORMATTED CHUNK: {"id": "chatcmpl-0d1dc775-3f96-4d58-b5ee-57a78783a67f", "object": "chat.completion.chunk", "created": 1743144352, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "': 'no',\n                    'Content-Type': 'text/event-stream'\n                }\n            )\n        \n        else:\n            # Handle non-streaming\n            try:\n                response = chat.send_message(\"Continue the conversation.\")\n                \n                # Get content from response"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                content = response.text
+                
+                # Log the raw response from Gemini
+                log_to_file({
+                    "raw_content": content,
+                    "response_object": str(response)
+                }, "gemini_raw_response")
+                
+                # Format response in OpenAI format
+
+FORMATTED CHUNK: {"id": "chatcmpl-ad42ed1b-f6fa-4771-aa39-7f406941a12c", "object": "chat.completion.chunk", "created": 1743144353, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                content = response.text\n                \n                # Log the raw response from Gemini\n                log_to_file({\n                    \"raw_content\": content,\n                    \"response_object\": str(response)\n                }, \"gemini_raw_response\")\n                \n                # Format response in OpenAI format"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                openai_response = {
+                    "id": f"chatcmpl-{str(uuid.uuid4())}",
+                    "object": "chat.completion",
+                    "created": int(time.time()),
+                    "model": model_name,  # Use original model name
+                    
+
+FORMATTED CHUNK: {"id": "chatcmpl-3f9b2b3a-e580-4189-b74a-6a1230145a8e", "object": "chat.completion.chunk", "created": 1743144353, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                openai_response = {\n                    \"id\": f\"chatcmpl-{str(uuid.uuid4())}\",\n                    \"object\": \"chat.completion\",\n                    \"created\": int(time.time()),\n                    \"model\": model_name,  # Use original model name\n                    "}, "finish_reason": null}]}
+
+RAW CHUNK: "choices": [{
+                        "index": 0,
+                        "message": {
+                            "role": "assistant",
+                            "content": content
+                        },
+                        "finish_reason": "stop"
+                    }],
+                    "usage": {
+                        "prompt_tokens": 0,
+
+FORMATTED CHUNK: {"id": "chatcmpl-188f0be8-c174-44f3-8a77-2323e2e936d0", "object": "chat.completion.chunk", "created": 1743144353, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\"choices\": [{\n                        \"index\": 0,\n                        \"message\": {\n                            \"role\": \"assistant\",\n                            \"content\": content\n                        },\n                        \"finish_reason\": \"stop\"\n                    }],\n                    \"usage\": {\n                        \"prompt_tokens\": 0,"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                        "completion_tokens": 0,
+                        "total_tokens": 0
+                    }
+                }
+                
+                # Log the formatted OpenAI response
+                log_to_file(openai_response, "openai_formatted_response")
+                
+                return jsonify(openai_response
+
+FORMATTED CHUNK: {"id": "chatcmpl-bdcaf54e-4680-4f62-b9e2-7c58e193b228", "object": "chat.completion.chunk", "created": 1743144354, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                        \"completion_tokens\": 0,\n                        \"total_tokens\": 0\n                    }\n                }\n                \n                # Log the formatted OpenAI response\n                log_to_file(openai_response, \"openai_formatted_response\")\n                \n                return jsonify(openai_response"}, "finish_reason": null}]}
+
+RAW CHUNK: )
+            except Exception as e:
+                logger.error(f"Error in non-streaming response: {str(e)}")
+                # Log the error
+                log_to_file({
+                    "error": str(e),
+                    "traceback": traceback.format_exc()
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-67771f48-c46b-4d2a-acea-5278382dd75a", "object": "chat.completion.chunk", "created": 1743144354, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ")\n            except Exception as e:\n                logger.error(f\"Error in non-streaming response: {str(e)}\")\n                # Log the error\n                log_to_file({\n                    \"error\": str(e),\n                    \"traceback\": traceback.format_exc()\n"}, "finish_reason": null}]}
+
+RAW CHUNK:                 }, "non_streaming_error")
+                raise  # Re-raise to be caught by the outer try/except
+            
+    except Exception as e:
+        logger.error(f"Error processing chat request: {str(e)}")
+        
+        # Return an error response in OpenAI
+
+FORMATTED CHUNK: {"id": "chatcmpl-b5ca025e-fb44-44e1-96f5-37c9912dd6fe", "object": "chat.completion.chunk", "created": 1743144355, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "                }, \"non_streaming_error\")\n                raise  # Re-raise to be caught by the outer try/except\n            \n    except Exception as e:\n        logger.error(f\"Error processing chat request: {str(e)}\")\n        \n        # Return an error response in OpenAI"}, "finish_reason": null}]}
+
+RAW CHUNK:  format
+        error_response = {
+            "id": f"chatcmpl-{str(uuid.uuid4())}",
+            "object": "chat.completion",
+            "created": int(time.time()),
+            "model": model_name if 'model_name' in locals
+
+FORMATTED CHUNK: {"id": "chatcmpl-7b9d2f84-9644-4c61-bc8d-80fc94f37071", "object": "chat.completion.chunk", "created": 1743144355, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " format\n        error_response = {\n            \"id\": f\"chatcmpl-{str(uuid.uuid4())}\",\n            \"object\": \"chat.completion\",\n            \"created\": int(time.time()),\n            \"model\": model_name if 'model_name' in locals"}, "finish_reason": null}]}
+
+RAW CHUNK: () else "unknown",  # Use model_name instead of model object
+            "choices": [{
+                "index": 0,
+                "message": {
+                    "role": "assistant",
+                    "content": f"Error: {str(e)}\n\nPlease try again or check
+
+FORMATTED CHUNK: {"id": "chatcmpl-25ddb5e5-e8ce-423a-a1ec-2c41e0f90145", "object": "chat.completion.chunk", "created": 1743144355, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "() else \"unknown\",  # Use model_name instead of model object\n            \"choices\": [{\n                \"index\": 0,\n                \"message\": {\n                    \"role\": \"assistant\",\n                    \"content\": f\"Error: {str(e)}\\n\\nPlease try again or check"}, "finish_reason": null}]}
+
+RAW CHUNK:  your API key configuration."
+                },
+                "finish_reason": "stop"
+            }],
+            "usage": {
+                "prompt_tokens": 0,
+                "completion_tokens": 0,
+                "total_tokens": 0
+            }
+        }
+        
+
+FORMATTED CHUNK: {"id": "chatcmpl-885ff049-0adb-4c20-92d1-7efba4965dbe", "object": "chat.completion.chunk", "created": 1743144356, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " your API key configuration.\"\n                },\n                \"finish_reason\": \"stop\"\n            }],\n            \"usage\": {\n                \"prompt_tokens\": 0,\n                \"completion_tokens\": 0,\n                \"total_tokens\": 0\n            }\n        }\n        "}, "finish_reason": null}]}
+
+RAW CHUNK: 
+        # Log the error response
+        log_to_file({
+            "error": str(e),
+            "error_response": error_response
+        }, "error_response")
+        
+        if 'stream' in locals() and stream:
+            def generate_error_stream():
+                
+
+FORMATTED CHUNK: {"id": "chatcmpl-0aa3eacc-deca-4c8f-ae7c-6f179f769f4f", "object": "chat.completion.chunk", "created": 1743144356, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n        # Log the error response\n        log_to_file({\n            \"error\": str(e),\n            \"error_response\": error_response\n        }, \"error_response\")\n        \n        if 'stream' in locals() and stream:\n            def generate_error_stream():\n                "}, "finish_reason": null}]}
+
+RAW CHUNK: yield f"data: {json.dumps(error_response)}\n\n"
+                yield "data: [DONE]\n\n"
+            
+            return Response(
+                generate_error_stream(),
+                mimetype='text/event-stream',
+                headers={
+                    '
+
+FORMATTED CHUNK: {"id": "chatcmpl-6a88809d-a843-4b07-b90b-5acfc8e1ce91", "object": "chat.completion.chunk", "created": 1743144356, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "yield f\"data: {json.dumps(error_response)}\\n\\n\"\n                yield \"data: [DONE]\\n\\n\"\n            \n            return Response(\n                generate_error_stream(),\n                mimetype='text/event-stream',\n                headers={\n                    '"}, "finish_reason": null}]}
+
+RAW CHUNK: Cache-Control': 'no-cache',
+                    'X-Accel-Buffering': 'no',
+                    'Content-Type': 'text/event-stream'
+                }
+            )
+        else:
+            return jsonify(error_response)
+
+@app.route('/v1/
+
+FORMATTED CHUNK: {"id": "chatcmpl-d2fcec2d-56ce-4251-8636-c93ec0507b34", "object": "chat.completion.chunk", "created": 1743144357, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Cache-Control': 'no-cache',\n                    'X-Accel-Buffering': 'no',\n                    'Content-Type': 'text/event-stream'\n                }\n            )\n        else:\n            return jsonify(error_response)\n\n@app.route('/v1/"}, "finish_reason": null}]}
+
+RAW CHUNK: chat/completions', methods=['POST'])
+def openai_chat_completions():
+    """Handle OpenAI-compatible chat completion endpoint"""
+    return process_chat_request()
+
+@app.route('/chat/completions', methods=['POST'])
+def cursor_chat_complet
+
+FORMATTED CHUNK: {"id": "chatcmpl-233c99ec-0cdb-4ba6-942b-510322dd5d0d", "object": "chat.completion.chunk", "created": 1743144357, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "chat/completions', methods=['POST'])\ndef openai_chat_completions():\n    \"\"\"Handle OpenAI-compatible chat completion endpoint\"\"\"\n    return process_chat_request()\n\n@app.route('/chat/completions', methods=['POST'])\ndef cursor_chat_complet"}, "finish_reason": null}]}
+
+RAW CHUNK: ions():
+    """Handle Cursor-specific chat completion endpoint"""
+    return process_chat_request()
+
+@app.route('/<path:path>/chat/completions', methods=['POST'])
+def any_chat_completions(path):
+    """Handle chat completion with custom path
+
+FORMATTED CHUNK: {"id": "chatcmpl-3a41823f-9bf1-4933-bab0-234def9042f1", "object": "chat.completion.chunk", "created": 1743144357, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "ions():\n    \"\"\"Handle Cursor-specific chat completion endpoint\"\"\"\n    return process_chat_request()\n\n@app.route('/<path:path>/chat/completions', methods=['POST'])\ndef any_chat_completions(path):\n    \"\"\"Handle chat completion with custom path"}, "finish_reason": null}]}
+
+RAW CHUNK:  prefix"""
+    return process_chat_request()
+
+@app.route('/v1/models', methods=['GET'])
+def list_models():
+    """Return a list of available models"""
+    models = [
+        {
+            "id": "gpt-4o",
+            "
+
+FORMATTED CHUNK: {"id": "chatcmpl-33747ab6-c301-4561-a7db-4f4baf76c6f4", "object": "chat.completion.chunk", "created": 1743144358, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " prefix\"\"\"\n    return process_chat_request()\n\n@app.route('/v1/models', methods=['GET'])\ndef list_models():\n    \"\"\"Return a list of available models\"\"\"\n    models = [\n        {\n            \"id\": \"gpt-4o\",\n            \""}, "finish_reason": null}]}
+
+RAW CHUNK: object": "model",
+            "created": int(time.time()),
+            "owned_by": "openai"
+        },
+        {
+            "id": "gpt-4o-2024-08-06",
+            "object": "model",
+            
+
+FORMATTED CHUNK: {"id": "chatcmpl-065847af-e77c-4e4f-b49b-f920be935ef2", "object": "chat.completion.chunk", "created": 1743144358, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "object\": \"model\",\n            \"created\": int(time.time()),\n            \"owned_by\": \"openai\"\n        },\n        {\n            \"id\": \"gpt-4o-2024-08-06\",\n            \"object\": \"model\",\n            "}, "finish_reason": null}]}
+
+RAW CHUNK: "created": int(time.time()),
+            "owned_by": "openai"
+        },
+        {
+            "id": "gpt-3.5-turbo",
+            "object": "model",
+            "created": int(time.time()),
+            "owned_by
+
+FORMATTED CHUNK: {"id": "chatcmpl-bae22578-3a84-4351-be06-e2ec9f0a13ce", "object": "chat.completion.chunk", "created": 1743144359, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\"created\": int(time.time()),\n            \"owned_by\": \"openai\"\n        },\n        {\n            \"id\": \"gpt-3.5-turbo\",\n            \"object\": \"model\",\n            \"created\": int(time.time()),\n            \"owned_by"}, "finish_reason": null}]}
+
+RAW CHUNK: ": "openai"
+        }
+    ]
+    
+    return jsonify({
+        "object": "list",
+        "data": models
+    })
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    """Health check endpoint"""
+    return jsonify({"
+
+FORMATTED CHUNK: {"id": "chatcmpl-ec55391c-6a46-4c41-b553-8f25acb16f4b", "object": "chat.completion.chunk", "created": 1743144359, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\": \"openai\"\n        }\n    ]\n    \n    return jsonify({\n        \"object\": \"list\",\n        \"data\": models\n    })\n\n@app.route('/health', methods=['GET'])\ndef health_check():\n    \"\"\"Health check endpoint\"\"\"\n    return jsonify({\""}, "finish_reason": null}]}
+
+RAW CHUNK: status": "ok"})
+
+@app.route('/', methods=['GET'])
+def home():
+    """Render home page with information about the proxy"""
+    return """
+    <html>
+    <head>
+        <title>Simple Gemini Proxy for Cursor</title>
+        <style>
+            body
+
+FORMATTED CHUNK: {"id": "chatcmpl-68e19809-b15d-4394-ab42-271396f04fd2", "object": "chat.completion.chunk", "created": 1743144359, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "status\": \"ok\"})\n\n@app.route('/', methods=['GET'])\ndef home():\n    \"\"\"Render home page with information about the proxy\"\"\"\n    return \"\"\"\n    <html>\n    <head>\n        <title>Simple Gemini Proxy for Cursor</title>\n        <style>\n            body"}, "finish_reason": null}]}
+
+RAW CHUNK:  { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        </style>
+    </head>
+    <body>
+        <h1>Simple Gemini Proxy for Cursor</h1>
+        <p>This server
+
+FORMATTED CHUNK: {"id": "chatcmpl-28623bc7-7b25-41d9-993e-fc92fbcc6ab1", "object": "chat.completion.chunk", "created": 1743144360, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }\n        </style>\n    </head>\n    <body>\n        <h1>Simple Gemini Proxy for Cursor</h1>\n        <p>This server"}, "finish_reason": null}]}
+
+RAW CHUNK:  acts as a simple proxy between Cursor and Google's Gemini API.</p>
+        
+        <h2>Available Endpoints</h2>
+        <ul>
+            <li>/v1/chat/completions - Standard OpenAI-compatible chat completion endpoint</li>
+            <li>/chat/completions - Cursor-specific chat completion
+
+FORMATTED CHUNK: {"id": "chatcmpl-6a4ad4bd-8598-4fe0-85b1-9aa21c21fc12", "object": "chat.completion.chunk", "created": 1743144360, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " acts as a simple proxy between Cursor and Google's Gemini API.</p>\n        \n        <h2>Available Endpoints</h2>\n        <ul>\n            <li>/v1/chat/completions - Standard OpenAI-compatible chat completion endpoint</li>\n            <li>/chat/completions - Cursor-specific chat completion"}, "finish_reason": null}]}
+
+RAW CHUNK:  endpoint</li>
+            <li>/v1/models - List available models</li>
+            <li>/health - Health check endpoint</li>
+        </ul>
+    </body>
+    </html>
+    """
+
+# ============================================================================
+# MAIN FUNCTION
+# ============================================================================
+
+if __name__ == '__
+
+FORMATTED CHUNK: {"id": "chatcmpl-2f8e07d6-9bf3-4d41-be0e-e05560d9baab", "object": "chat.completion.chunk", "created": 1743144360, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " endpoint</li>\n            <li>/v1/models - List available models</li>\n            <li>/health - Health check endpoint</li>\n        </ul>\n    </body>\n    </html>\n    \"\"\"\n\n# ============================================================================\n# MAIN FUNCTION\n# ============================================================================\n\nif __name__ == '__"}, "finish_reason": null}]}
+
+RAW CHUNK: main__':
+    port = int(os.environ.get("PORT", "5000"))
+    host = os.environ.get("HOST", "0.0.0.0")
+    use_ngrok = os.environ.get("USE_NGROK", "0
+
+FORMATTED CHUNK: {"id": "chatcmpl-46c834d5-be95-4c26-80cc-8cb4734acd9e", "object": "chat.completion.chunk", "created": 1743144361, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "main__':\n    port = int(os.environ.get(\"PORT\", \"5000\"))\n    host = os.environ.get(\"HOST\", \"0.0.0.0\")\n    use_ngrok = os.environ.get(\"USE_NGROK\", \"0"}, "finish_reason": null}]}
+
+RAW CHUNK: ") == "1"
+    
+    print(f"Starting simple Gemini proxy server on {host}:{port}")
+    
+    # Start ngrok if configured to do so
+    if use_ngrok:
+        logger.info("Starting ngrok tunnel...")
+        public_url = start_
+
+FORMATTED CHUNK: {"id": "chatcmpl-afb3ce67-3dea-4bd2-bd2e-8627a98440c6", "object": "chat.completion.chunk", "created": 1743144361, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\") == \"1\"\n    \n    print(f\"Starting simple Gemini proxy server on {host}:{port}\")\n    \n    # Start ngrok if configured to do so\n    if use_ngrok:\n        logger.info(\"Starting ngrok tunnel...\")\n        public_url = start_"}, "finish_reason": null}]}
+
+RAW CHUNK: ngrok(port)
+        if not public_url:
+            logger.warning("Failed to start ngrok. Continuing with local server only.")
+    
+    # Start the server
+    serve(app, host=host, port=port) 
+```
+The file `blah.py` has been
+
+FORMATTED CHUNK: {"id": "chatcmpl-d26c6963-e947-4586-81b4-18e2330ba0c4", "object": "chat.completion.chunk", "created": 1743144361, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "ngrok(port)\n        if not public_url:\n            logger.warning(\"Failed to start ngrok. Continuing with local server only.\")\n    \n    # Start the server\n    serve(app, host=host, port=port) \n```\nThe file `blah.py` has been"}, "finish_reason": null}]}
+
+RAW CHUNK:  created with the identical content of `CursorCustomModels/src/gemini.py`.
+
+FORMATTED CHUNK: {"id": "chatcmpl-949d13bd-da5a-42b8-abd4-815aa0c7093a", "object": "chat.completion.chunk", "created": 1743144361, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " created with the identical content of `CursorCustomModels/src/gemini.py`."}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-528031fa-996a-4c8d-8f76-464c7f54622f", "object": "chat.completion.chunk", "created": 1743144361, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

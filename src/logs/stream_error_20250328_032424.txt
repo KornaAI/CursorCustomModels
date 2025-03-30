@@ -1,0 +1,20 @@
+=== STREAM_ERROR LOG - 2025-03-28T03:24:24.595927 ===
+
+{
+  "error": "google.ai.generativelanguage_v1beta.types.generative_service.GenerateContentRequest() got multiple values for keyword argument 'tools'",
+  "error_chunk": {
+    "id": "chatcmpl-5036e71b-9d98-4f82-8446-b2b32a5058bf",
+    "object": "chat.completion.chunk",
+    "created": 1743146664,
+    "model": "gpt-4o",
+    "choices": [
+      {
+        "index": 0,
+        "delta": {
+          "content": "\n\nError: google.ai.generativelanguage_v1beta.types.generative_service.GenerateContentRequest() got multiple values for keyword argument 'tools'"
+        },
+        "finish_reason": "stop"
+      }
+    ]
+  }
+}

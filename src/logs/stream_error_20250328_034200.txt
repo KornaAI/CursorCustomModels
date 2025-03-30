@@ -1,0 +1,20 @@
+=== STREAM_ERROR LOG - 2025-03-28T03:42:00.015147 ===
+
+{
+  "error": "504 Deadline Exceeded",
+  "error_chunk": {
+    "id": "chatcmpl-bef3d928-6d7e-4011-8a5a-998fa9efb763",
+    "object": "chat.completion.chunk",
+    "created": 1743147720,
+    "model": "gpt-4o",
+    "choices": [
+      {
+        "index": 0,
+        "delta": {
+          "content": "\n\nError: 504 Deadline Exceeded"
+        },
+        "finish_reason": "stop"
+      }
+    ]
+  }
+}

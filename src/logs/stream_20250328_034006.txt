@@ -1,0 +1,665 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:40:38.541410 ===
+
+RAW CHUNK: Okay, transitioning from a local PyQt GUI to a web-based application represents a significant architectural shift. We'll use Flask as the Python backend framework, standard HTML/CSS/JavaScript for the frontend, and Selenium for browser automation, replacing `pyautogui`.
+
+**Project Structure:**
+
+```
+t
+
+FORMATTED CHUNK: {"id": "chatcmpl-db6ec0c7-08d8-4738-9013-640a5a2b14d4", "object": "chat.completion.chunk", "created": 1743147607, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Okay, transitioning from a local PyQt GUI to a web-based application represents a significant architectural shift. We'll use Flask as the Python backend framework, standard HTML/CSS/JavaScript for the frontend, and Selenium for browser automation, replacing `pyautogui`.\n\n**Project Structure:**\n\n```\nt"}, "finish_reason": null}]}
+
+RAW CHUNK: inder_web_bot/
+├── app.py                   # Main Flask application logic
+├── requirements.txt         # Project dependencies
+├── config.json              # Configuration file (areas replaced by selectors)
+├── .env                     # Environment variables (API key)
+├── templates/
+│   └── index.html           
+
+FORMATTED CHUNK: {"id": "chatcmpl-e5b8fdf6-a5b3-41b3-9a1f-4bfb21b2e362", "object": "chat.completion.chunk", "created": 1743147607, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "inder_web_bot/\n\u251c\u2500\u2500 app.py                   # Main Flask application logic\n\u251c\u2500\u2500 requirements.txt         # Project dependencies\n\u251c\u2500\u2500 config.json              # Configuration file (areas replaced by selectors)\n\u251c\u2500\u2500 .env                     # Environment variables (API key)\n\u251c\u2500\u2500 templates/\n\u2502   \u2514\u2500\u2500 index.html           "}, "finish_reason": null}]}
+
+RAW CHUNK: # Main HTML page for the UI
+├── static/
+│   ├── css/
+│   │   └── style.css        # CSS for styling
+│   └── js/
+│       └── script.js        # JavaScript for frontend logic & API calls
+└── automation/
+    ├── __init__.py
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-88a4ba46-3a12-4f0c-9fef-ec78c175ff80", "object": "chat.completion.chunk", "created": 1743147608, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "# Main HTML page for the UI\n\u251c\u2500\u2500 static/\n\u2502   \u251c\u2500\u2500 css/\n\u2502   \u2502   \u2514\u2500\u2500 style.css        # CSS for styling\n\u2502   \u2514\u2500\u2500 js/\n\u2502       \u2514\u2500\u2500 script.js        # JavaScript for frontend logic & API calls\n\u2514\u2500\u2500 automation/\n    \u251c\u2500\u2500 __init__.py\n"}, "finish_reason": null}]}
+
+RAW CHUNK:     └── tinder_driver.py     # Selenium-based browser automation class
+```
+
+**1. `requirements.txt`:**
+
+```txt
+Flask>=2.0
+python-dotenv>=0.19
+requests>=2.25
+selenium>=4.0
+webdriver-manager>=
+
+FORMATTED CHUNK: {"id": "chatcmpl-beaa2b7b-8ad8-47db-8b3c-f1b111df21af", "object": "chat.completion.chunk", "created": 1743147608, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "    \u2514\u2500\u2500 tinder_driver.py     # Selenium-based browser automation class\n```\n\n**1. `requirements.txt`:**\n\n```txt\nFlask>=2.0\npython-dotenv>=0.19\nrequests>=2.25\nselenium>=4.0\nwebdriver-manager>="}, "finish_reason": null}]}
+
+RAW CHUNK: 3.5 # Optional: For easier webdriver management
+Pillow>=9.0 # For image processing if needed outside screenshots
+# opencv-python # Might not be needed if not doing complex image analysis pre-OpenAI
+# numpy # Might not be needed
+```
+
+**2. `.env`:**
+
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-8372ea07-cb0e-493b-8907-a2e34a152baa", "object": "chat.completion.chunk", "created": 1743147609, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "3.5 # Optional: For easier webdriver management\nPillow>=9.0 # For image processing if needed outside screenshots\n# opencv-python # Might not be needed if not doing complex image analysis pre-OpenAI\n# numpy # Might not be needed\n```\n\n**2. `.env`:**\n\n"}, "finish_reason": null}]}
+
+RAW CHUNK: ```
+OPENAI_API_KEY=your_openai_api_key_here
+# Optional: Tinder credentials (use with caution!)
+# TINDER_EMAIL=your_email
+# TINDER_PASSWORD=your_password
+```
+
+**3. `config.json` (Example - Needs
+
+FORMATTED CHUNK: {"id": "chatcmpl-1caa4f34-27ff-46ad-8c95-04ff6e5f2be1", "object": "chat.completion.chunk", "created": 1743147609, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "```\nOPENAI_API_KEY=your_openai_api_key_here\n# Optional: Tinder credentials (use with caution!)\n# TINDER_EMAIL=your_email\n# TINDER_PASSWORD=your_password\n```\n\n**3. `config.json` (Example - Needs"}, "finish_reason": null}]}
+
+RAW CHUNK:  Tinder selectors):**
+
+We replace screen coordinates with CSS selectors or XPaths for Tinder web elements. **These selectors are examples and WILL LIKELY NEED TO BE UPDATED based on the current Tinder website structure.** You'll need to use your browser's developer tools (Inspect Element) to find the correct ones
+
+FORMATTED CHUNK: {"id": "chatcmpl-0ec31a99-2c49-447d-be13-6bdc452016cd", "object": "chat.completion.chunk", "created": 1743147610, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Tinder selectors):**\n\nWe replace screen coordinates with CSS selectors or XPaths for Tinder web elements. **These selectors are examples and WILL LIKELY NEED TO BE UPDATED based on the current Tinder website structure.** You'll need to use your browser's developer tools (Inspect Element) to find the correct ones"}, "finish_reason": null}]}
+
+RAW CHUNK: .
+
+```json
+{
+    "min_age": 18,
+    "max_age": 35,
+    "max_distance": 25,
+    "openai_api_key": "",
+    "use_ocr": false,
+    "min_acceptable_
+
+FORMATTED CHUNK: {"id": "chatcmpl-45788c2a-d3d9-42d8-a769-74d4fc1353a8", "object": "chat.completion.chunk", "created": 1743147610, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ".\n\n```json\n{\n    \"min_age\": 18,\n    \"max_age\": 35,\n    \"max_distance\": 25,\n    \"openai_api_key\": \"\",\n    \"use_ocr\": false,\n    \"min_acceptable_"}, "finish_reason": null}]}
+
+RAW CHUNK: age": 18,
+    "max_acceptable_age": 35,
+    "max_acceptable_distance": 25,
+    "selectors": {
+        "login_button_google": "button[aria-label='Log in with Google']", // Example
+        "login_
+
+FORMATTED CHUNK: {"id": "chatcmpl-3e42e9df-53a4-4fd3-af30-f8646d29be38", "object": "chat.completion.chunk", "created": 1743147611, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "age\": 18,\n    \"max_acceptable_age\": 35,\n    \"max_acceptable_distance\": 25,\n    \"selectors\": {\n        \"login_button_google\": \"button[aria-label='Log in with Google']\", // Example\n        \"login_"}, "finish_reason": null}]}
+
+RAW CHUNK: button_facebook": "button[aria-label='Log in with Facebook']", // Example
+        "profile_card": "div.recsCardboard__cards div[aria-hidden='false']", // Example: The main visible profile card
+        "profile_name_age": "div.recsCard
+
+FORMATTED CHUNK: {"id": "chatcmpl-3599c5ce-882d-4328-a6fc-a8f3d1f9a60b", "object": "chat.completion.chunk", "created": 1743147611, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "button_facebook\": \"button[aria-label='Log in with Facebook']\", // Example\n        \"profile_card\": \"div.recsCardboard__cards div[aria-hidden='false']\", // Example: The main visible profile card\n        \"profile_name_age\": \"div.recsCard"}, "finish_reason": null}]}
+
+RAW CHUNK: board__cards div[aria-hidden='false'] h1", // Example: Element containing name and age
+        "profile_bio": "div.recsCardboard__cards div[aria-hidden='false'] div.BreakWord", // Example: Bio text container
+        "profile_photo_
+
+FORMATTED CHUNK: {"id": "chatcmpl-7cb4a6e8-84c3-4586-b593-23b5eebb5708", "object": "chat.completion.chunk", "created": 1743147612, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "board__cards div[aria-hidden='false'] h1\", // Example: Element containing name and age\n        \"profile_bio\": \"div.recsCardboard__cards div[aria-hidden='false'] div.BreakWord\", // Example: Bio text container\n        \"profile_photo_"}, "finish_reason": null}]}
+
+RAW CHUNK: container": "div.recsCardboard__cards div[aria-hidden='false'] div.StretchedBox", // Example: Main image area
+        "swipe_left_button": "button[aria-label='Nope']", // Example
+        "swipe_right_button": "button[aria-label
+
+FORMATTED CHUNK: {"id": "chatcmpl-22cdc355-45ea-4cd9-a5c4-176f2ee424c3", "object": "chat.completion.chunk", "created": 1743147612, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "container\": \"div.recsCardboard__cards div[aria-hidden='false'] div.StretchedBox\", // Example: Main image area\n        \"swipe_left_button\": \"button[aria-label='Nope']\", // Example\n        \"swipe_right_button\": \"button[aria-label"}, "finish_reason": null}]}
+
+RAW CHUNK: ='Like']", // Example
+        "next_photo_clickable_area": "div.recsCardboard__cards div[aria-hidden='false'] div.StretchedBox" // Example: Clicking the right side often advances photo
+        // Add more selectors as needed (distance, verification status, etc.)
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-db11ab1b-719e-4469-af48-d3615c493579", "object": "chat.completion.chunk", "created": 1743147613, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "='Like']\", // Example\n        \"next_photo_clickable_area\": \"div.recsCardboard__cards div[aria-hidden='false'] div.StretchedBox\" // Example: Clicking the right side often advances photo\n        // Add more selectors as needed (distance, verification status, etc.)\n"}, "finish_reason": null}]}
+
+RAW CHUNK:     },
+    "action_delays": {
+        "before_swipe": 1.5, // Seconds after analysis before swiping
+        "after_swipe": 2.0, // Seconds after swiping before next profile cycle
+        "photo_load": 0.8 // Seconds
+
+FORMATTED CHUNK: {"id": "chatcmpl-905c6072-dfca-4803-9a51-8a76874a80df", "object": "chat.completion.chunk", "created": 1743147613, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "    },\n    \"action_delays\": {\n        \"before_swipe\": 1.5, // Seconds after analysis before swiping\n        \"after_swipe\": 2.0, // Seconds after swiping before next profile cycle\n        \"photo_load\": 0.8 // Seconds"}, "finish_reason": null}]}
+
+RAW CHUNK:  after clicking next photo
+    },
+     "num_photos_to_check": 3
+}
+```
+
+**4. `templates/index.html` (Basic Structure):**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset
+
+FORMATTED CHUNK: {"id": "chatcmpl-550dc000-8c9a-447b-b28b-cdac83653206", "object": "chat.completion.chunk", "created": 1743147614, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " after clicking next photo\n    },\n     \"num_photos_to_check\": 3\n}\n```\n\n**4. `templates/index.html` (Basic Structure):**\n\n```html\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset"}, "finish_reason": null}]}
+
+RAW CHUNK: ="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinder Web Bot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0
+
+FORMATTED CHUNK: {"id": "chatcmpl-f3995cda-4546-4635-a09d-05e05bc7defc", "object": "chat.completion.chunk", "created": 1743147614, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Tinder Web Bot</title>\n    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0"}, "finish_reason": null}]}
+
+RAW CHUNK: /dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="
+
+FORMATTED CHUNK: {"id": "chatcmpl-a4881595-5f04-438e-8328-5a384de7b047", "object": "chat.completion.chunk", "created": 1743147615, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n    <link rel=\"stylesheet\" href=\"{{ url_for('static', filename='css/style.css') }}\">\n</head>\n<body>\n    <div class=\"container mt-4\">\n        <h1 class=\""}, "finish_reason": null}]}
+
+RAW CHUNK: mb-4">Tinder Automation Control Panel</h1>
+
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="controlTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="control-
+
+FORMATTED CHUNK: {"id": "chatcmpl-64a5d2df-25f0-41c6-a76c-8594fba3ef45", "object": "chat.completion.chunk", "created": 1743147615, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "mb-4\">Tinder Automation Control Panel</h1>\n\n        <!-- Tabs -->\n        <ul class=\"nav nav-tabs\" id=\"controlTabs\" role=\"tablist\">\n            <li class=\"nav-item\" role=\"presentation\">\n                <button class=\"nav-link active\" id=\"control-"}, "finish_reason": null}]}
+
+RAW CHUNK: tab" data-bs-toggle="tab" data-bs-target="#control-panel" type="button" role="tab">Control</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="config-tab
+
+FORMATTED CHUNK: {"id": "chatcmpl-b96c6223-9354-48bd-9fca-1b4d1bc114ec", "object": "chat.completion.chunk", "created": 1743147615, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "tab\" data-bs-toggle=\"tab\" data-bs-target=\"#control-panel\" type=\"button\" role=\"tab\">Control</button>\n            </li>\n            <li class=\"nav-item\" role=\"presentation\">\n                <button class=\"nav-link\" id=\"config-tab"}, "finish_reason": null}]}
+
+RAW CHUNK: " data-bs-toggle="tab" data-bs-target="#config-panel" type="button" role="tab">Configuration</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="logs-tab"
+
+FORMATTED CHUNK: {"id": "chatcmpl-7677ae09-7683-40c6-9b11-2cee94de8b30", "object": "chat.completion.chunk", "created": 1743147616, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\" data-bs-toggle=\"tab\" data-bs-target=\"#config-panel\" type=\"button\" role=\"tab\">Configuration</button>\n            </li>\n            <li class=\"nav-item\" role=\"presentation\">\n                <button class=\"nav-link\" id=\"logs-tab\""}, "finish_reason": null}]}
+
+RAW CHUNK:  data-bs-toggle="tab" data-bs-target="#logs-panel" type="button" role="tab">Logs</button>
+            </li>
+        </ul>
+
+        <div class="tab-content pt-3" id="controlTabsContent">
+            <!-- Control Panel -->
+            <div class="
+
+FORMATTED CHUNK: {"id": "chatcmpl-fba5615a-e947-4ea4-aa08-f86c8f0acbcf", "object": "chat.completion.chunk", "created": 1743147616, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " data-bs-toggle=\"tab\" data-bs-target=\"#logs-panel\" type=\"button\" role=\"tab\">Logs</button>\n            </li>\n        </ul>\n\n        <div class=\"tab-content pt-3\" id=\"controlTabsContent\">\n            <!-- Control Panel -->\n            <div class=\""}, "finish_reason": null}]}
+
+RAW CHUNK: tab-pane fade show active" id="control-panel" role="tabpanel">
+                <h2>Bot Control</h2>
+                <div class="mb-3">
+                    <button id="startBtn" class="btn btn-success me-2">Start Bot</button>
+                    <button id="stopBtn
+
+FORMATTED CHUNK: {"id": "chatcmpl-8e108bd9-6c51-45bb-9472-e703f12c14da", "object": "chat.completion.chunk", "created": 1743147617, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "tab-pane fade show active\" id=\"control-panel\" role=\"tabpanel\">\n                <h2>Bot Control</h2>\n                <div class=\"mb-3\">\n                    <button id=\"startBtn\" class=\"btn btn-success me-2\">Start Bot</button>\n                    <button id=\"stopBtn"}, "finish_reason": null}]}
+
+RAW CHUNK: " class="btn btn-danger">Stop Bot</button>
+                </div>
+                <div class="mb-3">
+                    <label for="modeSelect" class="form-label">Mode:</label>
+                    <select id="modeSelect" class="form-select w-auto d-inline-block
+
+FORMATTED CHUNK: {"id": "chatcmpl-e5f0f079-bbca-4532-8b33-38f284d0a3c4", "object": "chat.completion.chunk", "created": 1743147617, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\" class=\"btn btn-danger\">Stop Bot</button>\n                </div>\n                <div class=\"mb-3\">\n                    <label for=\"modeSelect\" class=\"form-label\">Mode:</label>\n                    <select id=\"modeSelect\" class=\"form-select w-auto d-inline-block"}, "finish_reason": null}]}
+
+RAW CHUNK: ">
+                        <option value="swiping" selected>Swiping</option>
+                        <option value="messaging" disabled>Messaging (Not Implemented)</option>
+                    </select>
+                </div>
+                <div>
+                    <strong>Status:</strong> <span id="botStatus" class="badge bg-secondary
+
+FORMATTED CHUNK: {"id": "chatcmpl-12a24795-b527-42a5-b30a-3e2ef0b93c27", "object": "chat.completion.chunk", "created": 1743147618, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\">\n                        <option value=\"swiping\" selected>Swiping</option>\n                        <option value=\"messaging\" disabled>Messaging (Not Implemented)</option>\n                    </select>\n                </div>\n                <div>\n                    <strong>Status:</strong> <span id=\"botStatus\" class=\"badge bg-secondary"}, "finish_reason": null}]}
+
+RAW CHUNK: ">Idle</span>
+                </div>
+                 <div class="mt-3">
+                     <strong>Current Profile Info (OCR/Scraped):</strong>
+                     <pre id="profileInfoDisplay">N/A</pre>
+                 </div>
+                 <div class="mt-3">
+                     <strong>GPT Analysis Result
+
+FORMATTED CHUNK: {"id": "chatcmpl-c44a602a-2e92-406c-8545-2ff96fceaa3a", "object": "chat.completion.chunk", "created": 1743147618, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\">Idle</span>\n                </div>\n                 <div class=\"mt-3\">\n                     <strong>Current Profile Info (OCR/Scraped):</strong>\n                     <pre id=\"profileInfoDisplay\">N/A</pre>\n                 </div>\n                 <div class=\"mt-3\">\n                     <strong>GPT Analysis Result"}, "finish_reason": null}]}
+
+RAW CHUNK: :</strong>
+                     <pre id="gptAnalysisResult">N/A</pre>
+                 </div>
+            </div>
+
+            <!-- Configuration Panel -->
+            <div class="tab-pane fade" id="config-panel" role="tabpanel">
+                <h2>Configuration</h2>
+                <form id="configForm">
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-32f8c795-183b-475c-bd55-ffef271011db", "object": "chat.completion.chunk", "created": 1743147618, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": ":</strong>\n                     <pre id=\"gptAnalysisResult\">N/A</pre>\n                 </div>\n            </div>\n\n            <!-- Configuration Panel -->\n            <div class=\"tab-pane fade\" id=\"config-panel\" role=\"tabpanel\">\n                <h2>Configuration</h2>\n                <form id=\"configForm\">\n"}, "finish_reason": null}]}
+
+RAW CHUNK:                     <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="apiKey" class="form-label">OpenAI API Key</label>
+                            <input type="password" class="form-control" id="apiKey" placeholder="Loaded
+
+FORMATTED CHUNK: {"id": "chatcmpl-403ca295-ac6f-4149-9514-e04e3a38896a", "object": "chat.completion.chunk", "created": 1743147619, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "                    <div class=\"row mb-3\">\n                        <div class=\"col-md-6\">\n                            <label for=\"apiKey\" class=\"form-label\">OpenAI API Key</label>\n                            <input type=\"password\" class=\"form-control\" id=\"apiKey\" placeholder=\"Loaded"}, "finish_reason": null}]}
+
+RAW CHUNK:  from .env or config.json">
+                            <div class="form-text">Leave blank to use environment variable or previously saved key.</div>
+                        </div>
+                    </div>
+                     <div class="row mb-3">
+                        <div class="col-md-6">
+                             <label for="
+
+FORMATTED CHUNK: {"id": "chatcmpl-ba9855b4-42ac-470f-aea7-86336dccde37", "object": "chat.completion.chunk", "created": 1743147619, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " from .env or config.json\">\n                            <div class=\"form-text\">Leave blank to use environment variable or previously saved key.</div>\n                        </div>\n                    </div>\n                     <div class=\"row mb-3\">\n                        <div class=\"col-md-6\">\n                             <label for=\""}, "finish_reason": null}]}
+
+RAW CHUNK: minAge" class="form-label">Min Acceptable Age: <span id="minAgeValue">18</span></label>
+                             <input type="range" class="form-range" id="minAge" min="18" max="60" value="18">
+                        </div>
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-83f3ae6f-276d-466c-a862-64536a391437", "object": "chat.completion.chunk", "created": 1743147620, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "minAge\" class=\"form-label\">Min Acceptable Age: <span id=\"minAgeValue\">18</span></label>\n                             <input type=\"range\" class=\"form-range\" id=\"minAge\" min=\"18\" max=\"60\" value=\"18\">\n                        </div>\n"}, "finish_reason": null}]}
+
+RAW CHUNK:                         <div class="col-md-6">
+                            <label for="maxAge" class="form-label">Max Acceptable Age: <span id="maxAgeValue">35</span></label>
+                            <input type="range" class="form-range" id="maxAge" min
+
+FORMATTED CHUNK: {"id": "chatcmpl-d4ffa26c-9159-4f13-8236-a91064557861", "object": "chat.completion.chunk", "created": 1743147620, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "                        <div class=\"col-md-6\">\n                            <label for=\"maxAge\" class=\"form-label\">Max Acceptable Age: <span id=\"maxAgeValue\">35</span></label>\n                            <input type=\"range\" class=\"form-range\" id=\"maxAge\" min"}, "finish_reason": null}]}
+
+RAW CHUNK: ="18" max="60" value="35">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                         <div class="col-md-6">
+                             <label for="maxDistance" class="form-label">Max Acceptable Distance (km/
+
+FORMATTED CHUNK: {"id": "chatcmpl-f8379a43-2e4e-4c4c-9b8e-ded9300c14b2", "object": "chat.completion.chunk", "created": 1743147620, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "=\"18\" max=\"60\" value=\"35\">\n                        </div>\n                    </div>\n                    <div class=\"row mb-3\">\n                         <div class=\"col-md-6\">\n                             <label for=\"maxDistance\" class=\"form-label\">Max Acceptable Distance (km/"}, "finish_reason": null}]}
+
+RAW CHUNK: miles): <span id="maxDistanceValue">25</span></label>
+                             <input type="range" class="form-range" id="maxDistance" min="1" max="160" value="25">
+                        </div>
+                    </div>
+                     <div class="form-check mb
+
+FORMATTED CHUNK: {"id": "chatcmpl-b72bf1ee-3b67-462a-a1e5-de2bc0cd2daf", "object": "chat.completion.chunk", "created": 1743147621, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "miles): <span id=\"maxDistanceValue\">25</span></label>\n                             <input type=\"range\" class=\"form-range\" id=\"maxDistance\" min=\"1\" max=\"160\" value=\"25\">\n                        </div>\n                    </div>\n                     <div class=\"form-check mb"}, "finish_reason": null}]}
+
+RAW CHUNK: -3">
+                        <input class="form-check-input" type="checkbox" id="useOcr">
+                        <label class="form-check-label" for="useOcr">
+                            Use OCR/Scraping for Age/Distance Filter (Requires Correct Selectors)
+                        </label>
+
+FORMATTED CHUNK: {"id": "chatcmpl-4f203a5e-9c53-4189-ae29-0ad40b64b0b3", "object": "chat.completion.chunk", "created": 1743147621, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "-3\">\n                        <input class=\"form-check-input\" type=\"checkbox\" id=\"useOcr\">\n                        <label class=\"form-check-label\" for=\"useOcr\">\n                            Use OCR/Scraping for Age/Distance Filter (Requires Correct Selectors)\n                        </label>"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+                    </div>
+                    <!-- Add more config options here (selectors, delays) -->
+                     <button type="submit" class="btn btn-primary">Save Configuration</button>
+                </form>
+            </div>
+
+            <!-- Logs Panel -->
+            <div class="tab-pane fade" id="logs-
+
+FORMATTED CHUNK: {"id": "chatcmpl-56490355-9be9-4fa4-a1c0-6c89dee2dde7", "object": "chat.completion.chunk", "created": 1743147622, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n                    </div>\n                    <!-- Add more config options here (selectors, delays) -->\n                     <button type=\"submit\" class=\"btn btn-primary\">Save Configuration</button>\n                </form>\n            </div>\n\n            <!-- Logs Panel -->\n            <div class=\"tab-pane fade\" id=\"logs-"}, "finish_reason": null}]}
+
+RAW CHUNK: panel" role="tabpanel">
+                <h2>Logs</h2>
+                <div id="logBox" class="form-control" style="height: 400px; overflow-y: scroll; white-space: pre-wrap; background-color: #f8f9fa;">
+                    <!-- Logs
+
+FORMATTED CHUNK: {"id": "chatcmpl-bce6f4cc-d620-424a-ab19-481e2f630ab7", "object": "chat.completion.chunk", "created": 1743147622, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "panel\" role=\"tabpanel\">\n                <h2>Logs</h2>\n                <div id=\"logBox\" class=\"form-control\" style=\"height: 400px; overflow-y: scroll; white-space: pre-wrap; background-color: #f8f9fa;\">\n                    <!-- Logs"}, "finish_reason": null}]}
+
+RAW CHUNK:  will appear here -->
+                </div>
+                 <button id="clearLogsBtn" class="btn btn-secondary mt-2">Clear Logs</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/
+
+FORMATTED CHUNK: {"id": "chatcmpl-99dad472-5219-4408-96f2-c104b67bd8a3", "object": "chat.completion.chunk", "created": 1743147623, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " will appear here -->\n                </div>\n                 <button id=\"clearLogsBtn\" class=\"btn btn-secondary mt-2\">Clear Logs</button>\n            </div>\n        </div>\n    </div>\n\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/"}, "finish_reason": null}]}
+
+RAW CHUNK: dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+```
+
+**5. `static/css/style.css` (Minimal):**
+
+```css
+#
+
+FORMATTED CHUNK: {"id": "chatcmpl-7b403ddf-bd91-44e0-aca9-c77d2a923c5c", "object": "chat.completion.chunk", "created": 1743147623, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "dist/js/bootstrap.bundle.min.js\"></script>\n    <script src=\"{{ url_for('static', filename='js/script.js') }}\"></script>\n</body>\n</html>\n```\n\n**5. `static/css/style.css` (Minimal):**\n\n```css\n#"}, "finish_reason": null}]}
+
+RAW CHUNK: logBox {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+/* Add more styles as needed */
+```
+
+**6. `static/js/script.js` (Basic Interactions):**
+
+```javascript
+document.addEventListener('DOMContentLoaded', function
+
+FORMATTED CHUNK: {"id": "chatcmpl-ab6d1ed8-8afa-40e7-8a02-8bed9491b144", "object": "chat.completion.chunk", "created": 1743147623, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "logBox {\n    font-family: monospace;\n    font-size: 0.9em;\n}\n\n/* Add more styles as needed */\n```\n\n**6. `static/js/script.js` (Basic Interactions):**\n\n```javascript\ndocument.addEventListener('DOMContentLoaded', function"}, "finish_reason": null}]}
+
+RAW CHUNK: () {
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const botStatus = document.getElementById('botStatus');
+    const logBox = document.getElementById('logBox');
+    const configForm = document.getElementById('configForm
+
+FORMATTED CHUNK: {"id": "chatcmpl-8b4bcec6-ff26-4217-a288-ac551611d0ed", "object": "chat.completion.chunk", "created": 1743147624, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "() {\n    const startBtn = document.getElementById('startBtn');\n    const stopBtn = document.getElementById('stopBtn');\n    const botStatus = document.getElementById('botStatus');\n    const logBox = document.getElementById('logBox');\n    const configForm = document.getElementById('configForm"}, "finish_reason": null}]}
+
+RAW CHUNK: ');
+    const apiKeyInput = document.getElementById('apiKey');
+    const minAgeSlider = document.getElementById('minAge');
+    const maxAgeSlider = document.getElementById('maxAge');
+    const maxDistanceSlider = document.getElementById('maxDistance');
+    const useOcrCheckbox = document.getElementById('
+
+FORMATTED CHUNK: {"id": "chatcmpl-c663fdb0-ce18-4321-96ed-460e0024d775", "object": "chat.completion.chunk", "created": 1743147624, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "');\n    const apiKeyInput = document.getElementById('apiKey');\n    const minAgeSlider = document.getElementById('minAge');\n    const maxAgeSlider = document.getElementById('maxAge');\n    const maxDistanceSlider = document.getElementById('maxDistance');\n    const useOcrCheckbox = document.getElementById('"}, "finish_reason": null}]}
+
+RAW CHUNK: useOcr');
+    const minAgeValue = document.getElementById('minAgeValue');
+    const maxAgeValue = document.getElementById('maxAgeValue');
+    const maxDistanceValue = document.getElementById('maxDistanceValue');
+    const profileInfoDisplay = document.getElementById('profileInfoDisplay');
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-88cddb0b-242f-408f-b29f-6b4218699d8d", "object": "chat.completion.chunk", "created": 1743147625, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "useOcr');\n    const minAgeValue = document.getElementById('minAgeValue');\n    const maxAgeValue = document.getElementById('maxAgeValue');\n    const maxDistanceValue = document.getElementById('maxDistanceValue');\n    const profileInfoDisplay = document.getElementById('profileInfoDisplay');\n"}, "finish_reason": null}]}
+
+RAW CHUNK:     const gptAnalysisResult = document.getElementById('gptAnalysisResult');
+    const clearLogsBtn = document.getElementById('clearLogsBtn');
+
+    let statusInterval;
+
+    // --- Helper Functions ---
+    function addLog(message) {
+        const timestamp = new Date().toLocaleTimeString();
+        log
+
+FORMATTED CHUNK: {"id": "chatcmpl-d1f2626b-75d5-4184-8aac-f95dd66eb0aa", "object": "chat.completion.chunk", "created": 1743147625, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "    const gptAnalysisResult = document.getElementById('gptAnalysisResult');\n    const clearLogsBtn = document.getElementById('clearLogsBtn');\n\n    let statusInterval;\n\n    // --- Helper Functions ---\n    function addLog(message) {\n        const timestamp = new Date().toLocaleTimeString();\n        log"}, "finish_reason": null}]}
+
+RAW CHUNK: Box.innerHTML += `[${timestamp}] ${message}\n`;
+        logBox.scrollTop = logBox.scrollHeight; // Auto-scroll
+    }
+
+    async function apiCall(endpoint, method = 'GET', body = null) {
+        try {
+            const options = {
+                
+
+FORMATTED CHUNK: {"id": "chatcmpl-a9255bda-14c5-4616-aa00-b5183eafc336", "object": "chat.completion.chunk", "created": 1743147625, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Box.innerHTML += `[${timestamp}] ${message}\\n`;\n        logBox.scrollTop = logBox.scrollHeight; // Auto-scroll\n    }\n\n    async function apiCall(endpoint, method = 'GET', body = null) {\n        try {\n            const options = {\n                "}, "finish_reason": null}]}
+
+RAW CHUNK: method: method,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            };
+            if (body) {
+                options.body = JSON.stringify(body);
+            }
+            const response = await fetch(endpoint, options);
+            if (!
+
+FORMATTED CHUNK: {"id": "chatcmpl-595a3570-09e7-4bdd-9c80-79b73da45b7d", "object": "chat.completion.chunk", "created": 1743147626, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "method: method,\n                headers: {\n                    'Content-Type': 'application/json',\n                },\n            };\n            if (body) {\n                options.body = JSON.stringify(body);\n            }\n            const response = await fetch(endpoint, options);\n            if (!"}, "finish_reason": null}]}
+
+RAW CHUNK: response.ok) {
+                const errorData = await response.json().catch(() => ({ detail: 'Unknown error' }));
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.detail}`);
+            }
+            return await response.json();
+        } catch (
+
+FORMATTED CHUNK: {"id": "chatcmpl-eb006c1d-bf97-4373-92eb-2e57706bb2ca", "object": "chat.completion.chunk", "created": 1743147626, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "response.ok) {\n                const errorData = await response.json().catch(() => ({ detail: 'Unknown error' }));\n                throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.detail}`);\n            }\n            return await response.json();\n        } catch ("}, "finish_reason": null}]}
+
+RAW CHUNK: error) {
+            console.error(`API call to ${endpoint} failed:`, error);
+            addLog(`Error calling ${endpoint}: ${error.message}`);
+            return null; // Indicate failure
+        }
+    }
+
+    // --- Status Updates ---
+    async function updateStatus() {
+        const
+
+FORMATTED CHUNK: {"id": "chatcmpl-5c7790f1-a68b-497f-9a2d-90b5a81f6026", "object": "chat.completion.chunk", "created": 1743147627, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "error) {\n            console.error(`API call to ${endpoint} failed:`, error);\n            addLog(`Error calling ${endpoint}: ${error.message}`);\n            return null; // Indicate failure\n        }\n    }\n\n    // --- Status Updates ---\n    async function updateStatus() {\n        const"}, "finish_reason": null}]}
+
+RAW CHUNK:  data = await apiCall('/api/status');
+        if (data) {
+            // Update Status Badge
+            botStatus.textContent = data.status;
+            botStatus.className = `badge ${data.running ? 'bg-success' : 'bg-secondary'}`;
+            startBtn.disabled
+
+FORMATTED CHUNK: {"id": "chatcmpl-6982953a-baa4-40af-8fad-a2aa1a7eb8ff", "object": "chat.completion.chunk", "created": 1743147627, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " data = await apiCall('/api/status');\n        if (data) {\n            // Update Status Badge\n            botStatus.textContent = data.status;\n            botStatus.className = `badge ${data.running ? 'bg-success' : 'bg-secondary'}`;\n            startBtn.disabled"}, "finish_reason": null}]}
+
+RAW CHUNK:  = data.running;
+            stopBtn.disabled = !data.running;
+
+            // Update Displays
+            profileInfoDisplay.textContent = data.current_profile_info ? JSON.stringify(data.current_profile_info, null, 2) : 'N/A';
+            gptAnalysis
+
+FORMATTED CHUNK: {"id": "chatcmpl-01152a7f-ef54-4cd3-b294-fb4cdd7271d9", "object": "chat.completion.chunk", "created": 1743147628, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " = data.running;\n            stopBtn.disabled = !data.running;\n\n            // Update Displays\n            profileInfoDisplay.textContent = data.current_profile_info ? JSON.stringify(data.current_profile_info, null, 2) : 'N/A';\n            gptAnalysis"}, "finish_reason": null}]}
+
+RAW CHUNK: Result.textContent = data.last_gpt_result || 'N/A';
+
+            // Append new logs
+            if (data.logs && data.logs.length > 0) {
+                data.logs.forEach(log => addLog(log));
+            }
+        } else {
+             //
+
+FORMATTED CHUNK: {"id": "chatcmpl-cd89b11c-ab7a-47e6-9207-b870cc181778", "object": "chat.completion.chunk", "created": 1743147628, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Result.textContent = data.last_gpt_result || 'N/A';\n\n            // Append new logs\n            if (data.logs && data.logs.length > 0) {\n                data.logs.forEach(log => addLog(log));\n            }\n        } else {\n             //"}, "finish_reason": null}]}
+
+RAW CHUNK:  Handle case where status update fails (e.g., server down)
+             botStatus.textContent = 'Error Fetching Status';
+             botStatus.className = 'badge bg-danger';
+             clearInterval(statusInterval); // Stop polling if server is unreachable
+        }
+    }
+
+    // --- Config
+
+FORMATTED CHUNK: {"id": "chatcmpl-0e5a4c53-099b-40a9-820b-a388226b9de0", "object": "chat.completion.chunk", "created": 1743147629, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Handle case where status update fails (e.g., server down)\n             botStatus.textContent = 'Error Fetching Status';\n             botStatus.className = 'badge bg-danger';\n             clearInterval(statusInterval); // Stop polling if server is unreachable\n        }\n    }\n\n    // --- Config"}, "finish_reason": null}]}
+
+RAW CHUNK:  Handling ---
+    async function loadConfig() {
+        const data = await apiCall('/api/config');
+        if (data) {
+            // Don't display API key directly if loaded securely
+            apiKeyInput.placeholder = data.api_key_set ? "********" : "Enter API
+
+FORMATTED CHUNK: {"id": "chatcmpl-eb90dc8f-6f09-479c-9b1b-225038c05953", "object": "chat.completion.chunk", "created": 1743147629, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Handling ---\n    async function loadConfig() {\n        const data = await apiCall('/api/config');\n        if (data) {\n            // Don't display API key directly if loaded securely\n            apiKeyInput.placeholder = data.api_key_set ? \"********\" : \"Enter API"}, "finish_reason": null}]}
+
+RAW CHUNK:  Key";
+            minAgeSlider.value = data.min_acceptable_age;
+            maxAgeSlider.value = data.max_acceptable_age;
+            maxDistanceSlider.value = data.max_acceptable_distance;
+            useOcrCheckbox.checked = data.use_ocr;
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-1447039b-d16b-43f6-b757-1db1e88b3871", "object": "chat.completion.chunk", "created": 1743147630, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Key\";\n            minAgeSlider.value = data.min_acceptable_age;\n            maxAgeSlider.value = data.max_acceptable_age;\n            maxDistanceSlider.value = data.max_acceptable_distance;\n            useOcrCheckbox.checked = data.use_ocr;\n"}, "finish_reason": null}]}
+
+RAW CHUNK:             updateSliderValues(); // Update text labels
+            addLog('Configuration loaded.');
+        }
+    }
+
+    async function saveConfig(event) {
+        event.preventDefault(); // Prevent default form submission
+        const configData = {
+            openai_api_key: apiKeyInput.value ||
+
+FORMATTED CHUNK: {"id": "chatcmpl-2b903a56-1a9a-4f1e-ba2c-3eab8ea7254f", "object": "chat.completion.chunk", "created": 1743147630, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "            updateSliderValues(); // Update text labels\n            addLog('Configuration loaded.');\n        }\n    }\n\n    async function saveConfig(event) {\n        event.preventDefault(); // Prevent default form submission\n        const configData = {\n            openai_api_key: apiKeyInput.value ||"}, "finish_reason": null}]}
+
+RAW CHUNK:  null, // Send null if empty, backend decides
+            min_acceptable_age: parseInt(minAgeSlider.value, 10),
+            max_acceptable_age: parseInt(maxAgeSlider.value, 10),
+            max_acceptable_distance: parseInt(maxDistanceSlider.value,
+
+FORMATTED CHUNK: {"id": "chatcmpl-c6e88b7a-bdc7-4425-aa8c-1ce84a1d1d89", "object": "chat.completion.chunk", "created": 1743147631, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " null, // Send null if empty, backend decides\n            min_acceptable_age: parseInt(minAgeSlider.value, 10),\n            max_acceptable_age: parseInt(maxAgeSlider.value, 10),\n            max_acceptable_distance: parseInt(maxDistanceSlider.value,"}, "finish_reason": null}]}
+
+RAW CHUNK:  10),
+            use_ocr: useOcrCheckbox.checked,
+            // Add other config fields here as needed
+        };
+        addLog('Saving configuration...');
+        const result = await apiCall('/api/config', 'POST', configData);
+        if (result) {
+            
+
+FORMATTED CHUNK: {"id": "chatcmpl-620ebdc1-8736-4c52-a388-5b417f1fda5e", "object": "chat.completion.chunk", "created": 1743147631, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " 10),\n            use_ocr: useOcrCheckbox.checked,\n            // Add other config fields here as needed\n        };\n        addLog('Saving configuration...');\n        const result = await apiCall('/api/config', 'POST', configData);\n        if (result) {\n            "}, "finish_reason": null}]}
+
+RAW CHUNK: addLog(result.message);
+            // Clear input field if key was saved successfully from input
+            if (apiKeyInput.value) apiKeyInput.value = "";
+            loadConfig(); // Reload to confirm changes and update placeholder
+        } else {
+             addLog('Failed to save configuration.');
+        }
+
+
+FORMATTED CHUNK: {"id": "chatcmpl-12f1ecac-eac7-4cef-8b6f-3657d8030e21", "object": "chat.completion.chunk", "created": 1743147632, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "addLog(result.message);\n            // Clear input field if key was saved successfully from input\n            if (apiKeyInput.value) apiKeyInput.value = \"\";\n            loadConfig(); // Reload to confirm changes and update placeholder\n        } else {\n             addLog('Failed to save configuration.');\n        }\n"}, "finish_reason": null}]}
+
+RAW CHUNK:     }
+
+    function updateSliderValues() {
+         if(minAgeValue) minAgeValue.textContent = minAgeSlider.value;
+         if(maxAgeValue) maxAgeValue.textContent = maxAgeSlider.value;
+         if(maxDistanceValue) maxDistanceValue.textContent = maxDistance
+
+FORMATTED CHUNK: {"id": "chatcmpl-80b710e7-d1b5-4e76-aa3d-e3b7ff7e24b5", "object": "chat.completion.chunk", "created": 1743147632, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "    }\n\n    function updateSliderValues() {\n         if(minAgeValue) minAgeValue.textContent = minAgeSlider.value;\n         if(maxAgeValue) maxAgeValue.textContent = maxAgeSlider.value;\n         if(maxDistanceValue) maxDistanceValue.textContent = maxDistance"}, "finish_reason": null}]}
+
+RAW CHUNK: Slider.value;
+    }
+
+    // --- Event Listeners ---
+    startBtn.addEventListener('click', async () => {
+        addLog('Attempting to start bot...');
+        const result = await apiCall('/api/start', 'POST');
+        if(result) {
+            addLog(
+
+FORMATTED CHUNK: {"id": "chatcmpl-21b518f9-2c3f-43aa-9cd7-be9abe7b0cd1", "object": "chat.completion.chunk", "created": 1743147633, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Slider.value;\n    }\n\n    // --- Event Listeners ---\n    startBtn.addEventListener('click', async () => {\n        addLog('Attempting to start bot...');\n        const result = await apiCall('/api/start', 'POST');\n        if(result) {\n            addLog("}, "finish_reason": null}]}
+
+RAW CHUNK: result.message);
+            updateStatus(); // Update UI immediately
+        }
+    });
+
+    stopBtn.addEventListener('click', async () => {
+        addLog('Attempting to stop bot...');
+        const result = await apiCall('/api/stop', 'POST');
+         if(result)
+
+FORMATTED CHUNK: {"id": "chatcmpl-ede4f558-6c6b-457f-90ed-54f00d502d56", "object": "chat.completion.chunk", "created": 1743147633, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "result.message);\n            updateStatus(); // Update UI immediately\n        }\n    });\n\n    stopBtn.addEventListener('click', async () => {\n        addLog('Attempting to stop bot...');\n        const result = await apiCall('/api/stop', 'POST');\n         if(result)"}, "finish_reason": null}]}
+
+RAW CHUNK:  {
+            addLog(result.message);
+            updateStatus(); // Update UI immediately
+        }
+    });
+
+    configForm.addEventListener('submit', saveConfig);
+
+    // Update slider text labels on change
+    minAgeSlider.addEventListener('input', updateSliderValues);
+    maxAgeSlider.addEventListener
+
+FORMATTED CHUNK: {"id": "chatcmpl-8bdc79a7-1fff-4d63-81b2-293aafad4136", "object": "chat.completion.chunk", "created": 1743147634, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " {\n            addLog(result.message);\n            updateStatus(); // Update UI immediately\n        }\n    });\n\n    configForm.addEventListener('submit', saveConfig);\n\n    // Update slider text labels on change\n    minAgeSlider.addEventListener('input', updateSliderValues);\n    maxAgeSlider.addEventListener"}, "finish_reason": null}]}
+
+RAW CHUNK: ('input', updateSliderValues);
+    maxDistanceSlider.addEventListener('input', updateSliderValues);
+
+    clearLogsBtn.addEventListener('click', () => {
+        logBox.innerHTML = '';
+        addLog('Logs cleared.');
+    });
+
+
+    // --- Initialization ---
+    loadConfig(); //
+
+FORMATTED CHUNK: {"id": "chatcmpl-f657dc61-d90c-4ff3-ade0-f30485b75aba", "object": "chat.completion.chunk", "created": 1743147634, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "('input', updateSliderValues);\n    maxDistanceSlider.addEventListener('input', updateSliderValues);\n\n    clearLogsBtn.addEventListener('click', () => {\n        logBox.innerHTML = '';\n        addLog('Logs cleared.');\n    });\n\n\n    // --- Initialization ---\n    loadConfig(); //"}, "finish_reason": null}]}
+
+RAW CHUNK:  Load config on page load
+    updateStatus(); // Initial status check
+    statusInterval = setInterval(updateStatus, 3000); // Poll status every 3 seconds
+});
+```
+
+**Next Steps (To be implemented in `app.py` and `automation/tinder_driver.py`):
+
+FORMATTED CHUNK: {"id": "chatcmpl-a6fcf9b4-6ea0-4fc5-a5a2-5fd5e618aa21", "object": "chat.completion.chunk", "created": 1743147635, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " Load config on page load\n    updateStatus(); // Initial status check\n    statusInterval = setInterval(updateStatus, 3000); // Poll status every 3 seconds\n});\n```\n\n**Next Steps (To be implemented in `app.py` and `automation/tinder_driver.py`):"}, "finish_reason": null}]}
+
+RAW CHUNK: **
+
+1.  **`app.py`:**
+    *   Implement Flask routes (`/`, `/api/start`, `/api/stop`, `/api/status`, `/api/config`, `/api/logs`).
+    *   Manage global state (bot running status, reference to `Tinder
+
+FORMATTED CHUNK: {"id": "chatcmpl-79b3d7f4-f261-44a5-bac8-03634eac34ad", "object": "chat.completion.chunk", "created": 1743147635, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "**\n\n1.  **`app.py`:**\n    *   Implement Flask routes (`/`, `/api/start`, `/api/stop`, `/api/status`, `/api/config`, `/api/logs`).\n    *   Manage global state (bot running status, reference to `Tinder"}, "finish_reason": null}]}
+
+RAW CHUNK: Driver` instance, configuration).
+    *   Handle loading/saving `config.json`.
+    *   Interface with `TinderDriver` to start/stop automation and get status.
+    *   Implement the OpenAI API call logic (`analyze_profile_photos`, `extract_profile_info_with
+
+FORMATTED CHUNK: {"id": "chatcmpl-09477b22-92f7-492c-bfcc-3567d6ac7f88", "object": "chat.completion.chunk", "created": 1743147636, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Driver` instance, configuration).\n    *   Handle loading/saving `config.json`.\n    *   Interface with `TinderDriver` to start/stop automation and get status.\n    *   Implement the OpenAI API call logic (`analyze_profile_photos`, `extract_profile_info_with"}, "finish_reason": null}]}
+
+RAW CHUNK: _openai`).
+    *   Implement a logging mechanism that collects logs to be sent to the frontend via the `/api/status` endpoint.
+2.  **`automation/tinder_driver.py`:**
+    *   Create a class `TinderDriver`.
+    *   Use `selenium` and
+
+FORMATTED CHUNK: {"id": "chatcmpl-209ff13d-c17a-4a53-a566-6712019de1d8", "object": "chat.completion.chunk", "created": 1743147636, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_openai`).\n    *   Implement a logging mechanism that collects logs to be sent to the frontend via the `/api/status` endpoint.\n2.  **`automation/tinder_driver.py`:**\n    *   Create a class `TinderDriver`.\n    *   Use `selenium` and"}, "finish_reason": null}]}
+
+RAW CHUNK:  `webdriver-manager` to initialize a browser driver (e.g., Chrome).
+    *   Implement `login()` method (potentially requiring manual intervention or careful credential handling).
+    *   Implement `swipe_left()`, `swipe_right()` using selectors from `config.json` to find and click buttons.
+
+FORMATTED CHUNK: {"id": "chatcmpl-23a7a720-1053-4e19-9bad-1bb5b67d1688", "object": "chat.completion.chunk", "created": 1743147637, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " `webdriver-manager` to initialize a browser driver (e.g., Chrome).\n    *   Implement `login()` method (potentially requiring manual intervention or careful credential handling).\n    *   Implement `swipe_left()`, `swipe_right()` using selectors from `config.json` to find and click buttons."}, "finish_reason": null}]}
+
+RAW CHUNK: 
+    *   Implement `next_photo()` (e.g., by finding the main photo area and clicking on the right side, or finding specific navigation buttons/keys).
+    *   Implement `get_profile_info()` to scrape name, age, bio, distance using selectors.
+    *   Implement `capture
+
+FORMATTED CHUNK: {"id": "chatcmpl-c702a78c-2689-4eae-8be2-6cb11f5e6df4", "object": "chat.completion.chunk", "created": 1743147637, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n    *   Implement `next_photo()` (e.g., by finding the main photo area and clicking on the right side, or finding specific navigation buttons/keys).\n    *   Implement `get_profile_info()` to scrape name, age, bio, distance using selectors.\n    *   Implement `capture"}, "finish_reason": null}]}
+
+RAW CHUNK: _photo_area()` using Selenium's screenshot capabilities, potentially cropping based on element location.
+    *   Manage the state of the automation (e.g., which profile is active).
+    *   Include appropriate `time.sleep()` calls based on delays from `config.json`.
+
+This structure provides a robust
+
+FORMATTED CHUNK: {"id": "chatcmpl-8cff798d-dcea-4f0a-a76a-f20cf273a8a3", "object": "chat.completion.chunk", "created": 1743147638, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "_photo_area()` using Selenium's screenshot capabilities, potentially cropping based on element location.\n    *   Manage the state of the automation (e.g., which profile is active).\n    *   Include appropriate `time.sleep()` calls based on delays from `config.json`.\n\nThis structure provides a robust"}, "finish_reason": null}]}
+
+RAW CHUNK:  foundation for the web application. The next step would be to flesh out the Python backend (`app.py`) and the Selenium automation logic (`tinder_driver.py`). Remember that web scraping and automation can be fragile and may require frequent updates to selectors as websites change.
+
+FORMATTED CHUNK: {"id": "chatcmpl-f28d4e1f-5b4d-411f-9d69-626bbe86b914", "object": "chat.completion.chunk", "created": 1743147638, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " foundation for the web application. The next step would be to flesh out the Python backend (`app.py`) and the Selenium automation logic (`tinder_driver.py`). Remember that web scraping and automation can be fragile and may require frequent updates to selectors as websites change."}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-f25f62fb-e6bd-48fc-8acf-8af8569378f6", "object": "chat.completion.chunk", "created": 1743147638, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

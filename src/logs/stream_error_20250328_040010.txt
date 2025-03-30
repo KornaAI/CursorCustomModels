@@ -1,0 +1,20 @@
+=== STREAM_ERROR LOG - 2025-03-28T04:00:10.719239 ===
+
+{
+  "error": "The `response.text` quick accessor only works for simple (single-`Part`) text responses. This response is not simple text.Use the `result.parts` accessor or the full `result.candidates[index].content.parts` lookup instead.",
+  "error_chunk": {
+    "id": "chatcmpl-0aee2bd2-205d-4495-9c65-8a48f45a5e00",
+    "object": "chat.completion.chunk",
+    "created": 1743148810,
+    "model": "gpt-4o",
+    "choices": [
+      {
+        "index": 0,
+        "delta": {
+          "content": "\n\nError: The `response.text` quick accessor only works for simple (single-`Part`) text responses. This response is not simple text.Use the `result.parts` accessor or the full `result.candidates[index].content.parts` lookup instead."
+        },
+        "finish_reason": "stop"
+      }
+    ]
+  }
+}

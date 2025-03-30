@@ -1,0 +1,27 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T03:53:46.154287 ===
+
+RAW CHUNK: Chrome extensions are primarily found and installed from the **Chrome Web Store**.
+
+You can access it directly via this URL:
+
+[https://chromewebstore.google.com/](https://chromewebstore.google.com/)
+
+FORMATTED CHUNK: {"id": "chatcmpl-f4f89678-632b-4a65-aba5-870909581066", "object": "chat.completion.chunk", "created": 1743148425, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "Chrome extensions are primarily found and installed from the **Chrome Web Store**.\n\nYou can access it directly via this URL:\n\n[https://chromewebstore.google.com/](https://chromewebstore.google.com/)"}, "finish_reason": null}]}
+
+RAW CHUNK: 
+
+Alternatively, you can usually find a link to it within Chrome itself:
+
+1.  Click the three vertical dots (⋮) menu icon in the top-right corner of Chrome.
+2.  Go to **Extensions** ->
+
+FORMATTED CHUNK: {"id": "chatcmpl-86aadc14-daf6-477b-8178-5ddc8b504573", "object": "chat.completion.chunk", "created": 1743148426, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "\n\nAlternatively, you can usually find a link to it within Chrome itself:\n\n1.  Click the three vertical dots (\u22ee) menu icon in the top-right corner of Chrome.\n2.  Go to **Extensions** ->"}, "finish_reason": null}]}
+
+RAW CHUNK:  **Manage Extensions**.
+3.  On the Extensions page (`chrome://extensions/`), there's often a link to "Open Chrome Web Store" or similar, usually in the sidebar or menu.
+
+FORMATTED CHUNK: {"id": "chatcmpl-cada53e9-5609-40d6-8c35-d2701577de1c", "object": "chat.completion.chunk", "created": 1743148426, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " **Manage Extensions**.\n3.  On the Extensions page (`chrome://extensions/`), there's often a link to \"Open Chrome Web Store\" or similar, usually in the sidebar or menu."}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-18b45ee2-59c9-4acf-aeb8-ad8d04bbb669", "object": "chat.completion.chunk", "created": 1743148426, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]

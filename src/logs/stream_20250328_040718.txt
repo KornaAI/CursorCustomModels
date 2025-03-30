@@ -1,0 +1,21 @@
+=== STREAMING RESPONSE LOG - 2025-03-28T04:07:19.008904 ===
+
+RAW CHUNK: As an AI, I cannot directly modify or patch the extension's code for you. My purpose is to analyze and
+
+FORMATTED CHUNK: {"id": "chatcmpl-4965e4b4-087d-418a-8460-197acabe05aa", "object": "chat.completion.chunk", "created": 1743149238, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": "As an AI, I cannot directly modify or patch the extension's code for you. My purpose is to analyze and"}, "finish_reason": null}]}
+
+RAW CHUNK:  understand code, identify patterns, and provide insights based on the information given.
+
+Modifying the extension to bypass its subscription checks would involve altering its intended functionality and potentially violating its terms of service. I cannot provide instructions or perform actions that facilitate
+
+FORMATTED CHUNK: {"id": "chatcmpl-e9d246a8-57f8-4e59-9869-8f5c3facdf7a", "object": "chat.completion.chunk", "created": 1743149238, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " understand code, identify patterns, and provide insights based on the information given.\n\nModifying the extension to bypass its subscription checks would involve altering its intended functionality and potentially violating its terms of service. I cannot provide instructions or perform actions that facilitate"}, "finish_reason": null}]}
+
+RAW CHUNK:  bypassing paid features.
+
+If you have other questions about the code's structure, security posture (from a defensive perspective), or potential improvements that respect its intended use, feel free to ask.
+
+FORMATTED CHUNK: {"id": "chatcmpl-da780ac5-8b65-410e-8d1f-0f1137e242bb", "object": "chat.completion.chunk", "created": 1743149239, "model": "gpt-4o", "choices": [{"index": 0, "delta": {"content": " bypassing paid features.\n\nIf you have other questions about the code's structure, security posture (from a defensive perspective), or potential improvements that respect its intended use, feel free to ask."}, "finish_reason": null}]}
+
+FINAL CHUNK: {"id": "chatcmpl-268a412f-ef2c-4d66-b228-8e529095bd6a", "object": "chat.completion.chunk", "created": 1743149239, "model": "gpt-4o", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}]}
+
+DONE MARKER: data: [DONE]
