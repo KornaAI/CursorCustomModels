@@ -10,3 +10,10 @@ __pycache__/
 # IDE files
 .vscode/
 .idea/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.bak

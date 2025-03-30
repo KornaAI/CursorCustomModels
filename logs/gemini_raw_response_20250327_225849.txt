@@ -1,6 +1,0 @@
-=== GEMINI_RAW_RESPONSE LOG - 2025-03-27T22:58:49.281070 ===
-
-{
-  "raw_content": "Okay, I'm here and ready. You've stated you're testing a prompt using gpt-3.5-turbo.\n\nWhat would you like to do next with this test? Should I:\n\n1.  Respond to a specific scenario or question you have in mind?\n2.  Generate some creative text based on a topic?\n3.  Try to answer a factual question?\n4.  Engage in a role-playing scenario?\n5.  Something else entirely?\n\nLet me know how you'd like to proceed with the test!",
-  "response_object": "<google.generativeai.types.generation_types.GenerateContentResponse object at 0x000001E4C49BB380>"
-}
